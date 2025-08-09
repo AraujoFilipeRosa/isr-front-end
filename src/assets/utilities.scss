@@ -1,0 +1,431 @@
+@use './base.scss' as *;
+
+// ===== UTILITÁRIOS GLOBAIS =====
+
+// ===== CLASSES DE LAYOUT =====
+
+// Padding-top padrão para páginas principais
+.page-container {
+  padding-top: $app-padding-top;
+}
+
+// Container de seção com espaçamento padrão
+.section-container {
+  padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0;
+  }
+}
+
+// ===== BACKGROUNDS PADRONIZADOS =====
+
+// Background primário usado em headers e CTAs
+.bg-primary-custom {
+  background: $nav-font-color;
+}
+
+// Background com gradiente suave
+.bg-gradient-light {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+// Background com gradiente primário
+.bg-gradient-primary {
+  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+}
+
+// ===== SISTEMA DE CARDS =====
+
+// Card base com estilos padronizados
+.card-custom {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Card com hover mais sutil
+.card-hover-light {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Card com hover forte
+.card-hover-strong {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// ===== SISTEMA DE ÍCONES =====
+
+// Ícone circular com fundo gradiente
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  i {
+    font-size: 1.8rem;
+    color: white;
+  }
+
+  // Variações de tamanho
+  &.icon-sm {
+    width: 50px;
+    height: 50px;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+
+  &.icon-lg {
+    width: 80px;
+    height: 80px;
+
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  &.icon-xl {
+    width: 100px;
+    height: 100px;
+
+    i {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+// ===== SISTEMA DE CONTADORES/ESTATÍSTICAS =====
+
+// Container de contador
+.counter-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba($nav-font-color, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba($nav-font-color, 0.3);
+  }
+
+  .counter-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $nav-font-color;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .counter-label {
+    font-size: 0.9rem;
+    color: $gray-dark;
+    font-weight: 500;
+  }
+}
+
+// ===== SISTEMA DE ITENS/BENEFÍCIOS =====
+
+// Item com background e hover
+.item-showcase {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid rgba($nav-font-color, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba($nav-font-color, 0.3);
+  }
+}
+
+// Item de benefício/feature
+.benefit-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+// ===== ANIMAÇÕES E TRANSIÇÕES =====
+
+// Animação de fade in
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+// Animação de slide up
+.slide-up {
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Hover com scale suave
+.hover-scale {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Hover com lift (elevação)
+.hover-lift {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// ===== BORDAS E CANTOS ARREDONDADOS =====
+
+// Bordas padrão
+.rounded-custom {
+  border-radius: 12px !important;
+}
+
+.rounded-custom-lg {
+  border-radius: 16px !important;
+}
+
+.rounded-custom-xl {
+  border-radius: 20px !important;
+}
+
+// ===== SOMBRAS PADRONIZADAS =====
+
+.shadow-custom-light {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.shadow-custom {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-custom-strong {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+// ===== FLEXBOX UTILITIES =====
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ===== RESPONSIVIDADE =====
+
+@media (max-width: 768px) {
+  .counter-item {
+    padding: 1rem;
+
+    .counter-number {
+      font-size: 2rem;
+    }
+
+    .counter-label {
+      font-size: 0.8rem;
+    }
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    &.icon-lg {
+      width: 70px;
+      height: 70px;
+
+      i {
+        font-size: 1.8rem;
+      }
+    }
+
+    &.icon-xl {
+      width: 80px;
+      height: 80px;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .item-showcase {
+    padding: 1rem;
+  }
+
+  .benefit-item {
+    padding: 0.5rem;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+}
+
+// ===== CORES DE TEXTO UTILITÁRIAS =====
+
+.text-primary-custom {
+  color: $nav-font-color !important;
+}
+
+.text-primary-light {
+  color: $nav-font-color-light !important;
+}
+
+.text-muted-custom {
+  color: $gray-dark !important;
+}
+
+// ===== BORDAS COLORIDAS =====
+
+.border-primary-custom {
+  border-color: $nav-font-color !important;
+}
+
+.border-primary-light {
+  border-color: rgba($nav-font-color, 0.3) !important;
+}
+
+// ===== SISTEMA DE GALERIA =====
+
+// Imagem de galeria com hover
+.gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 220px;
+  }
+}
+
+// Container que recebe hover para a galeria
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+    .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .image-overlay {
+      pointer-events: none;
+      opacity: 1;
+    }
+  }
+}
+
+// Overlay para imagens de galeria
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba($nav-font-color, 0.8), rgba($nav-font-color-light, 0.7));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  i {
+    color: white;
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+  }
+}
+
+// Animação pulse para ícones
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,28 @@
+@use './base.scss' as *;
+@use './buttons.scss' as *;
+@use './utilities.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: $app-font-family;
+  // padding: 0;
+  // padding-top: $app-padding-top;
+  background: $bg-color;
+  overflow-x: hidden;
+}
+
+.title {
+  font-family: $app-nav-font-family;
+  color: $text-primary;
+}
+
+a.link {
+  color: $accent-blue-dark;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}

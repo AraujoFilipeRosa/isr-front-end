@@ -1,0 +1,376 @@
+@use './base.scss' as *;
+@use 'sass:color';
+
+// ===== SISTEMA DE BOTÕES PADRONIZADO =====
+
+// Estilos base para todos os botões
+.btn {
+  border-radius: $btn-border-radius;
+  font-weight: $btn-font-weight;
+  font-size: $btn-font-size-md;
+  padding: $btn-padding-md;
+  transition: $btn-transition;
+  border: 2px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $btn-shadow-hover;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: $btn-shadow-light;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($nav-font-color, 0.25);
+  }
+
+  // Ícones dentro dos botões
+  i {
+    font-size: 1.1em;
+  }
+
+  // Estados de loading
+  &.loading {
+    pointer-events: none;
+    opacity: 0.7;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  // Estados desabilitados
+  &:disabled,
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
+
+// ===== TAMANHOS DE BOTÕES =====
+
+.btn-sm {
+  font-size: $btn-font-size-sm;
+  padding: $btn-padding-sm;
+  border-radius: $btn-border-radius-sm;
+}
+
+.btn-lg {
+  font-size: $btn-font-size-lg;
+  padding: $btn-padding-lg;
+  border-radius: $btn-border-radius-lg;
+}
+
+.btn-xl {
+  font-size: $btn-font-size-xl;
+  padding: $btn-padding-xl;
+  border-radius: $btn-border-radius-lg;
+}
+
+// ===== VARIANTES DE BOTÕES =====
+
+// Botão Primário
+.btn-primary {
+  background: $btn-primary-bg;
+  color: $btn-primary-color;
+  border-color: $btn-primary-bg;
+  box-shadow: $btn-shadow;
+
+  &:hover {
+    background: $btn-primary-hover-bg;
+    border-color: $btn-primary-hover-bg;
+    color: $btn-primary-hover-color;
+  }
+
+  &:active {
+    background: color.scale($btn-primary-hover-bg, $lightness: -5%);
+    border-color: color.scale($btn-primary-hover-bg, $lightness: -5%);
+  }
+}
+
+// Botão Secundário (Outline)
+.btn-secondary {
+  background: $btn-secondary-bg;
+  color: $btn-secondary-color;
+  border-color: $btn-secondary-border;
+  box-shadow: $btn-shadow-light;
+
+  &:hover {
+    background: $btn-secondary-hover-bg;
+    border-color: $btn-secondary-hover-bg;
+    color: $btn-secondary-hover-color;
+  }
+
+  &:active {
+    background: color.scale($btn-secondary-hover-bg, $lightness: -5%);
+    border-color: color.scale($btn-secondary-hover-bg, $lightness: -5%);
+  }
+}
+
+// Botão Light
+.btn-light {
+  background: $btn-light-bg;
+  color: $btn-light-color;
+  border-color: $btn-light-bg;
+  box-shadow: $btn-shadow-light;
+
+  &:hover {
+    background: $btn-light-hover-bg;
+    border-color: $btn-light-hover-bg;
+    color: $btn-light-hover-color;
+  }
+
+  &:active {
+    background: color.scale($btn-light-hover-bg, $lightness: -5%);
+    border-color: color.scale($btn-light-hover-bg, $lightness: -5%);
+  }
+}
+
+// Botão Outline Light
+.btn-outline-light {
+  background: $btn-outline-light-bg;
+  color: $btn-outline-light-color;
+  border-color: $btn-outline-light-border;
+  box-shadow: $btn-shadow-light;
+
+  &:hover {
+    background: $btn-outline-light-hover-bg;
+    border-color: $btn-outline-light-hover-bg;
+    color: $btn-outline-light-hover-color;
+  }
+
+  &:active {
+    background: color.scale($btn-outline-light-hover-bg, $lightness: -5%);
+    border-color: color.scale($btn-outline-light-hover-bg, $lightness: -5%);
+  }
+}
+
+// Botão Success
+.btn-success {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+  box-shadow: $btn-shadow;
+
+  &:hover {
+    background: #218838;
+    border-color: #1e7e34;
+    color: white;
+  }
+
+  &:active {
+    background: #1e7e34;
+    border-color: #1c7430;
+  }
+}
+
+// Botão Danger
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+  box-shadow: $btn-shadow;
+
+  &:hover {
+    background: #c82333;
+    border-color: #bd2130;
+    color: white;
+  }
+
+  &:active {
+    background: #bd2130;
+    border-color: #b21f2d;
+  }
+}
+
+// Botão Warning
+.btn-warning {
+  background: #ffc107;
+  color: #212529;
+  border-color: #ffc107;
+  box-shadow: $btn-shadow;
+
+  &:hover {
+    background: #e0a800;
+    border-color: #d39e00;
+    color: #212529;
+  }
+
+  &:active {
+    background: #d39e00;
+    border-color: #c69500;
+  }
+}
+
+// Botão Info
+.btn-info {
+  background: #17a2b8;
+  color: white;
+  border-color: #17a2b8;
+  box-shadow: $btn-shadow;
+
+  &:hover {
+    background: #138496;
+    border-color: #117a8b;
+    color: white;
+  }
+
+  &:active {
+    background: #117a8b;
+    border-color: #10707f;
+  }
+}
+
+// ===== BOTÕES ESPECIAIS =====
+
+// Botão com gradiente
+.btn-gradient {
+  background: $gradient-primary;
+  color: white;
+  border: none;
+  box-shadow: $btn-shadow;
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      $nav-font-color-hover,
+      color.scale($nav-font-color-light, $lightness: -10%)
+    );
+    color: white;
+  }
+}
+
+// Botão com ícone
+.btn-icon {
+  padding: 0.75rem;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+
+  i {
+    margin: 0;
+  }
+}
+
+// Botão de ação flutuante
+.btn-floating {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+// ===== GRUPOS DE BOTÕES =====
+
+.btn-group {
+  display: inline-flex;
+  border-radius: $btn-border-radius;
+
+  .btn {
+    border-radius: 0;
+    border-right-width: 1px;
+
+    &:first-child {
+      border-top-left-radius: $btn-border-radius;
+      border-bottom-left-radius: $btn-border-radius;
+    }
+
+    &:last-child {
+      border-top-right-radius: $btn-border-radius;
+      border-bottom-right-radius: $btn-border-radius;
+      border-right-width: 2px;
+    }
+
+    &:hover {
+      transform: none;
+      z-index: 1;
+    }
+  }
+}
+
+// ===== ANIMAÇÕES =====
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// ===== RESPONSIVIDADE =====
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: $btn-font-size-sm;
+    padding: $btn-padding-sm;
+  }
+
+  .btn-lg {
+    font-size: $btn-font-size-md;
+    padding: $btn-padding-md;
+  }
+
+  .btn-xl {
+    font-size: $btn-font-size-lg;
+    padding: $btn-padding-lg;
+  }
+}
+
+// ===== UTILITÁRIOS =====
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.btn-square {
+  border-radius: 0;
+}
+
+.btn-no-shadow {
+  box-shadow: none !important;
+
+  &:hover {
+    box-shadow: none !important;
+  }
+}
