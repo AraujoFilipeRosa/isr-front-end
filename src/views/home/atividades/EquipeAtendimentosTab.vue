@@ -160,6 +160,7 @@ const profissionais = [
                   :src="`/src/assets/imagens/atividades/${profissional.imagem}`"
                   :alt="t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)"
                   class="profissional-photo"
+                  loading="lazy"
                 />
                 <div v-else class="default-avatar">
                   <i :class="`pi ${profissional.icone}`"></i>
@@ -201,6 +202,7 @@ const profissionais = [
                     :src="`/src/assets/imagens/atividades/${getImagemTrabalho(profissional.chave, imgIndex)}`"
                     :alt="`${t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)} trabalhando ${imgIndex}`"
                     class="trabalho-imagem"
+                    loading="lazy"
                   />
                   <div class="imagem-overlay">
                     <i class="pi pi-eye"></i>

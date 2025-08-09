@@ -30,6 +30,7 @@ const { t } = useI18n()
           src="https://www.isr.org.br/gallery_gen/e9301de4dc6a640e37e9a570ea7c5905_fit.jpg?ts=1729626092"
           alt="Imagem do ISR"
           class="img-fluid rounded shadow-lg"
+          loading="lazy"
         />
       </div>
       <div class="col-md">
@@ -59,6 +60,7 @@ const { t } = useI18n()
           src="https://www.isr.org.br/gallery_gen/93c3c23e1f27ccae0303482203c75b35_fit.jpg?ts=1729626092"
           alt="Imagem do ISR"
           class="img-fluid rounded shadow-lg"
+          loading="lazy"
         />
       </div>
     </section>
@@ -76,6 +78,7 @@ const { t } = useI18n()
           src="https://www.isr.org.br/gallery_gen/1cc58eae782c398b7dbafe11d6ddde9d_fit.jpg?ts=1729626092"
           alt="Imagem do ISR"
           class="img-fluid rounded shadow-lg"
+          loading="lazy"
         />
       </div>
       <div class="col-md">
@@ -105,6 +108,7 @@ const { t } = useI18n()
           src="https://www.isr.org.br/gallery_gen/2bd4d04add54f49b25d12f2d9f514995_fit.jpg?ts=1729626093"
           alt="Imagem do ISR"
           class="img-fluid rounded shadow-lg"
+          loading="lazy"
         />
       </div>
     </section>

@@ -18,6 +18,7 @@ const { t } = useI18n()
             alt="Logo ISR"
             class="mt-2"
             style="height: 80px"
+            loading="lazy"
           />
         </RouterLink>
         <h1 class="display-1 font-weight-bold mb-3" style="font-size: 8rem">

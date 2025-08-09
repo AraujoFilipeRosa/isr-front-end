@@ -215,6 +215,7 @@ watch(isVisible, (visivel) => {
             :src="imagemAtualUrl"
             :alt="`${titulo} - Imagem ${imagemAtual + 1}`"
             class="gallery-image"
+            loading="lazy"
             @load="onImageLoad"
             @error="onImageError"
           />
@@ -234,7 +235,12 @@ watch(isVisible, (visivel) => {
             class="thumbnail"
             :class="{ active: index === imagemAtual }"
           >
-            <img :src="imagem" :alt="`Miniatura ${index + 1}`" class="thumbnail-image" />
+            <img
+              :src="imagem"
+              :alt="`Miniatura ${index + 1}`"
+              class="thumbnail-image"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

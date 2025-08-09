@@ -122,6 +122,7 @@ const { t } = useI18n()
                 class="gallery-image"
                 width="100%"
                 height="auto"
+                loading="lazy"
                 preview
                 :pt="{
                   root: { class: 'w-100 h-100' },

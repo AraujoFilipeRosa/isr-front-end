@@ -161,6 +161,7 @@ const atividades = [
                     :src="`/src/assets/imagens/atividades/${getImagemAtividade(atividade.chave, imgIndex)}`"
                     :alt="`${t(`atividades.atividadesGrupos.atividades.${atividade.chave}.titulo`)} ${imgIndex}`"
                     class="atividade-imagem"
+                    loading="lazy"
                   />
                   <div class="imagem-overlay">
                     <i class="pi pi-search-plus"></i>

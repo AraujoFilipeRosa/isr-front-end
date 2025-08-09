@@ -127,7 +127,12 @@ onMounted(() => {
               </div>
               <div class="qr-code-container">
                 <div class="qr-code-wrapper">
-                  <img :src="doeQrCode" alt="QR Code para Doação" class="qr-code-image" />
+                  <img
+                    :src="doeQrCode"
+                    alt="QR Code para Doação"
+                    class="qr-code-image"
+                    loading="lazy"
+                  />
                   <div class="qr-code-overlay">
                     <i class="pi pi-qrcode"></i>
                     <span>Escaneie para doar</span>

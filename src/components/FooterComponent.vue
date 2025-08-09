@@ -17,6 +17,7 @@ const { t } = useI18n()
               src="@/assets/imagens/isr-logo.png"
               alt="Logo"
               width="95"
+              loading="lazy"
             />
           </router-link>
         </div>
