@@ -4,6 +4,37 @@ import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ImageGalleryComponent from '@/components/ImageGalleryComponent.vue'
 
+// Importar todas as imagens necessárias
+import atividadeExterna1 from '@/assets/imagens/atividades/atividade-externa-1.jpg'
+import atividadeExterna2 from '@/assets/imagens/atividades/atividade-externa-2.jpg'
+import atividadeExterna3 from '@/assets/imagens/atividades/atividade-externa-3.jpg'
+import atividadeExterna4 from '@/assets/imagens/atividades/atividade-externa-4.jpg'
+import atividadeExterna5 from '@/assets/imagens/atividades/atividade-externa-5.jpg'
+import atividadeExterna6 from '@/assets/imagens/atividades/atividade-externa-6.jpg'
+
+import palestrasRodaConversa1 from '@/assets/imagens/atividades/palestras-roda-conversa-1.jpg'
+import palestrasRodaConversa2 from '@/assets/imagens/atividades/palestras-roda-conversa-2.jpg'
+import palestrasRodaConversa3 from '@/assets/imagens/atividades/palestras-roda-conversa-3.jpg'
+import palestrasRodaConversa4 from '@/assets/imagens/atividades/palestras-roda-conversa-4.jpg'
+import palestrasRodaConversa5 from '@/assets/imagens/atividades/palestras-roda-conversa-5.jpg'
+import palestrasRodaConversa6 from '@/assets/imagens/atividades/palestras-roda-conversa-6.jpg'
+
+import encontroIntegrado1 from '@/assets/imagens/atividades/encontro-integrado-1.jpg'
+import encontroIntegrado2 from '@/assets/imagens/atividades/encontro-integrado-2.jpg'
+import encontroIntegrado3 from '@/assets/imagens/atividades/encontro-integrado-3.jpg'
+import encontroIntegrado4 from '@/assets/imagens/atividades/encontro-integrado-4.jpg'
+import encontroIntegrado5 from '@/assets/imagens/atividades/encontro-integrado-5.jpg'
+import encontroIntegrado6 from '@/assets/imagens/atividades/encontro-integrado-6.jpg'
+
+import oficinas1 from '@/assets/imagens/atividades/oficinas-1.jpg'
+import oficinas2 from '@/assets/imagens/atividades/oficinas-2.jpg'
+import oficinas3 from '@/assets/imagens/atividades/oficinas-3.jpg'
+import oficinas4 from '@/assets/imagens/atividades/oficinas-4.jpg'
+import oficinas5 from '@/assets/imagens/atividades/oficinas-5.jpg'
+import oficinas6 from '@/assets/imagens/atividades/oficinas-6.jpg'
+
+import reuniaoEquipe from '@/assets/imagens/atividades/reuniao-equipe.jpg'
+
 const { t } = useI18n()
 
 // Estado para galeria de imagens
@@ -12,17 +43,39 @@ const imagensGaleria = ref<string[]>([])
 const tituloGaleria = ref('')
 const imagemInicial = ref(0)
 
+// Mapeamento de imagens das atividades
+const imagensAtividades = {
+  rumoCerto: [
+    atividadeExterna1,
+    atividadeExterna2,
+    atividadeExterna3,
+    atividadeExterna4,
+    atividadeExterna5,
+    atividadeExterna6,
+  ],
+  palestras: [
+    palestrasRodaConversa1,
+    palestrasRodaConversa2,
+    palestrasRodaConversa3,
+    palestrasRodaConversa4,
+    palestrasRodaConversa5,
+    palestrasRodaConversa6,
+  ],
+  encontros: [
+    encontroIntegrado1,
+    encontroIntegrado2,
+    encontroIntegrado3,
+    encontroIntegrado4,
+    encontroIntegrado5,
+    encontroIntegrado6,
+  ],
+  oficinas: [oficinas1, oficinas2, oficinas3, oficinas4, oficinas5, oficinas6],
+  reunioes: [reuniaoEquipe],
+}
+
 // Função para mapear as imagens das atividades corretamente
 const getImagemAtividade = (chave: string, index: number) => {
-  const mapeamento: Record<string, string> = {
-    rumoCerto: `atividade-externa-${index}.jpg`,
-    palestras: `palestras-roda-conversa-${index}.jpg`,
-    encontros: `encontro-integrado-${index}.jpg`,
-    oficinas: `oficinas-${index}.jpg`,
-    reunioes: 'reuniao-equipe.jpg', // Só tem 1 imagem
-  }
-
-  return mapeamento[chave] || `${chave}-${index}.jpg`
+  return imagensAtividades[chave as keyof typeof imagensAtividades]?.[index - 1] || ''
 }
 
 // Função para retornar a quantidade de imagens por atividade
@@ -44,7 +97,10 @@ const abrirGaleria = (atividade: any, imagemClicada: number = 0) => {
   const imagens: string[] = []
 
   for (let i = 1; i <= quantidade; i++) {
-    imagens.push(`/src/assets/imagens/atividades/${getImagemAtividade(atividade.chave, i)}`)
+    const imagem = getImagemAtividade(atividade.chave, i)
+    if (imagem) {
+      imagens.push(imagem)
+    }
   }
 
   imagensGaleria.value = imagens

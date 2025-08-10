@@ -4,6 +4,34 @@ import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ImageGalleryComponent from '@/components/ImageGalleryComponent.vue'
 
+// Importar todas as imagens necessárias
+import pauloCezarImg from '@/assets/imagens/atividades/paulo-cezar.jpg'
+import sandraImg from '@/assets/imagens/atividades/sandra.jpg'
+import patriciaImg from '@/assets/imagens/atividades/patricia.jpg'
+import suzanaImg from '@/assets/imagens/atividades/suzana.jpg'
+import virnaImg from '@/assets/imagens/atividades/virna.jpg'
+import dayseImg from '@/assets/imagens/atividades/dayse.jpg'
+import osmarImg from '@/assets/imagens/atividades/osmar.jpg'
+import neusaImg from '@/assets/imagens/atividades/neusa.jpg'
+import cristianeImg from '@/assets/imagens/atividades/cristiane.jpg'
+
+// Importar imagens de trabalho
+import sandraAtendimento1 from '@/assets/imagens/atividades/sandra-atendimento-1.jpg'
+import sandraAtendimento2 from '@/assets/imagens/atividades/sandra-atendimento-2.jpg'
+import sandraAtendimento3 from '@/assets/imagens/atividades/sandra-atendimento-3.jpg'
+import patriciaAtendimento1 from '@/assets/imagens/atividades/patricia-atendimento-1.jpg'
+import patriciaAtendimento2 from '@/assets/imagens/atividades/patricia-atendimento-2.jpg'
+import patriciaAtendimento3 from '@/assets/imagens/atividades/patricia-atendimento-3.jpg'
+import suzanaAtendimento1 from '@/assets/imagens/atividades/suzana-atendimento-1.jpg'
+import suzanaAtendimento2 from '@/assets/imagens/atividades/suzana-atendimento-2.jpg'
+import suzanaAtendimento3 from '@/assets/imagens/atividades/suzana-atendimento-3.jpg'
+import virnaAtendimento1 from '@/assets/imagens/atividades/virna-atendimento-1.jpg'
+import virnaAtendimento2 from '@/assets/imagens/atividades/virna-atendimento-2.jpg'
+import virnaAtendimento3 from '@/assets/imagens/atividades/virna-atendimento-3.jpg'
+import dayseAtendimento1 from '@/assets/imagens/atividades/dayse-atendimento-1.jpg'
+import dayseAtendimento2 from '@/assets/imagens/atividades/dayse-atendimento-2.jpg'
+import dayseAtendimento3 from '@/assets/imagens/atividades/dayse-atendimento-3.jpg'
+
 const { t } = useI18n()
 
 // Estado para galeria de imagens
@@ -12,17 +40,18 @@ const imagensGaleria = ref<string[]>([])
 const tituloGaleria = ref('')
 const imagemInicial = ref(0)
 
+// Mapeamento de imagens de trabalho
+const imagensTrabalho = {
+  sandra: [sandraAtendimento1, sandraAtendimento2, sandraAtendimento3],
+  patricia: [patriciaAtendimento1, patriciaAtendimento2, patriciaAtendimento3],
+  suzana: [suzanaAtendimento1, suzanaAtendimento2, suzanaAtendimento3],
+  virna: [virnaAtendimento1, virnaAtendimento2, virnaAtendimento3],
+  dayse: [dayseAtendimento1, dayseAtendimento2, dayseAtendimento3],
+}
+
 // Função para mapear as imagens de trabalho corretamente
 const getImagemTrabalho = (chave: string, index: number) => {
-  const mapeamento: Record<string, string> = {
-    sandra: `sandra-atendimento-${index}.jpg`,
-    patricia: `patricia-atendimento-${index}.jpg`,
-    suzana: `suzana-atendimento-${index}.jpg`,
-    virna: `virna-atendimento-${index}.jpg`,
-    dayse: `dayse-atendimento-${index}.jpg`,
-  }
-
-  return mapeamento[chave] || `${chave}-trabalho-${index}.jpg`
+  return imagensTrabalho[chave as keyof typeof imagensTrabalho]?.[index - 1] || ''
 }
 
 // Função para retornar a quantidade de imagens por profissional
@@ -44,7 +73,10 @@ const abrirGaleriaTrabalho = (profissional: any, imagemClicada: number = 0) => {
   const imagens: string[] = []
 
   for (let i = 1; i <= quantidade; i++) {
-    imagens.push(`/src/assets/imagens/atividades/${getImagemTrabalho(profissional.chave, i)}`)
+    const imagem = getImagemTrabalho(profissional.chave, i)
+    if (imagem) {
+      imagens.push(imagem)
+    }
   }
 
   imagensGaleria.value = imagens
@@ -53,16 +85,29 @@ const abrirGaleriaTrabalho = (profissional: any, imagemClicada: number = 0) => {
   galeriaVisivel.value = true
 }
 
+// Mapeamento de imagens dos profissionais
+const imagensProfissionais = {
+  pauloCesar: pauloCezarImg,
+  sandra: sandraImg,
+  patricia: patriciaImg,
+  suzana: suzanaImg,
+  virna: virnaImg,
+  dayse: dayseImg,
+  osmar: osmarImg,
+  neusa: neusaImg,
+  cristiane: cristianeImg,
+}
+
 // Dados dos profissionais organizados
 const profissionais = [
   {
     chave: 'pauloCesar',
-    imagem: 'paulo-cezar.jpg',
+    imagem: 'pauloCesar',
     icone: 'pi-graduation-cap',
   },
   {
     chave: 'sandra',
-    imagem: 'sandra.jpg',
+    imagem: 'sandra',
     icone: 'pi-microphone',
   },
   {
@@ -72,12 +117,12 @@ const profissionais = [
   },
   {
     chave: 'patricia',
-    imagem: 'patricia.jpg',
+    imagem: 'patricia',
     icone: 'pi-directions',
   },
   {
     chave: 'suzana',
-    imagem: 'suzana.jpg',
+    imagem: 'suzana',
     icone: 'pi-book',
   },
   {
@@ -87,27 +132,27 @@ const profissionais = [
   },
   {
     chave: 'virna',
-    imagem: 'virna.jpg',
+    imagem: 'virna',
     icone: 'pi-heart',
   },
   {
     chave: 'dayse',
-    imagem: 'dayse.jpg',
+    imagem: 'dayse',
     icone: 'pi-phone',
   },
   {
     chave: 'osmar',
-    imagem: 'osmar.jpg',
+    imagem: 'osmar',
     icone: 'pi-crown',
   },
   {
     chave: 'neusa',
-    imagem: 'neusa.jpg',
+    imagem: 'neusa',
     icone: 'pi-cog',
   },
   {
     chave: 'cristiane',
-    imagem: 'cristiane.jpg',
+    imagem: 'cristiane',
     icone: 'pi-file-edit',
   },
   {
@@ -157,7 +202,9 @@ const profissionais = [
               <div class="photo-container">
                 <img
                   v-if="profissional.imagem"
-                  :src="`/src/assets/imagens/atividades/${profissional.imagem}`"
+                  :src="
+                    imagensProfissionais[profissional.imagem as keyof typeof imagensProfissionais]
+                  "
                   :alt="t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)"
                   class="profissional-photo"
                   loading="lazy"
