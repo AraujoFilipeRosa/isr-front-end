@@ -9,7 +9,7 @@ const { pageTitle, pageDescription } = useRouteMeta()
 watch(
   pageTitle,
   (newTitle) => {
-    document.title = `${newTitle} - Instituto Shanti Rao`
+    document.title = `${newTitle} - Instituto Severa Romana`
   },
   { immediate: true },
 )

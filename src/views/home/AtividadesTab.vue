@@ -12,7 +12,7 @@ const { t } = useI18n()
 
 // Mapeamento das imagens da Fátima
 const imagensFatima = {
-  foto: '/imagens/atividades/fatima.jpg',
+  foto: '/imagens/fatima.jpg',
   atendimento1: fatimaAtendimento1,
   atendimento2: fatimaAtendimento2,
   atendimento3: fatimaAtendimento3,
