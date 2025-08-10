@@ -3,6 +3,7 @@ import { MotionDirective as motion } from '@vueuse/motion'
 import { ref, onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
+import DonationCardComponent from '@/components/DonationCardComponent.vue'
 import doeQrCode from '@/assets/imagens/doe-qrcode.jpg'
 
 const { t } = useI18n()
@@ -61,30 +62,29 @@ onMounted(() => {
             <div class="icon-circle icon-lg mb-4">
               <i class="pi pi-users"></i>
             </div>
-            <h2 class="card-title h3 font-weight-bold mb-3">Nosso Impacto</h2>
+            <h2 class="card-title h3 font-weight-bold mb-3">
+              {{ t('doacoes.nossoImpacto.titulo') }}
+            </h2>
 
             <!-- Contadores -->
             <div class="row mb-4">
               <div class="col-md-6 text-center mb-3">
                 <div class="counter-item">
                   <div class="counter-number">{{ atendimentosMensais }}</div>
-                  <div class="counter-label">Atendimentos Mensais</div>
+                  <div class="counter-label">{{ t('doacoes.impacto.atendimentosMensais') }}</div>
                 </div>
               </div>
               <div class="col-md-6 text-center mb-3">
                 <div class="counter-item">
                   <div class="counter-number">{{ familiasBeneficiadas }}+</div>
-                  <div class="counter-label">Famílias Beneficiadas</div>
+                  <div class="counter-label">{{ t('doacoes.impacto.familiasBeneficiadas') }}</div>
                 </div>
               </div>
             </div>
 
             <p class="card-text text-muted lead">
-              Considerando a média de 1200 atendimentos por mês, até o presente momento já
-              beneficiamos milhares de famílias da Zona Norte do Município do Rio de Janeiro. Sua
-              participação, por meio de doações financeiras e de alimentos, tem impactado
-              positivamente muitas famílias.
-              <strong class="text-primary">Muito obrigado!</strong>
+              {{ t('doacoes.nossoImpacto.descricao') }}
+              <strong class="text-primary">{{ t('doacoes.nossoImpacto.agradecimento') }}</strong>
             </p>
           </div>
         </div>
@@ -92,6 +92,11 @@ onMounted(() => {
     </section>
 
     <!-- Opções de Doação -->
+    <TitleSectionComponent
+      :titulo="t('doacoes.comoAjudar.titulo')"
+      :descricao="t('doacoes.comoAjudar.descricao')"
+    />
+
     <section
       v-motion
       :initial="{ opacity: 0, y: 0 }"
@@ -100,157 +105,85 @@ onMounted(() => {
       :delay="50"
       class="row my-5"
     >
-      <div class="col-12 text-center mb-5">
-        <h2 class="title font-weight-bold">Como Você Pode Ajudar</h2>
-        <p class="text-muted">Escolha a forma que melhor se adequa ao seu desejo de contribuir</p>
-      </div>
-
       <!-- Doação Financeira -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100 card-custom card-hover-strong donation-card">
-          <div class="card-body text-center p-4 d-flex flex-column">
-            <div class="icon-circle mb-3 flex-shrink-0">
-              <i class="pi pi-credit-card"></i>
-            </div>
-            <h3 class="card-title h5 font-weight-bold mb-3">Doação Financeira</h3>
-            <p class="card-text text-muted flex-grow-1 mb-4">
-              Sua doação financeira é fundamental para a manutenção dos nossos programas e serviços.
-            </p>
-            <div class="donation-details">
-              <div class="bank-info p-3 bg-light rounded mb-3">
-                <h6 class="font-weight-bold mb-2">CAIXA ECONÔMICA FEDERAL</h6>
-                <p class="mb-1"><strong>Agência:</strong> 4147</p>
-                <p class="mb-1"><strong>Conta:</strong> 003 2380-4</p>
-                <p class="mb-0"><strong>PIX:</strong> CNPJ 27003680000153</p>
-              </div>
-              <div class="qr-code-container">
-                <div class="qr-code-wrapper">
-                  <img
-                    :src="doeQrCode"
-                    alt="QR Code para Doação"
-                    class="qr-code-image"
-                    loading="lazy"
-                  />
-                  <div class="qr-code-overlay">
-                    <i class="pi pi-qrcode"></i>
-                    <span>Escaneie para doar</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <DonationCardComponent
+        :icon-class="'pi pi-credit-card'"
+        :title="t('doacoes.formas.financeira.titulo')"
+        :description="t('doacoes.formas.financeira.descricao')"
+        :show-bank-info="true"
+        :bank-info="{
+          name: t('doacoes.formas.financeira.banco.nome'),
+          agency: t('doacoes.formas.financeira.banco.agencia'),
+          agencyNumber: t('doacoes.formas.financeira.banco.agenciaNumero'),
+          account: t('doacoes.formas.financeira.banco.conta'),
+          accountNumber: t('doacoes.formas.financeira.banco.contaNumero'),
+          pix: t('doacoes.formas.financeira.banco.pix'),
+          cnpj: t('doacoes.formas.financeira.banco.cnpj'),
+        }"
+        :qr-code-image="doeQrCode"
+        :qr-code-alt="t('doacoes.formas.financeira.qrCode')"
+      />
 
       <!-- Doação de Produtos -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100 card-custom card-hover-strong donation-card">
-          <div class="card-body text-center p-4 d-flex flex-column">
-            <div class="icon-circle mb-3 flex-shrink-0">
-              <i class="pi pi-shopping-bag"></i>
-            </div>
-            <h3 class="card-title h5 font-weight-bold mb-3">Doação de Produtos</h3>
-            <p class="card-text text-muted flex-grow-1 mb-4">
-              Aceitamos doações de alimentos e materiais de limpeza e higiene para nossas famílias.
-            </p>
-            <div class="volunteer-benefits">
-              <div class="benefit-item mb-3 p-2 bg-light rounded">
-                <i class="pi pi-apple text-success mb-2 d-block" style="font-size: 1.5rem"></i>
-                <h6 class="font-weight-bold mb-0">Alimentos</h6>
-              </div>
-              <div class="benefit-item mb-3 p-2 bg-light rounded">
-                <i class="pi pi-home text-primary mb-2 d-block" style="font-size: 1.5rem"></i>
-                <h6 class="font-weight-bold mb-0">Limpeza</h6>
-              </div>
-              <div class="benefit-item mb-3 p-2 bg-light rounded">
-                <i class="pi pi-heart text-warning mb-2 d-block" style="font-size: 1.5rem"></i>
-                <h6 class="font-weight-bold mb-0">Higiene</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <DonationCardComponent
+        :icon-class="'pi pi-shopping-bag'"
+        :title="t('doacoes.formas.produtos.titulo')"
+        :description="t('doacoes.formas.produtos.descricao')"
+        :benefits="[
+          {
+            icon: 'pi pi-apple',
+            title: t('doacoes.formas.produtos.categorias.alimentos'),
+            color: '#28a745',
+          },
+          {
+            icon: 'pi pi-home',
+            title: t('doacoes.formas.produtos.categorias.limpeza'),
+            color: '#007bff',
+          },
+          {
+            icon: 'pi pi-heart',
+            title: t('doacoes.formas.produtos.categorias.higiene'),
+            color: '#ffc107',
+          },
+        ]"
+      />
 
       <!-- Voluntariado -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100 card-custom card-hover-strong donation-card">
-          <div class="card-body text-center p-4 d-flex flex-column">
-            <div class="icon-circle mb-3 flex-shrink-0">
-              <i class="pi pi-users"></i>
-            </div>
-            <h3 class="card-title h5 font-weight-bold mb-3">Seja Voluntário</h3>
-            <p class="card-text text-muted flex-grow-1 mb-4">
-              Com projetos bem estruturados, seu tempo investido aqui vale muito para nossas
-              famílias e para o seu currículo.
-            </p>
-            <div class="volunteer-benefits">
-              <div class="benefit-item mb-3 p-2 bg-light rounded">
-                <i class="pi pi-heart text-danger me-2"></i>
-                <span class="font-weight-bold">Experiência gratificante</span>
-              </div>
-              <div class="benefit-item mb-3 p-2 bg-light rounded">
-                <i class="pi pi-star text-warning me-2"></i>
-                <span class="font-weight-bold">Desenvolvimento pessoal</span>
-              </div>
-              <div class="benefit-item mb-3 p-2 bg-light rounded">
-                <i class="pi pi-briefcase text-info me-2"></i>
-                <span class="font-weight-bold">Valorização do currículo</span>
-              </div>
-              <div class="volunteer-stats-card bg-primary text-white p-3 rounded">
-                <div class="row text-center">
-                  <div class="col-6">
-                    <div class="stat-item">
-                      <i class="pi pi-heart d-block mb-1" style="font-size: 1.2rem"></i>
-                      <strong class="d-block">+50</strong>
-                      <small>Voluntários</small>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="stat-item">
-                      <i class="pi pi-clock d-block mb-1" style="font-size: 1.2rem"></i>
-                      <strong class="d-block">1000h+</strong>
-                      <small>Horas Doadas</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="600"
-      class="row my-5"
-    >
-      <div class="col-12 text-center">
-        <div class="bg-primary-custom text-white p-5 rounded-custom shadow-custom-strong">
-          <h2 class="font-weight-bold mb-3">Cada Doação Faz a Diferença</h2>
-          <p class="lead mb-4">
-            Junte-se a nós na transformação de vidas e na construção de um futuro melhor para todas
-            as crianças, adolescentes e jovens do Rio de Janeiro.
-          </p>
-          <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <router-link :to="{ name: 'contato' }" class="btn btn-light btn-lg">
-              <i class="pi pi-envelope me-2"></i>Entre em Contato
-            </router-link>
-          </div>
-        </div>
-      </div>
+      <DonationCardComponent
+        :icon-class="'pi pi-users'"
+        :title="t('doacoes.formas.voluntario.titulo')"
+        :description="t('doacoes.formas.voluntario.descricao')"
+        :show-volunteer-stats="true"
+        :benefits="[
+          {
+            icon: 'pi pi-heart',
+            title: t('doacoes.formas.voluntario.beneficios.experiencia'),
+            color: '#dc3545',
+          },
+          {
+            icon: 'pi pi-star',
+            title: t('doacoes.formas.voluntario.beneficios.desenvolvimento'),
+            color: '#ffc107',
+          },
+          {
+            icon: 'pi pi-briefcase',
+            title: t('doacoes.formas.voluntario.beneficios.curriculo'),
+            color: '#17a2b8',
+          },
+        ]"
+        :volunteer-stats="{
+          totalVolunteers: t('doacoes.formas.voluntario.estatisticas.totalVoluntarios'),
+          volunteersLabel: t('doacoes.formas.voluntario.estatisticas.voluntarios'),
+          totalHours: t('doacoes.formas.voluntario.estatisticas.totalHoras'),
+          hoursLabel: t('doacoes.formas.voluntario.estatisticas.horasDoadas'),
+        }"
+      />
     </section>
   </div>
 </template>
 
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
-
-// Estilos globais agora estão em utilities.scss
 
 .impact-card {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -368,7 +301,6 @@ onMounted(() => {
     }
   }
 
-  // QR Code Container
   .qr-code-container {
     display: flex;
     justify-content: center;
@@ -389,7 +321,6 @@ onMounted(() => {
     }
 
     .qr-code-image {
-      //   max-width: 150px;
       min-width: 150px;
       height: auto;
       display: block;
@@ -578,8 +509,6 @@ onMounted(() => {
 .rounded {
   border-radius: 16px !important;
 }
-
-// Estilos de botões padronizados importados do buttons.scss
 
 // Responsividade
 @media (max-width: 768px) {

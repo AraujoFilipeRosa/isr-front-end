@@ -235,7 +235,7 @@ watch(isVisible, (visivel) => {
             class="thumbnail"
             :class="{ active: index === imagemAtual }"
           >
-            <img
+            <Image
               :src="imagem"
               :alt="`Miniatura ${index + 1}`"
               class="thumbnail-image"

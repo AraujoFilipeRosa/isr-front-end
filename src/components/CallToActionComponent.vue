@@ -6,21 +6,21 @@ const { t } = useI18n()
 interface Props {
   title: string
   description: string
-  primaryButtonText?: string
-  primaryButtonIcon?: string
-  secondaryButtonText?: string
-  secondaryButtonIcon?: string
-  primaryRoute?: string
-  secondaryRoute?: string
+  primaryButtonText?: string | null
+  primaryButtonIcon?: string | null
+  primaryRoute?: string | null
+  secondaryButtonText?: string | null
+  secondaryButtonIcon?: string | null
+  secondaryRoute?: string | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  primaryButtonText: 'Como Ajudar',
-  primaryButtonIcon: 'pi pi-heart',
-  secondaryButtonText: 'Entre em Contato',
-  secondaryButtonIcon: 'pi pi-envelope',
-  primaryRoute: 'como-ajudar',
-  secondaryRoute: 'contato',
+  primaryButtonText: null,
+  primaryButtonIcon: null,
+  secondaryButtonText: null,
+  secondaryButtonIcon: null,
+  primaryRoute: null,
+  secondaryRoute: null,
 })
 </script>
 
@@ -38,12 +38,19 @@ const props = withDefaults(defineProps<Props>(), {
         <h2 class="font-weight-bold mb-3">{{ title }}</h2>
         <p class="lead mb-4">{{ description }}</p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
-          <router-link :to="{ name: primaryRoute }" class="btn btn-light btn-lg">
-            <i :class="primaryButtonIcon + ' me-2'"></i>{{ primaryButtonText }}
-          </router-link>
-          <router-link :to="{ name: secondaryRoute }" class="btn btn-outline-light btn-lg">
-            <i :class="secondaryButtonIcon + ' me-2'"></i>{{ secondaryButtonText }}
-          </router-link>
+          <div v-if="primaryRoute && primaryButtonText && primaryButtonIcon">
+            <router-link :to="{ name: primaryRoute }" class="btn btn-light btn-lg">
+              <i :class="primaryButtonIcon + ' me-2'"></i>{{ primaryButtonText }}
+            </router-link>
+          </div>
+          <div v-if="secondaryRoute && secondaryButtonText && secondaryButtonIcon">
+            <router-link
+              :to="{ name: secondaryRoute as string }"
+              class="btn btn-outline-light btn-lg"
+            >
+              <i :class="secondaryButtonIcon + ' me-2'"></i>{{ secondaryButtonText }}
+            </router-link>
+          </div>
         </div>
       </div>
     </div>

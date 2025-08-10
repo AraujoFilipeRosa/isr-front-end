@@ -6,15 +6,13 @@
 
 body {
   font-family: $app-font-family;
-  // padding: 0;
-  // padding-top: $app-padding-top;
   background: $bg-color;
   overflow-x: hidden;
 }
 
 .title {
   font-family: $app-nav-font-family;
-  color: $text-primary;
+  color: $text-title-font-color;
 }
 
 a.link {

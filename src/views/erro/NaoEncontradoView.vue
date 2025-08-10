@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import isrLogo from '@/assets/imagens/isr-logo.png'
 
@@ -111,6 +110,6 @@ const { t } = useI18n()
 @use '@/assets/base.scss' as *;
 
 .bg-custom-primary {
-  background: $nav-font-color;
+  background: $heading-section-color;
 }
 </style>

@@ -11,7 +11,6 @@ const formData = ref({
 })
 
 const handleSubmit = () => {
-  // Lógica para envio do formulário
   console.log('Formulário enviado:', formData.value)
 }
 </script>
@@ -127,7 +126,7 @@ const handleSubmit = () => {
 }
 
 .bg-custom-primary {
-  background: $nav-font-color;
+  background: $heading-section-color;
 }
 
 .contact-info-card {
@@ -158,7 +157,7 @@ const handleSubmit = () => {
   .contact-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+    background: linear-gradient(-20deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -304,9 +303,6 @@ const handleSubmit = () => {
   border-radius: 16px !important;
 }
 
-// Estilos de botões padronizados importados do buttons.scss
-
-// Responsividade
 @media (max-width: 768px) {
   .contact-item {
     flex-direction: column;

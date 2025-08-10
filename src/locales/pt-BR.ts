@@ -60,7 +60,8 @@ export default {
       },
       chamadaAcao: {
         titulo: 'Deixe sua marca!',
-        descricao: 'Sua empresa pode fazer parte da causa das pessoas com deficiência',
+        descricao:
+          'Sua empresa pode transformar vidas! Apoie nossos programas de inclusão e desenvolvimento para crianças e jovens em vulnerabilidade no Rio de Janeiro.',
         botao: 'Faça parte',
       },
     },
@@ -119,6 +120,15 @@ export default {
         descricao:
           'Sua doação financeira é fundamental para a manutenção dos nossos programas e serviços.',
         qrCode: 'Escaneie para doar',
+        banco: {
+          nome: 'CAIXA ECONÔMICA FEDERAL',
+          agencia: 'Agência',
+          conta: 'Conta',
+          pix: 'PIX',
+          cnpj: 'CNPJ 27003680000153',
+          agenciaNumero: '4147',
+          contaNumero: '003 2380-4',
+        },
       },
       produtos: {
         titulo: 'Doação de Produtos',
@@ -127,11 +137,24 @@ export default {
         categorias: {
           alimentos: 'Alimentos',
           limpeza: 'Limpeza',
+          higiene: 'Higiene',
         },
       },
       voluntario: {
         titulo: 'Seja Voluntário',
-        descricao: 'Contribua com seu tempo e habilidades em nossos programas e atividades.',
+        descricao:
+          'Com projetos bem estruturados, seu tempo investido aqui vale muito para nossas famílias e para o seu currículo.',
+        beneficios: {
+          experiencia: 'Experiência gratificante',
+          desenvolvimento: 'Desenvolvimento pessoal',
+          curriculo: 'Valorização do currículo',
+        },
+        estatisticas: {
+          voluntarios: 'Voluntários',
+          horasDoadas: 'Horas Doadas',
+          totalVoluntarios: '+50',
+          totalHoras: '1000h+',
+        },
       },
     },
 
@@ -186,14 +209,6 @@ export default {
         aviso: 'Portal externo - abre em nova aba',
       },
     },
-
-    callToAction: {
-      titulo: 'Transparência em Ação',
-      descricao:
-        'Conheça nossos relatórios, documentos e saiba como contribuir para nossa missão de transformar vidas.',
-      botaoPrimario: 'Como Ajudar',
-      botaoSecundario: 'Conheça Nossa História',
-    },
   },
 
   // ======================
@@ -201,6 +216,7 @@ export default {
   // ======================
   atividades: {
     titulo: 'Atividades',
+    descricao: 'Conheça nossa equipe e as atividades desenvolvidas no Instituto Severa Romana',
     coordenacao: {
       titulo: 'Coordenação Geral',
       fatima: {
@@ -213,6 +229,11 @@ export default {
     equipeAtendimentos: {
       titulo: 'Equipe e Atendimentos',
       descricao: 'Conheça nossa equipe especializada e os atendimentos oferecidos',
+      servicoSocial: {
+        titulo: 'Serviço Social em Ação',
+        descricao: 'Acompanhe o trabalho da nossa coordenadora junto às famílias',
+        imagemAlt: 'Fátima em atendimento',
+      },
       profissionais: {
         pauloCesar: {
           nome: 'Paulo César',
