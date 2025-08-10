@@ -49,6 +49,19 @@ const imagensTrabalho = {
   dayse: [dayseAtendimento1, dayseAtendimento2, dayseAtendimento3],
 }
 
+// Mapeamento de imagens dos profissionais
+const imagensProfissionais = {
+  pauloCesar: pauloCezarImg,
+  sandra: sandraImg,
+  patricia: patriciaImg,
+  suzana: suzanaImg,
+  virna: virnaImg,
+  dayse: dayseImg,
+  osmar: osmarImg,
+  neusa: neusaImg,
+  cristiane: cristianeImg,
+}
+
 // Função para mapear as imagens de trabalho corretamente
 const getImagemTrabalho = (chave: string, index: number) => {
   return imagensTrabalho[chave as keyof typeof imagensTrabalho]?.[index - 1] || ''
@@ -83,19 +96,6 @@ const abrirGaleriaTrabalho = (profissional: any, imagemClicada: number = 0) => {
   tituloGaleria.value = `${t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)} - Trabalho em Ação`
   imagemInicial.value = imagemClicada
   galeriaVisivel.value = true
-}
-
-// Mapeamento de imagens dos profissionais
-const imagensProfissionais = {
-  pauloCesar: pauloCezarImg,
-  sandra: sandraImg,
-  patricia: patriciaImg,
-  suzana: suzanaImg,
-  virna: virnaImg,
-  dayse: dayseImg,
-  osmar: osmarImg,
-  neusa: neusaImg,
-  cristiane: cristianeImg,
 }
 
 // Dados dos profissionais organizados
