@@ -10,6 +10,10 @@
       "destination": "/imagens/$1"
     },
     {
+      "source": "/imagens/atividades/(.*)",
+      "destination": "/imagens/atividades/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
