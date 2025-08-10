@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "devCommand": "yarn dev",
+  "buildCommand": "yarn build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
