@@ -4,8 +4,6 @@ import { ref, onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
 import doeQrCode from '@/assets/imagens/doe-qrcode.jpg'
-import doeAlimentos from '@/assets/imagens/doe-alimentos.jpg'
-import sejaVoluntario from '@/assets/imagens/seja-voluntario.jpg'
 
 const { t } = useI18n()
 

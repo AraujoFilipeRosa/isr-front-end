@@ -3,6 +3,7 @@ import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import CallToActionComponent from '@/components/CallToActionComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
+import isrLogo from '@/assets/imagens/isr-logo.png'
 
 const { t } = useI18n()
 </script>
@@ -13,13 +14,7 @@ const { t } = useI18n()
     <section class="row bg-custom-primary text-white rounded shadow-lg">
       <div class="col-12 text-center">
         <RouterLink to="/">
-          <img
-            src="/imagens/isr-logo.png"
-            alt="Logo ISR"
-            class="mt-2"
-            style="height: 80px"
-            loading="lazy"
-          />
+          <img :src="isrLogo" alt="Logo ISR" class="mt-2" style="height: 80px" loading="lazy" />
         </RouterLink>
         <h1 class="display-1 font-weight-bold mb-3" style="font-size: 8rem">
           {{ t('erro404.codigo') }}

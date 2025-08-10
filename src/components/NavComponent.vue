@@ -2,6 +2,8 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useNavigation } from '@/composables/useNavigation'
 
+import isrLogo from '@/assets/imagens/isr-logo.png'
+
 const isScrolled = ref(false)
 
 const handleScroll = () => {
@@ -54,7 +56,7 @@ const { menuItems, subMenuItems } = useNavigation()
       <template #start>
         <router-link :to="{ name: 'home' }">
           <img
-            src="/imagens/isr-logo.png"
+            :src="isrLogo"
             alt="Logo"
             :width="isScrolled ? '60' : '80'"
             :class="{ 'logo-shrink': isScrolled }"

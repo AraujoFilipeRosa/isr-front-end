@@ -6,9 +6,10 @@ import { useI18n } from '@/composables/useI18n'
 import CallToActionComponent from '@/components/CallToActionComponent.vue'
 import PdfViewerComponent from '@/components/PdfViewerComponent.vue'
 import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
-import cmdaRio from '@/assets/imagens/cmdca-rio.png'
-import cebasAssistenciaSocial from '@/assets/imagens/cebas-assistencia-social.png'
-import cmasRio from '@/assets/imagens/cmas-rio.png'
+
+import cmdaRio from '@/assets/certificacoes/imagens/cmdca-rio.png'
+import cebasAssistenciaSocial from '@/assets/certificacoes/imagens/cebas-assistencia-social.png'
+import cmasRio from '@/assets/certificacoes/imagens/cmas-rio.png'
 
 const { t } = useI18n()
 

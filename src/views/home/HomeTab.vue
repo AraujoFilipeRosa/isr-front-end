@@ -2,6 +2,11 @@
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 
+import bannerReciclagemImg from '@/assets/imagens/banner-reciclagem.jpg'
+import bannerNossosProgramasImg from '@/assets/imagens/banner-nossos-programas.jpg'
+import bannerDoacoesBazarImg from '@/assets/imagens/banner-doacoes-bazar.jpg'
+import bannerVoluntarioImg from '@/assets/imagens/banner-voluntario.jpg'
+
 // Acessar textos traduzidos
 const { t } = useI18n()
 </script>
@@ -26,9 +31,9 @@ const { t } = useI18n()
       class="row py-5"
     >
       <div class="col-md">
-        <img
-          src="https://www.isr.org.br/gallery_gen/e9301de4dc6a640e37e9a570ea7c5905_fit.jpg?ts=1729626092"
-          alt="Imagem do ISR"
+        <Image
+          :src="bannerReciclagemImg"
+          alt="Reciclagem"
           class="img-fluid rounded shadow-lg"
           loading="lazy"
         />
@@ -56,9 +61,9 @@ const { t } = useI18n()
         </p>
       </div>
       <div class="col-md">
-        <img
-          src="https://www.isr.org.br/gallery_gen/93c3c23e1f27ccae0303482203c75b35_fit.jpg?ts=1729626092"
-          alt="Imagem do ISR"
+        <Image
+          :src="bannerNossosProgramasImg"
+          alt="Nossos Programas"
           class="img-fluid rounded shadow-lg"
           loading="lazy"
         />
@@ -74,9 +79,9 @@ const { t } = useI18n()
       class="row py-5"
     >
       <div class="col-md">
-        <img
-          src="https://www.isr.org.br/gallery_gen/1cc58eae782c398b7dbafe11d6ddde9d_fit.jpg?ts=1729626092"
-          alt="Imagem do ISR"
+        <Image
+          :src="bannerVoluntarioImg"
+          alt="Doações e Bazar"
           class="img-fluid rounded shadow-lg"
           loading="lazy"
         />
@@ -104,9 +109,9 @@ const { t } = useI18n()
         </p>
       </div>
       <div class="col-md">
-        <img
-          src="https://www.isr.org.br/gallery_gen/2bd4d04add54f49b25d12f2d9f514995_fit.jpg?ts=1729626093"
-          alt="Imagem do ISR"
+        <Image
+          :src="bannerDoacoesBazarImg"
+          alt="Banner Doações e Bazar"
           class="img-fluid rounded shadow-lg"
           loading="lazy"
         />
