@@ -315,7 +315,7 @@ const tiposAtividades = [
                 <div class="card-body p-3 text-center">
                   <div class="position-relative mb-3">
                     <img
-                      :src="`@/assets/imagens/atividades/${membro.imagem}`"
+                      :src="`/imagens/atividades/${membro.imagem}`"
                       :alt="membro.nome"
                       class="member-photo rounded-circle"
                     />

@@ -14,7 +14,7 @@ const { t } = useI18n()
           <router-link :to="{ name: 'home' }">
             <img
               class="img-fluid footer-logo"
-              src="@/assets/imagens/isr-logo.png"
+              src="/imagens/isr-logo.png"
               alt="Logo"
               width="95"
               loading="lazy"

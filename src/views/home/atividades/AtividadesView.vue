@@ -131,7 +131,7 @@ const imagensFatima = {
           >
             <div>
               <Image
-                :src="`@/assets/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
+                :src="`/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
                 :alt="`Fátima em atendimento ${imagemIndex}`"
                 class="gallery-image"
                 width="100%"

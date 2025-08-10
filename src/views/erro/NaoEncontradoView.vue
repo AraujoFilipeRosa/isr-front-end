@@ -14,7 +14,7 @@ const { t } = useI18n()
       <div class="col-12 text-center">
         <RouterLink to="/">
           <img
-            src="@/assets/imagens/isr-logo.png"
+            src="/imagens/isr-logo.png"
             alt="Logo ISR"
             class="mt-2"
             style="height: 80px"
