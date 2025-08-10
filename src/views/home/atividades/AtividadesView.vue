@@ -3,6 +3,7 @@ import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 
 // Importar imagens da Fátima
+import fatimaImg from '@/assets/imagens/atividades/fatima.jpg'
 import fatimaAtendimento1 from '@/assets/imagens/atividades/fatima-atendimento-1.jpg'
 import fatimaAtendimento2 from '@/assets/imagens/atividades/fatima-atendimento-2.jpg'
 import fatimaAtendimento3 from '@/assets/imagens/atividades/fatima-atendimento-3.jpg'
@@ -11,7 +12,7 @@ const { t } = useI18n()
 
 // Mapeamento das imagens da Fátima
 const imagensFatima = {
-  foto: '/imagens/fatima.jpg',
+  foto: fatimaImg,
   atendimento1: fatimaAtendimento1,
   atendimento2: fatimaAtendimento2,
   atendimento3: fatimaAtendimento3,
