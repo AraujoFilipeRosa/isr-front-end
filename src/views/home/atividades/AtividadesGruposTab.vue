@@ -214,9 +214,9 @@ const atividades = [
                   @click="abrirGaleria(atividade, imgIndex - 1)"
                 >
                   <img
-                    :src="`/src/assets/imagens/atividades/${getImagemAtividade(atividade.chave, imgIndex)}`"
+                    :src="getImagemAtividade(atividade.chave, imgIndex)"
                     :alt="`${t(`atividades.atividadesGrupos.atividades.${atividade.chave}.titulo`)} ${imgIndex}`"
-                    class="atividade-imagem"
+                    class="trabalho-imagem"
                     loading="lazy"
                   />
                   <div class="imagem-overlay">

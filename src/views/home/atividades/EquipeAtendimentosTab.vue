@@ -246,7 +246,7 @@ const profissionais = [
                   @click="abrirGaleriaTrabalho(profissional, imgIndex - 1)"
                 >
                   <img
-                    :src="`/src/assets/imagens/atividades/${getImagemTrabalho(profissional.chave, imgIndex)}`"
+                    :src="getImagemTrabalho(profissional.chave, imgIndex)"
                     :alt="`${t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)} trabalhando ${imgIndex}`"
                     class="trabalho-imagem"
                     loading="lazy"

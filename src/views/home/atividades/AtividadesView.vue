@@ -2,7 +2,21 @@
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 
+// Importar imagens da Fátima
+import fatimaImg from '@/assets/imagens/atividades/fatima.jpg'
+import fatimaAtendimento1 from '@/assets/imagens/atividades/fatima-atendimento-1.jpg'
+import fatimaAtendimento2 from '@/assets/imagens/atividades/fatima-atendimento-2.jpg'
+import fatimaAtendimento3 from '@/assets/imagens/atividades/fatima-atendimento-3.jpg'
+
 const { t } = useI18n()
+
+// Mapeamento das imagens da Fátima
+const imagensFatima = {
+  foto: fatimaImg,
+  atendimento1: fatimaAtendimento1,
+  atendimento2: fatimaAtendimento2,
+  atendimento3: fatimaAtendimento3,
+}
 </script>
 
 <template>
@@ -41,7 +55,7 @@ const { t } = useI18n()
               <div class="card-body text-center p-4">
                 <div class="position-relative mb-3">
                   <img
-                    :src="`/src/assets/imagens/atividades/fatima.jpg`"
+                    :src="imagensFatima.foto"
                     :alt="t('atividades.coordenacao.fatima.nome')"
                     class="coordinator-photo rounded-circle"
                   />
@@ -117,7 +131,7 @@ const { t } = useI18n()
           >
             <div>
               <Image
-                :src="`/src/assets/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
+                :src="`@/assets/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
                 :alt="`Fátima em atendimento ${imagemIndex}`"
                 class="gallery-image"
                 width="100%"
