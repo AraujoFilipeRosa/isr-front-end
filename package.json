@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:subdomain": "vite --config vite.config.local.ts",
+    "dev:vercel": "vercel dev",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
