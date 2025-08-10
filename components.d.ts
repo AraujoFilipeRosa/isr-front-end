@@ -8,25 +8,24 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AtividadeCardComponent: typeof import('./src/components/AtividadeCardComponent.vue')['default']
     Badge: typeof import('primevue/badge')['default']
-    Button: typeof import('primevue/button')['default']
     CallToActionComponent: typeof import('./src/components/CallToActionComponent.vue')['default']
     CardComponent: typeof import('./src/components/CardComponent.vue')['default']
     Carousel: typeof import('primevue/carousel')['default']
+    CertificacaoCardComponent: typeof import('./src/components/CertificacaoCardComponent.vue')['default']
+    ContentSectionComponent: typeof import('./src/components/ContentSectionComponent.vue')['default']
+    DonationCardComponent: typeof import('./src/components/DonationCardComponent.vue')['default']
     FooterComponent: typeof import('./src/components/FooterComponent.vue')['default']
     HeaderSectionComponent: typeof import('./src/components/HeaderSectionComponent.vue')['default']
-    IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
-    IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
-    IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
-    IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
-    IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     Image: typeof import('primevue/image')['default']
     ImageGalleryComponent: typeof import('./src/components/ImageGalleryComponent.vue')['default']
     Menubar: typeof import('primevue/menubar')['default']
     NavComponent: typeof import('./src/components/NavComponent.vue')['default']
     PdfViewerComponent: typeof import('./src/components/PdfViewerComponent.vue')['default']
+    ProfissionalCardComponent: typeof import('./src/components/ProfissionalCardComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SubNavComponent: typeof import('./src/components/SubNavComponent.vue')['default']
+    TitleSectionComponent: typeof import('./src/components/TitleSectionComponent.vue')['default']
   }
 }

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from '@/composables/useI18n'
+import TitleSectionComponent from '@/components/TitleSectionComponent.vue'
+import ContentSectionComponent from '@/components/ContentSectionComponent.vue'
 import albumImg1 from '@/assets/imagens/album-1.jpg'
 import albumImg2 from '@/assets/imagens/album-2.jpg'
 import albumImg3 from '@/assets/imagens/album-3.jpg'
@@ -43,69 +45,30 @@ export default {
 </script>
 <template>
   <div id="nossa-historia" class="container my-5">
-    <section class="row my-3 my-md-4 py-3 py-md-4 px-3 px-md-4 bg-light rounded shadow">
-      <div class="col-md">
-        <h1 class="title text-center mb-3 mb-md-4 fs-2 fs-md-1">{{ t('nossaHistoria.titulo') }}</h1>
-        <p class="text-justify text-secondary mb-3">
-          {{ t('nossaHistoria.historia.paragrafos.fundacao') }}
-        </p>
-        <p class="text-justify text-secondary mb-3">
-          {{ t('nossaHistoria.historia.paragrafos.inicio') }}
-        </p>
-        <p class="text-justify text-secondary">
-          {{ t('nossaHistoria.historia.paragrafos.atualmente') }}
-        </p>
-      </div>
-    </section>
+    <TitleSectionComponent :titulo="t('nossaHistoria.titulo')">
+      <p class="text-center text-secondary mb-3">
+        {{ t('nossaHistoria.historia.paragrafos.fundacao') }}
+      </p>
+      <p class="text-center text-secondary mb-3">
+        {{ t('nossaHistoria.historia.paragrafos.inicio') }}
+      </p>
+      <p class="text-center text-secondary">
+        {{ t('nossaHistoria.historia.paragrafos.atualmente') }}
+      </p>
+    </TitleSectionComponent>
 
-    <section
-      v-motion
-      :initial="{ opacity: 0, x: 0 }"
-      :visible="{ opacity: 1, x: 0, scale: 1 }"
-      :variants="{ custom: { scale: 2 } }"
-      :delay="50"
-      :duration="1200"
-      class="row my-3 my-md-4 py-3 py-md-4"
-    >
-      <div class="col-md col-lg-6 mb-4 mb-lg-0">
-        <div class="video-container">
-          <iframe
-            class="rounded-2 w-100"
-            src="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-      <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
-        <h2 class="title mb-3 mb-md-4 font-weight-bold fs-3 fs-md-2">
-          {{ t('nossaHistoria.video.titulo') }}
-        </h2>
-        <p class="text-muted text-justify mb-0">
-          {{ t('nossaHistoria.video.descricao') }}
-        </p>
-      </div>
-    </section>
+    <ContentSectionComponent
+      video-src="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
+      :title="t('nossaHistoria.video.titulo')"
+      :description="t('nossaHistoria.video.descricao')"
+    />
 
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0, scale: 1 }"
-      :variants="{ custom: { scale: 2 } }"
-      :delay="50"
-      :duration="1200"
-      class="row my-3 my-md-4 py-3 py-md-4"
+    <ContentSectionComponent
+      :title="t('nossaHistoria.novaSede.titulo')"
+      :description="t('nossaHistoria.novaSede.descricao')"
+      :inverted="true"
     >
-      <div class="col-md">
-        <h2 class="title text-center mb-3 mb-md-4 font-weight-bold fs-3 fs-md-2">
-          {{ t('nossaHistoria.novaSede.titulo') }}
-        </h2>
-        <p class="text-muted text-center mb-4">
-          {{ t('nossaHistoria.novaSede.descricao') }}
-        </p>
+      <template #media>
         <Carousel
           :value="imagensNovaSede"
           :numVisible="1"
@@ -129,15 +92,11 @@ export default {
                   image: { class: 'w-100 h-100 object-fit-cover' },
                 }"
               />
-              <div class="carousel-caption">
-                <h3 class="carousel-title">{{ slotProps.data.title }}</h3>
-                <p class="carousel-description">{{ slotProps.data.description }}</p>
-              </div>
             </div>
           </template>
         </Carousel>
-      </div>
-    </section>
+      </template>
+    </ContentSectionComponent>
   </div>
 </template>
 <style scoped lang="scss">
@@ -145,30 +104,6 @@ export default {
 
 #nossa-historia {
   padding-top: $app-padding-top;
-}
-
-// Container responsivo
-.container-fluid {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-// Container do vídeo responsivo
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; // Aspect ratio 16:9
-  overflow: hidden;
-  border-radius: 8px;
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .nova-sede-carousel {
@@ -325,20 +260,10 @@ export default {
   .text-justify {
     text-align: left !important;
   }
-
-  .container-fluid {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
 }
 
 // Melhorias para dispositivos muito pequenos
 @media (max-width: 575px) {
-  .container-fluid {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-
   .carousel-item-container {
     height: 200px !important;
   }

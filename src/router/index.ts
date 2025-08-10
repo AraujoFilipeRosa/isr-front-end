@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { TRADUCOES, type IdiomaDisponivel } from '@/locales'
 
-/**
- * Detecta o idioma baseado no subdomínio da URL
- */
 const detectarIdiomaUrl = (): IdiomaDisponivel => {
   const hostname = window.location.hostname
 
@@ -13,10 +10,9 @@ const detectarIdiomaUrl = (): IdiomaDisponivel => {
     return 'pt-BR'
   }
 
-  return 'pt-BR' // Padrão
+  return 'pt-BR'
 }
 
-// Pega as traduções do idioma atual baseado na URL
 const idiomaAtual = detectarIdiomaUrl()
 const traducoes = TRADUCOES[idiomaAtual]
 
@@ -194,7 +190,6 @@ const MAIN_ROUTE = createRouter({
         },
       ],
     },
-    // Rota 404 - Página Não Encontrada
     {
       path: '/404',
       name: 'nao-encontrado',
@@ -204,19 +199,16 @@ const MAIN_ROUTE = createRouter({
         showInMenu: false,
       },
     },
-    // Captura todas as rotas não definidas e redireciona para 404
     {
       path: '/:pathMatch(.*)*',
       redirect: '/404',
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    // Se há uma posição salva (navegação com botão voltar/avançar), use ela
     if (savedPosition) {
       return savedPosition
     }
 
-    // Se navegando para o mesmo hash, role para o elemento
     if (to.hash) {
       return {
         el: to.hash,
@@ -224,7 +216,6 @@ const MAIN_ROUTE = createRouter({
       }
     }
 
-    // Para todas as outras navegações, role para o topo
     return {
       top: 0,
       behavior: 'smooth',

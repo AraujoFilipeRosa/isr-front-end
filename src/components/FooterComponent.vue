@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '@/composables/useI18n'
+import isrLogo from '@/assets/imagens/isr-logo.png'
 
 const { t } = useI18n()
 </script>
@@ -14,7 +15,7 @@ const { t } = useI18n()
           <router-link :to="{ name: 'home' }">
             <img
               class="img-fluid footer-logo"
-              src="@/assets/imagens/isr-logo.png"
+              :src="isrLogo"
               alt="Logo"
               width="95"
               loading="lazy"

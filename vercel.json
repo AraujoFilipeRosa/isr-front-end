@@ -2,6 +2,38 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
+      "source": "/imagens/(.*)",
+      "destination": "/imagens/$1"
+    },
+    {
+      "source": "/imagens/atividades/(.*)",
+      "destination": "/imagens/atividades/$1"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
+    },
+    {
+      "source": "/favicon-(.*).png",
+      "destination": "/favicon-$1.png"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/apple-touch-icon.png"
+    },
+    {
+      "source": "/android-chrome-(.*).png",
+      "destination": "/android-chrome-$1.png"
+    },
+    {
+      "source": "/site.webmanifest",
+      "destination": "/site.webmanifest"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

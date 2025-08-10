@@ -3,9 +3,20 @@ import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import CallToActionComponent from '@/components/CallToActionComponent.vue'
 
+import fatimaImg from '@/assets/imagens/profissionais/fatima.jpg'
+import fatimaAtendimento1 from '@/assets/imagens/atendimentos/fatima-atendimento-1.jpg'
+import fatimaAtendimento2 from '@/assets/imagens/atendimentos/fatima-atendimento-2.jpg'
+import fatimaAtendimento3 from '@/assets/imagens/atendimentos/fatima-atendimento-3.jpg'
+
 const { t } = useI18n()
 
-// Dados da equipe para proteção especial com ícones
+const imagensFatima = {
+  foto: fatimaImg,
+  atendimento1: fatimaAtendimento1,
+  atendimento2: fatimaAtendimento2,
+  atendimento3: fatimaAtendimento3,
+}
+
 const equipeProtecaoEspecial = [
   {
     chave: 'pauloCesar',
@@ -81,7 +92,6 @@ const equipeProtecaoEspecial = [
   },
 ]
 
-// Tipos de atividades com ícones
 const tiposAtividades = [
   {
     nome: t('atividades.protecaoBasica.tipos.palestras'),
@@ -104,38 +114,10 @@ const tiposAtividades = [
     cor: '#8b5cf6',
   },
 ]
-
-// Imagens das atividades destacadas
-// const imagensAtividades = [
-//   '03b1f2cc40fb969c518236f1e33a608c_fit.jpg',
-//   '051fe7630d8906d91530a395db7ce215_669.33333333333x502_fill.jpg',
-//   '14b3cfbf667fe4cb7d2e228e10966617_815.84158415842x412_fill.jpg',
-//   '1734697cb6621afdf63c64612156270b_669.33333333333x502_fill.jpg',
-//   '1a954106968eec70b8c9046aa6f220ab_671.57190635452x502_fill.jpg',
-//   '68f6c921e9c073a8f5bfa5aa3af56735_986x740_fit.jpg',
-//   '27471decc96cdf79b574e1094e9ed57a_669.33333333333x502_fill.jpg',
-//   '283ecdc24c1103bdf4718c6016e375b7_671.4315569488x502_fill.jpg',
-//   '2e77136a94a3efcda39c692317f33f6e_775.11111111111x436_fill.jpg',
-//   '35e749ab712abf277c98648215e446c9_671.57190635452x502_fill.jpg',
-//   '3e7273e0642ca1331ce54ba97bbda921_671.4315569488x502_fill.jpg',
-//   '4350b2fe963534f12287186135d8a121_671.57190635452x502_fill.jpg',
-//   '489dee25e959e4c5ce4908c4cb4186ab_fit.jpg',
-//   '4b90fcb261074714d310d3de4bea5f2f_fit.jpg',
-//   '4eba64d279d3b1e1b57cd48c24933373_671.57190635452x502_fill.jpg',
-//   '502562d9b46e32d47a8bda8c9d809b62_671.57190635452x502_fill.jpg',
-//   '5053912a21c78af4bdf066cc8971418c_648.73294346979x520_fill.jpg',
-//   '531511cf44327bb46ac174f718b9b658_671.4315569488x502_fill.jpg',
-//   '53895e8c81d88983f88e88b765b3a613_669.33333333333x502_fill.jpg',
-//   '57ee3e7b2b8d17f4408ce120d3e19cad_502x669.33333333333_fill.jpg',
-//   '59f17c512aadf66803acd89e5196f377_520x693.33333333333_fill.jpg',
-//   '5da1f134f94829def3079ae3d03a8992_671.57190635452x502_fill.jpg',
-//   '5fcffdf8b50fb501d772682e4ecd7b09_fit.jpg',
-// ].slice(0, 12) // Ampliando para 12 imagens para um mosaico mais rico
 </script>
 
 <template>
   <div id="atividades" class="container my-5">
-    <!-- Header Principal com Animação -->
     <section
       v-motion
       :initial="{ opacity: 0, y: 0 }"
@@ -152,7 +134,6 @@ const tiposAtividades = [
       </div>
     </section>
 
-    <!-- Organograma de Liderança - Fátima no topo -->
     <section
       v-motion
       :initial="{ opacity: 0, y: 0 }"
@@ -163,13 +144,12 @@ const tiposAtividades = [
     >
       <div class="col-12">
         <div class="organization-chart">
-          <!-- Coordenadora Principal -->
           <div class="coordinator-node">
             <div class="card border-0 shadow-lg coordinator-card">
               <div class="card-body text-center p-4">
                 <div class="position-relative mb-3">
                   <img
-                    :src="`/src/assets/imagens/atividades/fatima.jpg`"
+                    :src="imagensFatima.foto"
                     :alt="t('atividades.coordenacao.fatima.nome')"
                     class="coordinator-photo rounded-circle"
                   />
@@ -227,7 +207,6 @@ const tiposAtividades = [
           <p class="text-muted">Acompanhe o trabalho da nossa coordenadora junto às famílias</p>
         </div>
 
-        <!-- Grid das 3 Imagens -->
         <div class="fatima-gallery">
           <div
             v-for="imagemIndex in 3"
@@ -241,7 +220,7 @@ const tiposAtividades = [
           >
             <div class="image-container">
               <Image
-                :src="`/src/assets/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
+                :src="imagensFatima[`atendimento${imagemIndex}` as keyof typeof imagensFatima]"
                 :alt="`Fátima em atendimento ${imagemIndex}`"
                 class="gallery-image"
                 width="100%"
@@ -261,7 +240,6 @@ const tiposAtividades = [
       </div>
     </section>
 
-    <!-- Seção Proteção Social Especial - Layout Timeline -->
     <section
       v-motion
       :initial="{ opacity: 0, x: 0 }"
@@ -276,12 +254,9 @@ const tiposAtividades = [
           <p class="text-muted">{{ t('atividades.protecaoEspecial.descricao') }}</p>
         </div>
 
-        <!-- Organograma da Equipe -->
         <div class="team-organogram">
-          <!-- Linha Conectora Principal -->
           <div class="main-connector-line"></div>
 
-          <!-- Grid da Equipe -->
           <div class="team-grid">
             <div
               v-for="(membro, index) in equipeProtecaoEspecial"
@@ -293,15 +268,13 @@ const tiposAtividades = [
               :delay="50 + index * 100"
               class="team-node"
             >
-              <!-- Linha Conectora do Membro -->
               <div class="member-connector-line"></div>
 
-              <!-- Card do Membro -->
               <div class="card border-0 shadow team-member-card">
                 <div class="card-body p-3 text-center">
                   <div class="position-relative mb-3">
                     <img
-                      :src="`/src/assets/imagens/atividades/${membro.imagem}`"
+                      :src="`/imagens/atividades/${membro.imagem}`"
                       :alt="membro.nome"
                       class="member-photo rounded-circle"
                     />
@@ -320,7 +293,6 @@ const tiposAtividades = [
       </div>
     </section>
 
-    <!-- Seção Proteção Social Básica - Grid Moderno -->
     <section
       v-motion
       :initial="{ opacity: 0, x: 0 }"
@@ -338,12 +310,6 @@ const tiposAtividades = [
         </div>
       </div>
     </section>
-
-    <!-- Call to Action -->
-    <!-- <CallToActionComponent
-      title="Faça Parte da Nossa Equipe"
-      description="Junte-se a nós e contribua para transformar vidas através do nosso trabalho social especializado."
-    /> -->
   </div>
 </template>
 
@@ -354,12 +320,10 @@ const tiposAtividades = [
   padding-top: $app-padding-top;
 }
 
-// Header colorido
 .bg-custom-primary {
-  background: $nav-font-color;
+  background: $heading-section-color;
 }
 
-// ===== ORGANOGRAMA INOVADOR =====
 .organization-chart {
   display: flex;
   flex-direction: column;
@@ -479,7 +443,6 @@ const tiposAtividades = [
   }
 }
 
-// ===== GALERIA FÁTIMA EM AÇÃO =====
 .fatima-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -499,9 +462,6 @@ const tiposAtividades = [
   justify-content: center;
 }
 
-// Estilos de galeria agora estão centralizados em utilities.scss
-
-// ===== ORGANOGRAMA COM SETINHAS =====
 .team-organogram {
   position: relative;
   max-width: 1200px;
@@ -639,7 +599,6 @@ const tiposAtividades = [
   }
 }
 
-// ===== CARDS DE ATIVIDADES MODERNAS =====
 .activity-type-card {
   transition: all 0.3s ease;
   border-radius: 15px;
@@ -666,7 +625,6 @@ const tiposAtividades = [
   }
 }
 
-// ===== MOSAICO INOVADOR =====
 .activity-mosaic {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -699,7 +657,6 @@ const tiposAtividades = [
   border-radius: 15px;
   cursor: pointer;
 
-  // Criar variações interessantes no layout
   &.mosaic-item-1 {
     grid-column: span 2;
     grid-row: span 2;
@@ -779,7 +736,6 @@ const tiposAtividades = [
   }
 }
 
-// ===== RESPONSIVIDADE =====
 @media (max-width: 768px) {
   .coordinator-photo {
     width: 100px;
@@ -859,7 +815,6 @@ const tiposAtividades = [
   }
 }
 
-// Ajustes gerais
 .card {
   border-radius: 15px;
 }

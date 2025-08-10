@@ -1,28 +1,33 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
+import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
+import { Image } from 'primevue'
+
+import fatimaImg from '@/assets/imagens/profissionais/fatima.jpg'
+import fatimaAtendimento1 from '@/assets/imagens/atendimentos/fatima-atendimento-1.jpg'
+import fatimaAtendimento2 from '@/assets/imagens/atendimentos/fatima-atendimento-2.jpg'
+import fatimaAtendimento3 from '@/assets/imagens/atendimentos/fatima-atendimento-3.jpg'
 
 const { t } = useI18n()
+
+const imagensFatima = {
+  foto: fatimaImg,
+  atendimento1: fatimaAtendimento1,
+  atendimento2: fatimaAtendimento2,
+  atendimento3: fatimaAtendimento3,
+}
 </script>
 
 <template>
   <div id="atividades-container" class="container my-5">
     <!-- Header Principal com Animação -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
+    <HeaderSectionComponent
+      icon="pi-sitemap"
+      :title="t('atividades.titulo')"
+      :description="t('atividades.descricao')"
       :duration="1000"
-      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg"
-    >
-      <div class="col-12 text-center">
-        <i class="pi pi-sitemap display-1 mb-3" style="font-size: 3rem !important"></i>
-        <h1 class="display-4 font-weight-bold mb-4">{{ t('atividades.titulo') }}</h1>
-        <p class="lead text-center mx-auto" style="max-width: 800px">
-          Conheça nossa equipe e as atividades desenvolvidas no Instituto Severa Romana
-        </p>
-      </div>
-    </section>
+    />
 
     <!-- Organograma de Liderança - Fátima no topo -->
     <section
@@ -41,7 +46,7 @@ const { t } = useI18n()
               <div class="card-body text-center p-4">
                 <div class="position-relative mb-3">
                   <img
-                    :src="`/src/assets/imagens/atividades/fatima.jpg`"
+                    :src="imagensFatima.foto"
                     :alt="t('atividades.coordenacao.fatima.nome')"
                     class="coordinator-photo rounded-circle"
                   />
@@ -99,8 +104,10 @@ const { t } = useI18n()
     >
       <div class="col-12">
         <div class="text-center mb-4">
-          <h3 class="h4 font-weight-bold text-primary mb-2">Serviço Social em Ação</h3>
-          <p class="text-muted">Acompanhe o trabalho da nossa coordenadora junto às famílias</p>
+          <h2 class="title font-weight-bold mb-2">
+            {{ t('atividades.equipeAtendimentos.servicoSocial.titulo') }}
+          </h2>
+          <p class="text-muted">{{ t('atividades.equipeAtendimentos.servicoSocial.descricao') }}</p>
         </div>
 
         <!-- Grid das 3 Imagens -->
@@ -117,8 +124,8 @@ const { t } = useI18n()
           >
             <div>
               <Image
-                :src="`/src/assets/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
-                :alt="`Fátima em atendimento ${imagemIndex}`"
+                :src="`/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
+                :alt="`${t('atividades.equipeAtendimentos.servicoSocial.imagemAlt')} ${imagemIndex}`"
                 class="gallery-image"
                 width="100%"
                 height="auto"
@@ -154,12 +161,7 @@ const { t } = useI18n()
   padding-top: $app-padding-top;
 }
 
-// Header colorido
-.bg-custom-primary {
-  background: $nav-font-color;
-}
-
-// ===== ORGANOGRAMA INOVADOR =====
+// ===== ORGANOGRAMA =====
 .organization-chart {
   display: flex;
   flex-direction: column;
@@ -303,8 +305,6 @@ const { t } = useI18n()
   display: flex;
   justify-content: center;
 }
-
-// Estilos de galeria agora estão centralizados em utilities.scss
 
 // ===== RESPONSIVIDADE =====
 @media (max-width: 768px) {

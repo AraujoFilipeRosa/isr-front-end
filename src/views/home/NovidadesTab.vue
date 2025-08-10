@@ -196,7 +196,7 @@ import CardComponent from '@/components/CardComponent.vue'
 }
 
 .bg-custom-primary {
-  background: $nav-font-color;
+  background: $heading-section-color;
 }
 
 .news-highlight-card {

@@ -1,87 +1,67 @@
-/* color palette from <https://github.com/vuejs/theme> */
-
-// ===== VARIÁVEIS DE LAYOUT =====
 $app-padding-top: 110px;
 
-// ===== FONTES =====
 $app-font-family: 'Roboto', sans-serif;
 $app-nav-font-family: 'Pacifico', cursive;
 
-// ===== PALETA DE CORES PRINCIPAL =====
-// Cores primárias
 $primary-color: #d9e6fc;
 $bg-color: #eaefef;
 
-// Cores de navegação
-$nav-font-color: #2c6dad;
+$nav-font-color: #004487;
 $nav-font-color-light: #5c9fe2;
-$nav-font-color-hover: #112e66;
+$nav-font-color-hover: #191e28;
 $subnav-color: #c2d8ff;
 
-// Cores do footer
-$footer-font-color: #2c6dad;
+$heading-section-color: #2c6dad;
+
+$text-title-font-color: #2c6dad;
+
+$footer-font-color: #004487;
 $footer-color: #d9e6fc;
 
-// ===== PALETA DE CORES SECUNDÁRIA =====
-// Tons de cinza
 $gray-very-light: #f8f9fa;
 $gray-light: #e9ecef;
 $gray-medium: #dee2e6;
 $gray-dark: #6c757d;
-$gray-very-dark: #333;
+$gray-very-dark: #424242;
 
-// Cores de destaque
 $accent-blue-dark: #112e66;
 
-// ===== GRADIENTES =====
-// Gradientes de fundo
-$gradient-light: linear-gradient(135deg, $gray-very-light 0%, $gray-light 100%);
-$gradient-medium: linear-gradient(135deg, $gray-light 0%, $gray-medium 100%);
+$gradient-light: linear-gradient(822deg, $gray-very-light 0%, $gray-light 100%);
+$gradient-medium: linear-gradient(822deg, $gray-light 0%, $gray-medium 100%);
 
-// Gradientes de destaque
-$gradient-primary: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+$gradient-primary: linear-gradient(822deg, $nav-font-color, $nav-font-color-light);
 
-// ===== CORES SEMÂNTICAS =====
-// Cores para textos
 $text-primary: $nav-font-color;
-$text-secondary: $gray-dark;
+$text-secondary: $gray-very-dark;
 $text-muted: $gray-dark;
 
-// Cores para fundos
 $bg-primary: $primary-color;
 $bg-secondary: $gray-very-light;
 $bg-light: $gray-light;
 
-// Cores para bordas e sombras
 $border-light: rgba($nav-font-color, 0.1);
 $border-medium: rgba($nav-font-color, 0.3);
 $shadow-light: rgba(0, 0, 0, 0.05);
 $shadow-medium: rgba(0, 0, 0, 0.1);
 $shadow-dark: rgba(0, 0, 0, 0.15);
 
-// ===== SISTEMA DE BOTÕES =====
-// Tamanhos de botões
 $btn-padding-sm: 0.5rem 1rem;
 $btn-padding-md: 0.75rem 1.5rem;
 $btn-padding-lg: 1rem 2rem;
 $btn-padding-xl: 1.25rem 2.5rem;
 
-// Bordas de botões
 $btn-border-radius: 12px;
 $btn-border-radius-sm: 8px;
 $btn-border-radius-lg: 16px;
 
-// Fontes de botões
 $btn-font-weight: 600;
 $btn-font-size-sm: 0.875rem;
 $btn-font-size-md: 1rem;
 $btn-font-size-lg: 1.125rem;
 $btn-font-size-xl: 1.25rem;
 
-// Transições de botões
 $btn-transition: all 0.3s ease;
 
-// Cores de botões
 $btn-primary-bg: $nav-font-color;
 $btn-primary-color: white;
 $btn-primary-hover-bg: $nav-font-color-hover;
@@ -104,7 +84,8 @@ $btn-outline-light-border: white;
 $btn-outline-light-hover-bg: white;
 $btn-outline-light-hover-color: $nav-font-color;
 
-// Sombras de botões
 $btn-shadow: 0 4px 15px $shadow-medium;
 $btn-shadow-hover: 0 8px 25px $shadow-dark;
 $btn-shadow-light: 0 2px 8px $shadow-light;
+
+$text-info: #005060;

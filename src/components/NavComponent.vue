@@ -2,6 +2,8 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useNavigation } from '@/composables/useNavigation'
 
+import isrLogo from '@/assets/imagens/isr-logo.png'
+
 const isScrolled = ref(false)
 
 const handleScroll = () => {
@@ -27,8 +29,8 @@ const { menuItems, subMenuItems } = useNavigation()
   >
     <!-- <div class="row py-3">
 			<router-link class="col-md d-flex justify-content-center align-items-center gap-3" :to="{ name: 'home' }">
-				<img src="@/assets/imagens/isr-logo.png" alt="Logo" width="100">
-				<img src="@/assets/imagens/isr-logo-texto.png" alt="Logo" class="d-none d-md-block me-2" width="450">
+				        <img src="/imagens/isr-logo.png" alt="Logo" width="100">
+        <img src="/imagens/isr-logo-texto.png" alt="Logo" class="d-none d-md-block me-2" width="450">
 			</router-link>
 		</div> -->
     <Menubar
@@ -54,7 +56,7 @@ const { menuItems, subMenuItems } = useNavigation()
       <template #start>
         <router-link :to="{ name: 'home' }">
           <img
-            src="@/assets/imagens/isr-logo.png"
+            :src="isrLogo"
             alt="Logo"
             :width="isScrolled ? '60' : '80'"
             :class="{ 'logo-shrink': isScrolled }"

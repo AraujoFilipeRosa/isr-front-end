@@ -14,8 +14,6 @@ import Aura from '@primeuix/themes/aura'
 import App from './App.vue'
 import MAIN_ROUTE from './router'
 
-// import AnimateOnScroll from 'primevue/animateonscroll'
-
 const app = createApp(App)
 app.use(PrimeVue, {
   theme: {
@@ -42,9 +40,6 @@ app.use(PrimeVue, {
     },
   },
 })
-
-// app.directive('animateonscroll', AnimateOnScroll)
-
 app.use(createPinia())
 app.use(MAIN_ROUTE)
 app.use(MotionPlugin)

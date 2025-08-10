@@ -120,6 +120,15 @@ export default {
         descricao:
           'A sua contribuição financeira é fundamental para a manutenção dos nossos programas e serviços.',
         qrCode: 'Digitalize para doar',
+        banco: {
+          nome: 'CAIXA ECONÓMICA FEDERAL',
+          agencia: 'Agência',
+          conta: 'Conta',
+          pix: 'PIX',
+          cnpj: 'CNPJ 27003680000153',
+          agenciaNumero: '4147',
+          contaNumero: '003 2380-4',
+        },
       },
       produtos: {
         titulo: 'Doação de Produtos',
@@ -128,11 +137,24 @@ export default {
         categorias: {
           alimentos: 'Alimentos',
           limpeza: 'Limpeza',
+          higiene: 'Higiene',
         },
       },
       voluntario: {
         titulo: 'Seja Voluntário',
-        descricao: 'Contribua com o seu tempo e competências nos nossos programas e actividades.',
+        descricao:
+          'Com projectos bem estruturados, o seu tempo investido aqui vale muito para as nossas famílias e para o seu currículo.',
+        beneficios: {
+          experiencia: 'Experiência gratificante',
+          desenvolvimento: 'Desenvolvimento pessoal',
+          curriculo: 'Valorização do currículo',
+        },
+        estatisticas: {
+          voluntarios: 'Voluntários',
+          horasDoadas: 'Horas Doadas',
+          totalVoluntarios: '+50',
+          totalHoras: '1000h+',
+        },
       },
     },
 
@@ -187,14 +209,6 @@ export default {
         aviso: 'Portal externo — abre em nova aba',
       },
     },
-
-    callToAction: {
-      titulo: 'Transparência em Acção',
-      descricao:
-        'Conheça os nossos relatórios e documentos e saiba como contribuir para a nossa missão de transformar vidas.',
-      botaoPrimario: 'Como Ajudar',
-      botaoSecundario: 'Conheça a Nossa História',
-    },
   },
 
   // ======================
@@ -202,6 +216,7 @@ export default {
   // ======================
   atividades: {
     titulo: 'Actividades',
+    descricao: 'Conheça a nossa equipa e as actividades desenvolvidas no Instituto Severa Romana',
     coordenacao: {
       titulo: 'Coordenação Geral',
       fatima: {
@@ -214,6 +229,11 @@ export default {
     equipeAtendimentos: {
       titulo: 'Equipa e Atendimentos',
       descricao: 'Conheça a nossa equipa especializada e os atendimentos oferecidos',
+      servicoSocial: {
+        titulo: 'Serviço Social em Acção',
+        descricao: 'Acompanhe o trabalho da nossa coordenadora junto às famílias',
+        imagemAlt: 'Fátima em atendimento',
+      },
       profissionais: {
         pauloCesar: {
           nome: 'Paulo César',

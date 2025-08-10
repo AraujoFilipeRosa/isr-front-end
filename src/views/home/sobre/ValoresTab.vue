@@ -79,10 +79,11 @@ const { t } = useI18n()
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-star"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">Qualidade</h3>
+          <h3 class="card-title h5 font-weight-bold mb-3">
+            {{ t('valores.lista.qualidade.titulo') }}
+          </h3>
           <p class="card-text text-muted flex-grow-1">
-            Buscamos a excelência em tudo que fazemos, mantendo altos padrões de qualidade em nossos
-            serviços e atendimento.
+            {{ t('valores.lista.qualidade.descricao') }}
           </p>
         </CardComponent>
       </div>
@@ -92,10 +93,11 @@ const { t } = useI18n()
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-shield"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">Ética Profissional</h3>
+          <h3 class="card-title h5 font-weight-bold mb-3">
+            {{ t('valores.lista.eticaProfissional.titulo') }}
+          </h3>
           <p class="card-text text-muted flex-grow-1">
-            Agimos com respeito e transparência, mantendo a confiança de nossos usuários e
-            parceiros.
+            {{ t('valores.lista.eticaProfissional.descricao') }}
           </p>
         </CardComponent>
       </div>
@@ -105,10 +107,11 @@ const { t } = useI18n()
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-user"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">Individualidade</h3>
+          <h3 class="card-title h5 font-weight-bold mb-3">
+            {{ t('valores.lista.individualidade.titulo') }}
+          </h3>
           <p class="card-text text-muted flex-grow-1">
-            Respeitamos e valorizamos as particularidades de cada pessoa, reconhecendo que cada
-            indivíduo é único.
+            {{ t('valores.lista.individualidade.descricao') }}
           </p>
         </CardComponent>
       </div>
@@ -124,8 +127,8 @@ const { t } = useI18n()
       class="row my-5 py-5 bg-light rounded"
     >
       <div class="col-12 text-center mb-4">
-        <h2 class="title font-weight-bold">Como Aplicamos Nossos Valores</h2>
-        <p class="text-muted">Transformando princípios em ações concretas</p>
+        <h2 class="title font-weight-bold">{{ t('valores.aplicacao.titulo') }}</h2>
+        <p class="text-muted">{{ t('valores.aplicacao.descricao') }}</p>
       </div>
 
       <div class="col-md-6">
@@ -134,10 +137,11 @@ const { t } = useI18n()
             <i class="pi pi-heart"></i>
           </div>
           <div>
-            <h4 class="h6 font-weight-bold mb-2">Atendimento Humanizado</h4>
+            <h4 class="h6 font-weight-bold mb-2">
+              {{ t('valores.aplicacao.itens.atendimentoHumanizado.titulo') }}
+            </h4>
             <p class="text-muted small">
-              Cada criança, adolescente e jovem é tratado com respeito às suas individualidades,
-              desenvolvendo suas potencialidades de forma personalizada.
+              {{ t('valores.aplicacao.itens.atendimentoHumanizado.descricao') }}
             </p>
           </div>
         </div>
@@ -147,10 +151,11 @@ const { t } = useI18n()
             <i class="pi pi-globe"></i>
           </div>
           <div>
-            <h4 class="h6 font-weight-bold mb-2">Práticas Sustentáveis</h4>
+            <h4 class="h6 font-weight-bold mb-2">
+              {{ t('valores.aplicacao.itens.praticasSustentaveis.titulo') }}
+            </h4>
             <p class="text-muted small">
-              Implementamos programas de reciclagem e conscientização ambiental, contribuindo para
-              um futuro mais sustentável.
+              {{ t('valores.aplicacao.itens.praticasSustentaveis.descricao') }}
             </p>
           </div>
         </div>
@@ -162,10 +167,11 @@ const { t } = useI18n()
             <i class="pi pi-users"></i>
           </div>
           <div>
-            <h4 class="h6 font-weight-bold mb-2">Inclusão Social</h4>
+            <h4 class="h6 font-weight-bold mb-2">
+              {{ t('valores.aplicacao.itens.inclusaoSocial.titulo') }}
+            </h4>
             <p class="text-muted small">
-              Promovemos a igualdade de oportunidades, garantindo que pessoas com deficiência tenham
-              acesso a todos os direitos fundamentais.
+              {{ t('valores.aplicacao.itens.inclusaoSocial.descricao') }}
             </p>
           </div>
         </div>
@@ -175,10 +181,11 @@ const { t } = useI18n()
             <i class="pi pi-star"></i>
           </div>
           <div>
-            <h4 class="h6 font-weight-bold mb-2">Excelência em Serviços</h4>
+            <h4 class="h6 font-weight-bold mb-2">
+              {{ t('valores.aplicacao.itens.excelenciaServicos.titulo') }}
+            </h4>
             <p class="text-muted small">
-              Mantemos altos padrões de qualidade em nossos programas psicossociais e pedagógicos,
-              sempre buscando a melhor forma de atender nossos usuários.
+              {{ t('valores.aplicacao.itens.excelenciaServicos.descricao') }}
             </p>
           </div>
         </div>
@@ -187,8 +194,11 @@ const { t } = useI18n()
 
     <!-- Call to Action -->
     <CallToActionComponent
-      title="Viva Nossos Valores Conosco"
-      description="Junte-se a nós na construção de uma sociedade mais justa, solidária e inclusiva, baseada nos valores que nos guiam há mais de 50 anos."
+      :title="t('valores.callToAction.titulo')"
+      :description="t('valores.callToAction.descricao')"
+      secondaryButtonText="Faça parte"
+      secondaryButtonIcon="pi pi-envelope"
+      secondaryRoute="contato"
     />
   </div>
 </template>
@@ -201,7 +211,7 @@ const { t } = useI18n()
 }
 
 .bg-custom-primary {
-  background: $nav-font-color;
+  background: $heading-section-color;
 }
 
 .value-card {

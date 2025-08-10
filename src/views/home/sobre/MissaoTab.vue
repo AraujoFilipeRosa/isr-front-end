@@ -202,20 +202,15 @@ const { t } = useI18n()
     <CallToActionComponent
       title="Faça Parte da Nossa Missão"
       description="Junte-se a nós na transformação de vidas e na construção de uma sociedade mais inclusiva e solidária."
+      secondaryButtonText="Faça parte"
+      secondaryButtonIcon="pi pi-envelope"
+      secondaryRoute="contato"
     />
   </div>
 </template>
 
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
-
-// Estilos duplicados agora estão globais em utilities.scss
-
-.mission-card {
-  // Customizações específicas do card de missão podem ficar aqui se necessário
-}
-
-// Impact cards agora usam as classes globais card-custom e card-hover-light
 
 .bg-primary {
   background: #6c757d !important;

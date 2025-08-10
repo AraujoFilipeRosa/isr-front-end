@@ -8,7 +8,6 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
@@ -22,6 +21,16 @@ export default defineConfig({
   server: {
     port: 3001,
     host: '0.0.0.0',
+  },
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      },
+    },
   },
   resolve: {
     alias: {
