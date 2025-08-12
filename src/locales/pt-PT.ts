@@ -648,6 +648,16 @@ export default {
   },
 
   // ======================
+  // PARCEIROS
+  // ======================
+  parceiros: {
+    titulo: 'Os Nossos Parceiros',
+    descricao:
+      'Institutos, empresas e organizações que apoiam a nossa missão e contribuem para o desenvolvimento das nossas atividades.',
+    subtitulo: 'Juntos fazemos a diferença',
+  },
+
+  // ======================
   // ERROS E MENSAGENS
   // ======================
   erros: {

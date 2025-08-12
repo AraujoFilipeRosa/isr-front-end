@@ -3,10 +3,11 @@ import { ref } from 'vue'
 import { MotionDirective as motion } from '@vueuse/motion'
 import { Image } from 'primevue'
 import { useI18n } from '@/composables/useI18n'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
-import PdfViewerComponent from '@/components/PdfViewerComponent.vue'
-import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
+import ComponenteVisualizadorPdf from '@/components/ComponenteVisualizadorPdf.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 import CertificacaoCardComponent from '@/components/CertificacaoCardComponent.vue'
+import ParceirosComponent from '@/components/ParceirosComponent.vue'
 
 import cmdaRio from '@/assets/certificacoes/imagens/cmdca-rio.png'
 import cebasAssistenciaSocial from '@/assets/certificacoes/imagens/cebas-assistencia-social.png'
@@ -49,7 +50,7 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
 <template>
   <div id="transparencia" class="container my-5 page-container">
     <!-- Header Principal -->
-    <HeaderSectionComponent
+    <ComponenteSecaoCabecalho
       icon="pi-shield"
       :title="t('transparencia.titulo')"
       :description="t('transparencia.descricao')"
@@ -124,8 +125,11 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
       </div>
     </section>
 
+    <!-- Seção de Parceiros -->
+    <ParceirosComponent />
+
     <!-- PDF Viewer Component -->
-    <PdfViewerComponent
+    <ComponenteVisualizadorPdf
       v-model="pdfViewerVisible"
       :titulo="currentPdfTitle"
       :pdf-path="currentPdfPath"

@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import TitleSectionComponent from '@/components/TitleSectionComponent.vue'
-import ImageGalleryComponent from '@/components/ImageGalleryComponent.vue'
+import ComponenteSecaoTitulo from '@/components/ComponenteSecaoTitulo.vue'
+import ComponenteGaleriaImagens from '@/components/ComponenteGaleriaImagens.vue'
 import AtividadeCardComponent from '@/components/AtividadeCardComponent.vue'
 
 import atividadeExterna1 from '@/assets/imagens/atividades/atividade-externa-1.jpg'
@@ -141,7 +141,7 @@ const atividades = [
 <template>
   <div class="atividades-grupos">
     <!-- Header da Seção -->
-    <TitleSectionComponent
+    <ComponenteSecaoTitulo
       :titulo="t('atividades.atividadesGrupos.titulo')"
       :descricao="t('atividades.atividadesGrupos.descricao')"
     />
@@ -169,7 +169,7 @@ const atividades = [
     </section>
 
     <!-- Galeria de Imagens Modal -->
-    <ImageGalleryComponent
+    <ComponenteGaleriaImagens
       v-model="galeriaVisivel"
       :titulo="tituloGaleria"
       :imagens="imagensGaleria"

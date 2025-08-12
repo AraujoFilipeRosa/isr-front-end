@@ -2,8 +2,8 @@
 import { MotionDirective as motion } from '@vueuse/motion'
 import { ref, onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
-import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
-import DonationCardComponent from '@/components/DonationCardComponent.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
+import ComponenteCardDoacao from '@/components/ComponenteCardDoacao.vue'
 import doeQrCode from '@/assets/imagens/doe-qrcode.jpg'
 
 const { t } = useI18n()
@@ -40,7 +40,7 @@ onMounted(() => {
 <template>
   <div id="doe" class="container my-5 page-container">
     <!-- Header da Página -->
-    <HeaderSectionComponent
+    <ComponenteSecaoCabecalho
       icon="pi-heart"
       :title="t('doacoes.titulo')"
       :description="t('doacoes.descricao')"
@@ -106,7 +106,7 @@ onMounted(() => {
       class="row my-5"
     >
       <!-- Doação Financeira -->
-      <DonationCardComponent
+      <ComponenteCardDoacao
         :icon-class="'pi pi-credit-card'"
         :title="t('doacoes.formas.financeira.titulo')"
         :description="t('doacoes.formas.financeira.descricao')"
@@ -125,7 +125,7 @@ onMounted(() => {
       />
 
       <!-- Doação de Produtos -->
-      <DonationCardComponent
+      <ComponenteCardDoacao
         :icon-class="'pi pi-shopping-bag'"
         :title="t('doacoes.formas.produtos.titulo')"
         :description="t('doacoes.formas.produtos.descricao')"
@@ -149,7 +149,7 @@ onMounted(() => {
       />
 
       <!-- Voluntariado -->
-      <DonationCardComponent
+      <ComponenteCardDoacao
         :icon-class="'pi pi-users'"
         :title="t('doacoes.formas.voluntario.titulo')"
         :description="t('doacoes.formas.voluntario.descricao')"

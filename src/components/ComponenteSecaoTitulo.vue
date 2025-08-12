@@ -3,13 +3,18 @@
     <div class="col-md">
       <h1 class="title mb-4 text-center font-weight-bold">{{ titulo }}</h1>
 
-      <!-- Se um template personalizado for fornecido, use-o -->
+      <!-- Slot para descrição customizada -->
+      <template v-if="$slots.descricao">
+        <slot name="descricao" />
+      </template>
+
+      <!-- Slot para conteúdo customizado -->
       <template v-if="$slots.default">
         <slot />
       </template>
 
       <!-- Caso contrário, use a descrição padrão -->
-      <p v-else class="text-center text-muted text-justify">
+      <p v-else-if="descricao" class="text-center text-muted text-justify">
         {{ descricao }}
       </p>
 

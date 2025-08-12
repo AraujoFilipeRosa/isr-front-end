@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
-import CardComponent from '@/components/CardComponent.vue'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
+import ComponenteCard from '@/components/ComponenteCard.vue'
 </script>
 
 <template>
@@ -81,7 +81,7 @@ import CardComponent from '@/components/CardComponent.vue'
 
       <!-- WhatsApp -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="social">
+        <ComponenteCard variant="social">
           <div class="social-icon-large mb-3 flex-shrink-0 whatsapp">
             <i class="pi pi-whatsapp"></i>
           </div>
@@ -97,12 +97,12 @@ import CardComponent from '@/components/CardComponent.vue'
           >
             <i class="pi pi-whatsapp me-2"></i>Conversar
           </a>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <!-- Instagram -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="social">
+        <ComponenteCard variant="social">
           <div class="social-icon-large mb-3 flex-shrink-0 instagram">
             <i class="pi pi-instagram"></i>
           </div>
@@ -119,12 +119,12 @@ import CardComponent from '@/components/CardComponent.vue'
           >
             <i class="pi pi-instagram me-2"></i>Seguir
           </a>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <!-- Facebook -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="social">
+        <ComponenteCard variant="social">
           <div class="social-icon-large mb-3 flex-shrink-0 facebook">
             <i class="pi pi-facebook"></i>
           </div>
@@ -140,12 +140,12 @@ import CardComponent from '@/components/CardComponent.vue'
           >
             <i class="pi pi-facebook me-2"></i>Curtir
           </a>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <!-- YouTube -->
       <div class="col-lg-6 col-md-6 mb-4">
-        <CardComponent variant="social">
+        <ComponenteCard variant="social">
           <div class="social-icon-large mb-3 flex-shrink-0 youtube">
             <i class="pi pi-youtube"></i>
           </div>
@@ -161,12 +161,12 @@ import CardComponent from '@/components/CardComponent.vue'
           >
             <i class="pi pi-youtube me-2"></i>Inscrever-se
           </a>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <!-- TikTok -->
       <div class="col-lg-6 col-md-6 mb-4">
-        <CardComponent variant="social">
+        <ComponenteCard variant="social">
           <div class="social-icon-large mb-3 flex-shrink-0 tiktok">
             <i class="pi pi-tiktok"></i>
           </div>
@@ -182,7 +182,7 @@ import CardComponent from '@/components/CardComponent.vue'
           >
             <i class="pi pi-tiktok me-2"></i>Seguir
           </a>
-        </CardComponent>
+        </ComponenteCard>
       </div>
     </section>
   </div>

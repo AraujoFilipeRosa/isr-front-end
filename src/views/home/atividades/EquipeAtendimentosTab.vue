@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import ImageGalleryComponent from '@/components/ImageGalleryComponent.vue'
+import ComponenteGaleriaImagens from '@/components/ComponenteGaleriaImagens.vue'
 import ProfissionalCardComponent from '@/components/ProfissionalCardComponent.vue'
 
 import pauloCezarImg from '@/assets/imagens/profissionais/paulo-cezar.jpg'
@@ -202,7 +202,7 @@ const profissionais = [
     </section>
 
     <!-- Galeria de Imagens Modal -->
-    <ImageGalleryComponent
+    <ComponenteGaleriaImagens
       v-model="galeriaVisivel"
       :titulo="tituloGaleria"
       :imagens="imagensGaleria"

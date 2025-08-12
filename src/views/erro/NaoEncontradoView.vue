@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import CardComponent from '@/components/CardComponent.vue'
+import ComponenteCard from '@/components/ComponenteCard.vue'
 import isrLogo from '@/assets/imagens/isr-logo.png'
 
 const { t } = useI18n()
@@ -33,7 +33,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <CardComponent>
+        <ComponenteCard>
           <div class="mb-3 flex-shrink-0">
             <i class="pi pi-users display-4 text-primary"></i>
           </div>
@@ -46,11 +46,11 @@ const { t } = useI18n()
           <RouterLink to="/sobre" class="btn btn-primary mt-auto">
             <i class="pi pi-arrow-right me-2"></i>{{ t('erro404.sugestoes.botao') }}
           </RouterLink>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <CardComponent>
+        <ComponenteCard>
           <div class="mb-3 flex-shrink-0">
             <i class="pi pi-calendar display-4 text-success"></i>
           </div>
@@ -60,10 +60,10 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1 mb-4">
             {{ t('erro404.sugestoes.itens.atividades.descricao') }}
           </p>
-          <RouterLink to="/atividades" class="btn btn-success mt-auto">
+          <RouterLink to="/transparencia" class="btn btn-success mt-auto">
             <i class="pi pi-arrow-right me-2"></i>{{ t('erro404.sugestoes.botao') }}
           </RouterLink>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">

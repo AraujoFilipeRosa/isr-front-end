@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from '@/composables/useI18n'
-import TitleSectionComponent from '@/components/TitleSectionComponent.vue'
-import ContentSectionComponent from '@/components/ContentSectionComponent.vue'
+import ComponenteSecaoTitulo from '@/components/ComponenteSecaoTitulo.vue'
+import ComponenteSecaoConteudo from '@/components/ComponenteSecaoConteudo.vue'
 import albumImg1 from '@/assets/imagens/album-1.jpg'
 import albumImg2 from '@/assets/imagens/album-2.jpg'
 import albumImg3 from '@/assets/imagens/album-3.jpg'
@@ -45,7 +45,7 @@ export default {
 </script>
 <template>
   <div id="nossa-historia" class="container my-5">
-    <TitleSectionComponent :titulo="t('nossaHistoria.titulo')">
+    <ComponenteSecaoTitulo :titulo="t('nossaHistoria.titulo')">
       <p class="text-center text-secondary mb-3">
         {{ t('nossaHistoria.historia.paragrafos.fundacao') }}
       </p>
@@ -55,15 +55,15 @@ export default {
       <p class="text-center text-secondary">
         {{ t('nossaHistoria.historia.paragrafos.atualmente') }}
       </p>
-    </TitleSectionComponent>
+    </ComponenteSecaoTitulo>
 
-    <ContentSectionComponent
+    <ComponenteSecaoConteudo
       video-src="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
       :title="t('nossaHistoria.video.titulo')"
       :description="t('nossaHistoria.video.descricao')"
     />
 
-    <ContentSectionComponent
+    <ComponenteSecaoConteudo
       :title="t('nossaHistoria.novaSede.titulo')"
       :description="t('nossaHistoria.novaSede.descricao')"
       :inverted="true"
@@ -96,7 +96,7 @@ export default {
           </template>
         </Carousel>
       </template>
-    </ContentSectionComponent>
+    </ComponenteSecaoConteudo>
   </div>
 </template>
 <style scoped lang="scss">

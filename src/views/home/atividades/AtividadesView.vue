@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 import { Image } from 'primevue'
 
 import fatimaImg from '@/assets/imagens/profissionais/fatima.jpg'
@@ -22,7 +22,7 @@ const imagensFatima = {
 <template>
   <div id="atividades-container" class="container my-5">
     <!-- Header Principal com Animação -->
-    <HeaderSectionComponent
+    <ComponenteSecaoCabecalho
       icon="pi-sitemap"
       :title="t('atividades.titulo')"
       :description="t('atividades.descricao')"

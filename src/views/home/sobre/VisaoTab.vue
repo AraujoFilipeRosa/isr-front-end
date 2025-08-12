@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
-import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
-import CardComponent from '@/components/CardComponent.vue'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
+import ComponenteCard from '@/components/ComponenteCard.vue'
 
 const { t } = useI18n()
 </script>
@@ -11,7 +11,7 @@ const { t } = useI18n()
 <template>
   <div id="visao" class="container my-5">
     <!-- Header da Visão -->
-    <HeaderSectionComponent
+    <ComponenteSecaoCabecalho
       icon="pi-eye"
       :title="t('visao.titulo')"
       :description="t('visao.descricao')"
@@ -33,7 +33,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-6 mb-4">
-        <CardComponent variant="vision">
+        <ComponenteCard variant="vision">
           <div class="vision-icon mb-3">
             <i class="pi pi-star"></i>
           </div>
@@ -43,11 +43,11 @@ const { t } = useI18n()
           <p class="card-text text-muted">
             {{ t('visao.objetivos.excelencia.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-6 mb-4">
-        <CardComponent variant="vision">
+        <ComponenteCard variant="vision">
           <div class="vision-icon mb-3">
             <i class="pi pi-lightbulb"></i>
           </div>
@@ -57,11 +57,11 @@ const { t } = useI18n()
           <p class="card-text text-muted">
             {{ t('visao.objetivos.inovacao.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-6 mb-4">
-        <CardComponent variant="vision">
+        <ComponenteCard variant="vision">
           <div class="vision-icon mb-3">
             <i class="pi pi-globe"></i>
           </div>
@@ -71,11 +71,11 @@ const { t } = useI18n()
           <p class="card-text text-muted">
             {{ t('visao.objetivos.impacto.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-6 mb-4">
-        <CardComponent variant="vision">
+        <ComponenteCard variant="vision">
           <div class="vision-icon mb-3">
             <i class="pi pi-heart"></i>
           </div>
@@ -85,12 +85,12 @@ const { t } = useI18n()
           <p class="card-text text-muted">
             {{ t('visao.objetivos.sustentabilidade.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
     </section>
 
     <!-- Call to Action -->
-    <CallToActionComponent
+    <ComponenteChamadaAcao
       title="Faça Parte da Nossa Visão"
       description="Junte-se a nós na construção de um futuro mais inclusivo e solidário para todas as crianças, adolescentes e jovens do Rio de Janeiro."
       secondaryButtonText="Entre em Contato"

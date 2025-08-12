@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
-import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
-import CardComponent from '@/components/CardComponent.vue'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
+import ComponenteCard from '@/components/ComponenteCard.vue'
 
 const { t } = useI18n()
 </script>
@@ -11,7 +11,7 @@ const { t } = useI18n()
 <template>
   <div id="valores" class="container my-5">
     <!-- Header dos Valores -->
-    <HeaderSectionComponent
+    <ComponenteSecaoCabecalho
       icon="pi-heart"
       :title="t('valores.titulo')"
       :description="t('valores.descricao')"
@@ -33,7 +33,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="value">
+        <ComponenteCard variant="value">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-heart"></i>
           </div>
@@ -43,11 +43,11 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1">
             {{ t('valores.lista.empatia.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="value">
+        <ComponenteCard variant="value">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-globe"></i>
           </div>
@@ -57,11 +57,11 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1">
             {{ t('valores.lista.sustentabilidade.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="value">
+        <ComponenteCard variant="value">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-users"></i>
           </div>
@@ -71,11 +71,11 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1">
             {{ t('valores.lista.equidade.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="value">
+        <ComponenteCard variant="value">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-star"></i>
           </div>
@@ -85,11 +85,11 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1">
             {{ t('valores.lista.qualidade.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="value">
+        <ComponenteCard variant="value">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-shield"></i>
           </div>
@@ -99,11 +99,11 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1">
             {{ t('valores.lista.eticaProfissional.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <CardComponent variant="value">
+        <ComponenteCard variant="value">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-user"></i>
           </div>
@@ -113,7 +113,7 @@ const { t } = useI18n()
           <p class="card-text text-muted flex-grow-1">
             {{ t('valores.lista.individualidade.descricao') }}
           </p>
-        </CardComponent>
+        </ComponenteCard>
       </div>
     </section>
 
@@ -193,7 +193,7 @@ const { t } = useI18n()
     </section>
 
     <!-- Call to Action -->
-    <CallToActionComponent
+    <ComponenteChamadaAcao
       :title="t('valores.callToAction.titulo')"
       :description="t('valores.callToAction.descricao')"
       secondaryButtonText="Faça parte"

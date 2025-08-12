@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
 
 import fatimaImg from '@/assets/imagens/profissionais/fatima.jpg'
 import fatimaAtendimento1 from '@/assets/imagens/atendimentos/fatima-atendimento-1.jpg'

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MotionDirective as motion } from '@vueuse/motion'
-import CallToActionComponent from '@/components/CallToActionComponent.vue'
-import HeaderSectionComponent from '@/components/HeaderSectionComponent.vue'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 import { useI18n } from '@/composables/useI18n'
 
 const { t } = useI18n()
@@ -10,7 +10,7 @@ const { t } = useI18n()
 <template>
   <div id="missao" class="container my-5 page-container">
     <!-- Header da Missão -->
-    <HeaderSectionComponent
+    <ComponenteSecaoCabecalho
       icon="pi-bullseye"
       :title="t('sobre.missao.titulo')"
       :description="t('sobre.missao.descricao')"
@@ -199,7 +199,7 @@ const { t } = useI18n()
     </section>
 
     <!-- Call to Action -->
-    <CallToActionComponent
+    <ComponenteChamadaAcao
       title="Faça Parte da Nossa Missão"
       description="Junte-se a nós na transformação de vidas e na construção de uma sociedade mais inclusiva e solidária."
       secondaryButtonText="Faça parte"

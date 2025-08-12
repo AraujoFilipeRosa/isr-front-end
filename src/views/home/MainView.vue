@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import NavComponent from '@/components/NavComponent.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
+import ComponenteNavegacao from '@/components/ComponenteNavegacao.vue'
+import ComponenteRodape from '@/components/ComponenteRodape.vue'
 </script>
 
 <template>
-  <NavComponent></NavComponent>
+  <ComponenteNavegacao></ComponenteNavegacao>
   <router-view />
-  <FooterComponent />
+  <ComponenteRodape />
 </template>
 
 <style scoped></style>
