@@ -19,7 +19,7 @@ onUnmounted(() => {
 })
 
 // Usar navegação dinâmica baseada nas rotas
-const { menuItems, subMenuItems } = useNavigation()
+const { itensMenu, itensSubMenu } = useNavigation()
 </script>
 <template>
   <div
@@ -34,7 +34,7 @@ const { menuItems, subMenuItems } = useNavigation()
 			</router-link>
 		</div> -->
     <Menubar
-      :model="menuItems"
+      :model="itensMenu"
       :pt="{
         root: { class: 'border-0 rounded-0 custom-menubar-nav justify-content-center' },
         rootList: { class: 'custom-navbar-root-list' },

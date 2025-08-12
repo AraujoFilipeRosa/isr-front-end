@@ -3,10 +3,10 @@ import { RouterView } from 'vue-router'
 import { useRouteMeta } from '@/composables/useRouteMeta'
 import { watch } from 'vue'
 
-const { pageTitle, pageDescription } = useRouteMeta()
+const { tituloPagina, descricaoPagina } = useRouteMeta()
 
 watch(
-  pageTitle,
+  tituloPagina,
   (newTitle) => {
     document.title = `${newTitle} - Instituto Severa Romana`
   },
@@ -14,7 +14,7 @@ watch(
 )
 
 watch(
-  pageDescription,
+  descricaoPagina,
   (newDescription) => {
     let metaDescription = document.querySelector('meta[name="description"]')
     if (!metaDescription) {

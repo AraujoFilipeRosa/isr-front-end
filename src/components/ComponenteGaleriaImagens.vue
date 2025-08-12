@@ -21,18 +21,18 @@ const emit = defineEmits<{
 }>()
 
 // Estado local
-const imagemAtual = ref(0)
-const isLoading = ref(false)
+const indiceImagemAtual = ref(0)
+const carregando = ref(false)
 const erro = ref<string | null>(null)
 
 // Computed
-const isVisible = computed({
+const visivel = computed({
   get: () => props.modelValue,
   set: (value: boolean) => emit('update:modelValue', value),
 })
 
-const imagemAtualUrl = computed(() => {
-  return props.imagens[imagemAtual.value] || ''
+const urlImagemAtual = computed(() => {
+  return props.imagens[indiceImagemAtual.value] || ''
 })
 
 const temMultiplasImagens = computed(() => props.imagens.length > 1)
@@ -42,60 +42,60 @@ watch(
   () => props.imagemInicial,
   (novoIndice) => {
     if (novoIndice >= 0 && novoIndice < props.imagens.length) {
-      imagemAtual.value = novoIndice
+      indiceImagemAtual.value = novoIndice
     }
   },
 )
 
-watch(isVisible, (visivel) => {
+watch(visivel, (visivel) => {
   if (visivel) {
-    imagemAtual.value = props.imagemInicial
+    indiceImagemAtual.value = props.imagemInicial
     erro.value = null
   }
 })
 
 // Funções
 const proximaImagem = () => {
-  if (imagemAtual.value < props.imagens.length - 1) {
-    imagemAtual.value++
+  if (indiceImagemAtual.value < props.imagens.length - 1) {
+    indiceImagemAtual.value++
   } else {
-    imagemAtual.value = 0 // Loop para a primeira
+    indiceImagemAtual.value = 0 // Loop para a primeira
   }
 }
 
 const imagemAnterior = () => {
-  if (imagemAtual.value > 0) {
-    imagemAtual.value--
+  if (indiceImagemAtual.value > 0) {
+    indiceImagemAtual.value--
   } else {
-    imagemAtual.value = props.imagens.length - 1 // Loop para a última
+    indiceImagemAtual.value = props.imagens.length - 1 // Loop para a última
   }
 }
 
 const irParaImagem = (indice: number) => {
   if (indice >= 0 && indice < props.imagens.length) {
-    imagemAtual.value = indice
+    indiceImagemAtual.value = indice
   }
 }
 
-const onImageLoad = () => {
-  isLoading.value = false
+const aoCarregarImagem = () => {
+  carregando.value = false
   erro.value = null
 }
 
-const onImageError = () => {
-  isLoading.value = false
+const aoErroImagem = () => {
+  carregando.value = false
   erro.value = 'Erro ao carregar a imagem'
 }
 
 const fecharDialog = () => {
-  isVisible.value = false
-  imagemAtual.value = 0
+  visivel.value = false
+  indiceImagemAtual.value = 0
   erro.value = null
 }
 
 // Navegação por teclado
-const onKeydown = (event: KeyboardEvent) => {
-  if (!isVisible.value) return
+const aoTeclaPressionada = (event: KeyboardEvent) => {
+  if (!visivel.value) return
 
   switch (event.key) {
     case 'ArrowLeft':
@@ -114,18 +114,18 @@ const onKeydown = (event: KeyboardEvent) => {
 }
 
 // Event listeners
-watch(isVisible, (visivel) => {
+watch(visivel, (visivel) => {
   if (visivel) {
-    document.addEventListener('keydown', onKeydown)
+    document.addEventListener('keydown', aoTeclaPressionada)
   } else {
-    document.removeEventListener('keydown', onKeydown)
+    document.removeEventListener('keydown', aoTeclaPressionada)
   }
 })
 </script>
 
 <template>
   <Dialog
-    v-model:visible="isVisible"
+    v-model:visible="visivel"
     :header="titulo"
     modal
     maximizable
@@ -138,7 +138,7 @@ watch(isVisible, (visivel) => {
         <i class="pi pi-images text-primary"></i>
         <span class="font-weight-bold">{{ titulo }}</span>
         <span v-if="temMultiplasImagens" class="badge badge-secondary ms-2">
-          {{ imagemAtual + 1 }} / {{ imagens.length }}
+          {{ indiceImagemAtual + 1 }} / {{ imagens.length }}
         </span>
       </div>
     </template>
@@ -152,7 +152,7 @@ watch(isVisible, (visivel) => {
         <div v-if="temMultiplasImagens" class="image-controls d-flex align-items-center">
           <button
             @click="imagemAnterior"
-            :disabled="imagemAtual <= 0"
+            :disabled="indiceImagemAtual <= 0"
             class="control-btn"
             :title="'Imagem anterior (←)'"
           >
@@ -162,7 +162,7 @@ watch(isVisible, (visivel) => {
           <div class="image-info">
             <input
               type="number"
-              :value="imagemAtual + 1"
+              :value="indiceImagemAtual + 1"
               :min="1"
               :max="imagens.length"
               @input="irParaImagem(parseInt(($event.target as HTMLInputElement).value) - 1)"
@@ -173,7 +173,7 @@ watch(isVisible, (visivel) => {
 
           <button
             @click="proximaImagem"
-            :disabled="imagemAtual >= imagens.length - 1"
+            :disabled="indiceImagemAtual >= imagens.length - 1"
             class="control-btn"
             :title="'Próxima imagem (→)'"
           >
@@ -183,7 +183,7 @@ watch(isVisible, (visivel) => {
       </div>
 
       <!-- Loading -->
-      <div v-if="isLoading" class="flex-grow-1 d-flex align-items-center justify-content-center">
+      <div v-if="carregando" class="flex-grow-1 d-flex align-items-center justify-content-center">
         <div class="text-center">
           <i class="pi pi-spin pi-spinner text-primary" style="font-size: 2rem"></i>
           <p class="mt-3 text-muted">Carregando imagem...</p>
@@ -211,13 +211,13 @@ watch(isVisible, (visivel) => {
             :initial="{ opacity: 0, scale: 0.9 }"
             :visible="{ opacity: 1, scale: 1 }"
             :duration="300"
-            :key="`img-${imagemAtual}`"
-            :src="imagemAtualUrl"
-            :alt="`${titulo} - Imagem ${imagemAtual + 1}`"
+            :key="`img-${indiceImagemAtual}`"
+            :src="urlImagemAtual"
+            :alt="`${titulo} - Imagem ${indiceImagemAtual + 1}`"
             class="gallery-image"
             loading="lazy"
-            @load="onImageLoad"
-            @error="onImageError"
+            @load="aoCarregarImagem"
+            @error="aoErroImagem"
           />
         </div>
       </div>
@@ -233,7 +233,7 @@ watch(isVisible, (visivel) => {
             :key="`thumb-${index}`"
             @click="irParaImagem(index)"
             class="thumbnail"
-            :class="{ active: index === imagemAtual }"
+            :class="{ active: index === indiceImagemAtual }"
           >
             <Image
               :src="imagem"

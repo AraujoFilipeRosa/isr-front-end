@@ -22,42 +22,42 @@ export interface RouteMeta {
  * Composable para trabalhar com metadados das rotas
  */
 export function useRouteMeta() {
-  const route = useRoute()
+  const rota = useRoute()
 
   /**
    * Metadados da rota atual
    */
-  const currentMeta = computed((): RouteMeta => {
-    return route.meta as RouteMeta
+  const metadadosAtuais = computed((): RouteMeta => {
+    return rota.meta as RouteMeta
   })
 
   /**
    * Título da página atual
    */
-  const pageTitle = computed((): string => {
-    return currentMeta.value?.title || 'ISR'
+  const tituloPagina = computed((): string => {
+    return metadadosAtuais.value?.title || 'ISR'
   })
 
   /**
    * Ícone da página atual
    */
-  const pageIcon = computed((): string | undefined => {
-    return currentMeta.value?.icon
+  const iconePagina = computed((): string | undefined => {
+    return metadadosAtuais.value?.icon
   })
 
   /**
    * Verifica se a página atual deve aparecer no menu
    */
-  const showInMenu = computed((): boolean => {
-    return currentMeta.value?.showInMenu || false
+  const mostrarNoMenu = computed((): boolean => {
+    return metadadosAtuais.value?.showInMenu || false
   })
 
   /**
    * Descrição da página para SEO
    */
-  const pageDescription = computed((): string => {
+  const descricaoPagina = computed((): string => {
     return (
-      currentMeta.value?.description ||
+      metadadosAtuais.value?.description ||
       'Instituto Severa Romana - Transformando vidas através da educação e ação social.'
     )
   })
@@ -65,34 +65,34 @@ export function useRouteMeta() {
   /**
    * Palavras-chave para SEO
    */
-  const pageKeywords = computed((): string[] => {
+  const palavrasChavePagina = computed((): string[] => {
     return (
-      currentMeta.value?.keywords || ['ISR', 'Instituto', 'Severa Romana', 'educação', 'social']
+      metadadosAtuais.value?.keywords || ['ISR', 'Instituto', 'Severa Romana', 'educação', 'social']
     )
   })
 
   /**
    * Verifica se a rota requer autenticação
    */
-  const requiresAuth = computed((): boolean => {
-    return currentMeta.value?.requiresAuth || false
+  const requerAutenticacao = computed((): boolean => {
+    return metadadosAtuais.value?.requiresAuth || false
   })
 
   /**
    * Roles necessárias para acessar a rota
    */
-  const requiredRoles = computed((): string[] => {
-    return currentMeta.value?.roles || []
+  const rolesNecessarias = computed((): string[] => {
+    return metadadosAtuais.value?.roles || []
   })
 
   return {
-    currentMeta,
-    pageTitle,
-    pageIcon,
-    showInMenu,
-    pageDescription,
-    pageKeywords,
-    requiresAuth,
-    requiredRoles,
+    metadadosAtuais,
+    tituloPagina,
+    iconePagina,
+    mostrarNoMenu,
+    descricaoPagina,
+    palavrasChavePagina,
+    requerAutenticacao,
+    rolesNecessarias,
   }
 }

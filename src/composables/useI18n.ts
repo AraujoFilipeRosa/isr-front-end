@@ -20,7 +20,7 @@ export function useI18n() {
     return TRADUCOES[idiomaAtual.value]
   })
 
-  const getText = (chave: string, parametros?: Record<string, string | number>): string => {
+  const obterTexto = (chave: string, parametros?: Record<string, string | number>): string => {
     const chaves = chave.split('.')
     let valor: any = textos.value
 
@@ -39,17 +39,17 @@ export function useI18n() {
     }
 
     if (parametros) {
-      return valor.replace(/\{(\w+)\}/g, (match, param) => {
-        return parametros[param]?.toString() || match
+      return valor.replace(/\{(\w+)\}/g, (match, parametro) => {
+        return parametros[parametro]?.toString() || match
       })
     }
 
     return valor
   }
 
-  const t = getText
+  const t = obterTexto
 
-  const getSection = <T = any>(secao: string): T => {
+  const obterSecao = <T = any>(secao: string): T => {
     const chaves = secao.split('.')
     let valor: any = textos.value
 
@@ -67,7 +67,7 @@ export function useI18n() {
 
   const definirIdioma = (novoIdioma: IdiomaDisponivel): void => {
     if (novoIdioma in TRADUCOES) {
-      const currentUrl = window.location
+      const urlAtual = window.location
       let novoSubdominio = ''
 
       if (novoIdioma === 'pt-PT') {
@@ -76,7 +76,7 @@ export function useI18n() {
         novoSubdominio = 'br.'
       }
 
-      const novaUrl = `${currentUrl.protocol}//${novoSubdominio}${currentUrl.hostname.replace(/^(pt\.|br\.)/, '')}${currentUrl.port ? ':' + currentUrl.port : ''}${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`
+      const novaUrl = `${urlAtual.protocol}//${novoSubdominio}${urlAtual.hostname.replace(/^(pt\.|br\.)/, '')}${urlAtual.port ? ':' + urlAtual.port : ''}${urlAtual.pathname}${urlAtual.search}${urlAtual.hash}`
 
       window.location.href = novaUrl
     } else {
@@ -111,9 +111,9 @@ export function useI18n() {
     textos,
     idiomaAtual: computed(() => idiomaAtual.value),
 
-    getText,
+    obterTexto,
     t,
-    getSection,
+    obterSecao,
 
     definirIdioma,
     obterIdiomaAtual,
