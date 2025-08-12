@@ -116,49 +116,39 @@ const parceiros = [
 <template>
   <section
     v-motion
-    :initial="{ opacity: 0, y: 0 }"
+    :initial="{ opacity: 0, y: 20 }"
     :visible="{ opacity: 1, y: 0 }"
-    :duration="800"
-    :delay="50"
-    class="my-4"
+    :duration="1000"
+    :delay="100"
+    class="parceiros-section"
   >
     <ComponenteSecaoTitulo :titulo="t('parceiros.titulo')">
       <template #descricao>
-        <div class="text-center mb-3">
-          <p class="text-muted mb-1">
+        <div class="text-center mb-4">
+          <p class="parceiros-descricao">
             {{ t('parceiros.descricao') }}
           </p>
-          <p class="text-muted small">
+          <p class="parceiros-subtitulo">
             {{ t('parceiros.subtitulo') }}
           </p>
         </div>
       </template>
     </ComponenteSecaoTitulo>
 
-    <div class="row justify-content-center">
-      <div
-        v-for="(parceiro, index) in parceiros"
-        :key="index"
-        class="col-lg-2 col-md-3 col-sm-4 col-6 mb-3"
-      >
+    <div class="parceiros-grid">
+      <div v-for="(parceiro, index) in parceiros" :key="index" class="parceiro-item">
         <div
           v-motion
-          :initial="{ opacity: 0, scale: 0.9 }"
-          :visible="{ opacity: 1, scale: 1 }"
-          :duration="500"
-          :delay="50 + index * 30"
-          class="card h-100 card-custom card-hover-subtle text-center"
+          :initial="{ opacity: 0, scale: 0.8, y: 20 }"
+          :visible="{ opacity: 1, scale: 1, y: 0 }"
+          :duration="600"
+          :delay="150 + index * 50"
+          class="parceiro-card"
         >
-          <div class="card-body p-2 d-flex align-items-center justify-content-center">
-            <div class="parceiro-logo-container">
-              <img
-                :src="parceiro.imagem"
-                :alt="parceiro.alt"
-                class="img-fluid parceiro-logo"
-                loading="lazy"
-              />
-            </div>
+          <div class="parceiro-logo-wrapper">
+            <img :src="parceiro.imagem" :alt="parceiro.alt" class="parceiro-logo" loading="lazy" />
           </div>
+          <div class="parceiro-nome">{{ parceiro.nome }}</div>
         </div>
       </div>
     </div>
@@ -168,51 +158,237 @@ const parceiros = [
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
-.card-custom {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  background: white;
+.parceiros-section {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+  border-radius: 20px;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 123, 255, 0.1) 50%,
+      transparent 100%
+    );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 123, 255, 0.1) 50%,
+      transparent 100%
+    );
   }
 }
 
-.card-hover-subtle:hover {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+.parceiros-descricao {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
-.parceiro-logo-container {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.parceiros-subtitulo {
+  font-size: 0.9rem;
+  color: #adb5bd;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.parceiros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.parceiro-item {
+  display: flex;
+  justify-content: center;
+}
+
+.parceiro-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 160px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff, #6610f2, #007bff);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.08),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 123, 255, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .parceiro-logo-wrapper {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+    }
+
+    .parceiro-logo {
+      filter: grayscale(0%) brightness(1.1);
+    }
+
+    .parceiro-nome {
+      color: #007bff;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.parceiro-logo-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 
-  &:hover {
-    border-color: var(--bs-primary);
-    transform: scale(1.03);
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: transform 0.6s ease;
+  }
+
+  &:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
   }
 }
 
 .parceiro-logo {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
-  padding: 6px;
-  filter: grayscale(100%);
-  transition: filter 0.2s ease;
+  filter: grayscale(40%) brightness(0.9);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  position: relative;
+}
 
-  &:hover {
-    filter: grayscale(0%);
+.parceiro-nome {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 500;
+  margin: 0;
+  transition: all 0.3s ease;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .parceiros-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .parceiro-card {
+    padding: 1rem 0.75rem;
+    max-width: 140px;
+  }
+
+  .parceiro-logo-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .parceiro-nome {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .parceiros-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .parceiro-card {
+    padding: 0.75rem 0.5rem;
+    max-width: 120px;
+  }
+
+  .parceiro-logo-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .parceiro-nome {
+    font-size: 0.7rem;
   }
 }
 </style>
