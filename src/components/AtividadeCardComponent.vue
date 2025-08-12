@@ -10,9 +10,9 @@ interface Atividade {
 
 interface Props {
   atividade: Atividade
-  index: number
-  getImagemAtividade: (chave: string, index: number) => string
-  getQuantidadeImagensAtividade: (chave: string) => number
+  indice: number
+  obterImagemAtividade: (chave: string, indice: number) => string
+  obterQuantidadeImagensAtividade: (chave: string) => number
   abrirGaleria: (atividade: Atividade, imagemClicada: number) => void
 }
 
@@ -26,7 +26,7 @@ const { t } = useI18n()
     :initial="{ opacity: 0, y: 0 }"
     :visible="{ opacity: 1, y: 0 }"
     :duration="600"
-    :delay="index * 50"
+    :delay="indice * 50"
     class="atividade-card-container"
   >
     <div class="card border-0 shadow atividade-card h-100">
@@ -52,16 +52,18 @@ const { t } = useI18n()
 
         <!-- Galeria de Imagens da Atividade -->
         <div class="atividade-galeria flex-grow-1 d-flex flex-column">
-          <h6 class="font-weight-bold mb-3 text-primary">Galeria de Fotos</h6>
+          <h6 class="font-weight-bold mb-3 text-primary">
+            {{ t('componentes.atividadeCard.galeriaFotos') }}
+          </h6>
           <div
             class="imagens-grid"
             :class="{
-              'grid-single': getQuantidadeImagensAtividade(atividade.chave) === 1,
-              'grid-multiple': getQuantidadeImagensAtividade(atividade.chave) > 1,
+              'grid-single': obterQuantidadeImagensAtividade(atividade.chave) === 1,
+              'grid-multiple': obterQuantidadeImagensAtividade(atividade.chave) > 1,
             }"
           >
             <div
-              v-for="imgIndex in getQuantidadeImagensAtividade(atividade.chave)"
+              v-for="imgIndex in obterQuantidadeImagensAtividade(atividade.chave)"
               :key="`${atividade.chave}-${imgIndex}`"
               v-motion
               :initial="{ opacity: 0, scale: 0.9 }"
@@ -72,7 +74,7 @@ const { t } = useI18n()
               @click="abrirGaleria(atividade, imgIndex - 1)"
             >
               <img
-                :src="getImagemAtividade(atividade.chave, imgIndex)"
+                :src="obterImagemAtividade(atividade.chave, imgIndex)"
                 :alt="`${t(`atividades.atividadesGrupos.atividades.${atividade.chave}.titulo`)} ${imgIndex}`"
                 class="atividade-imagem"
                 loading="lazy"

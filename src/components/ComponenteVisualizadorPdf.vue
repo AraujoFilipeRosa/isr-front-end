@@ -2,11 +2,12 @@
 import { ref, computed } from 'vue'
 import { Dialog } from 'primevue'
 import VuePdfEmbed from 'vue-pdf-embed'
+import { useI18n } from '@/composables/useI18n'
 
 // Props
 interface Props {
   titulo: string
-  pdfPath: string
+  caminhoPdf: string
   modelValue: boolean
 }
 
@@ -17,24 +18,26 @@ const emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
 
+const { t } = useI18n()
+
 // Estado local
-const isLoading = ref(false)
-const currentPage = ref(1)
-const totalPages = ref(0)
+const carregando = ref(false)
+const paginaAtual = ref(1)
+const totalPaginas = ref(0)
 const erro = ref<string | null>(null)
-const scale = ref(2.5)
-const pdfKey = ref(0) // Chave para forçar re-render do PDF
+const escala = ref(2.5)
+const chavePdf = ref(0) // Chave para forçar re-render do PDF
 
 // Computed
-const isVisible = computed({
+const visivel = computed({
   get: () => props.modelValue,
   set: (value: boolean) => emit('update:modelValue', value),
 })
 
 // Funções
-const onLoad = (data: any) => {
-  isLoading.value = false
-  totalPages.value = data.numPages
+const aoCarregar = (data: any) => {
+  carregando.value = false
+  totalPaginas.value = data.numPages
   erro.value = null
 
   // Força visibilidade após carregamento
@@ -47,52 +50,52 @@ const onLoad = (data: any) => {
   }, 100)
 }
 
-const onError = (error: any) => {
-  isLoading.value = false
-  erro.value = 'Erro ao carregar o PDF. Verifique se o arquivo existe.'
+const aoErro = (error: any) => {
+  carregando.value = false
+  erro.value = t('componentes.visualizadorPdf.erroCarregar')
   console.error('Erro ao carregar PDF:', error)
 
   // Reset do componente em caso de erro
-  pdfKey.value++
+  chavePdf.value++
 }
 
-const onPageChange = (newPage: number) => {
-  if (newPage >= 1 && newPage <= totalPages.value) {
-    currentPage.value = newPage
+const aoMudarPagina = (novaPagina: number) => {
+  if (novaPagina >= 1 && novaPagina <= totalPaginas.value) {
+    paginaAtual.value = novaPagina
   }
 }
 
 const proximaPagina = () => {
-  if (currentPage.value < totalPages.value) {
-    currentPage.value++
+  if (paginaAtual.value < totalPaginas.value) {
+    paginaAtual.value++
   }
 }
 
 const paginaAnterior = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--
+  if (paginaAtual.value > 1) {
+    paginaAtual.value--
   }
 }
 
 const aumentarZoom = () => {
-  if (scale.value < 3) {
-    scale.value = Math.round((scale.value + 0.25) * 100) / 100
+  if (escala.value < 3) {
+    escala.value = Math.round((escala.value + 0.25) * 100) / 100
     // Força re-render após mudança de zoom
-    forceRerender()
+    forcarReRender()
   }
 }
 
 const diminuirZoom = () => {
-  if (scale.value > 0.5) {
-    scale.value = Math.round((scale.value - 0.25) * 100) / 100
+  if (escala.value > 0.5) {
+    escala.value = Math.round((escala.value - 0.25) * 100) / 100
     // Força re-render após mudança de zoom
-    forceRerender()
+    forcarReRender()
   }
 }
 
-const forceRerender = () => {
+const forcarReRender = () => {
   // Força re-render do componente PDF
-  pdfKey.value++
+  chavePdf.value++
 
   // Pequeno delay para garantir que o DOM atualize
   setTimeout(() => {
@@ -104,23 +107,23 @@ const forceRerender = () => {
   }, 100)
 }
 
-const resetZoom = () => {
-  scale.value = 2.5
-  forceRerender()
+const resetarZoom = () => {
+  escala.value = 2.5
+  forcarReRender()
 }
 
 const fecharDialog = () => {
-  isVisible.value = false
+  visivel.value = false
   // Reset estado quando fechar
-  currentPage.value = 1
+  paginaAtual.value = 1
   erro.value = null
-  scale.value = 2.5
+  escala.value = 2.5
 }
 </script>
 
 <template>
   <Dialog
-    v-model:visible="isVisible"
+    v-model:visible="visivel"
     :header="titulo"
     modal
     maximizable
@@ -142,33 +145,33 @@ const fecharDialog = () => {
         class="pdf-controls-compact d-flex align-items-center justify-content-between p-2 bg-light border-bottom"
       >
         <!-- Controles de página compactos -->
-        <div v-if="totalPages > 1" class="page-controls d-flex align-items-center">
+        <div v-if="totalPaginas > 1" class="page-controls d-flex align-items-center">
           <button
             @click="paginaAnterior"
-            :disabled="currentPage <= 1"
+            :disabled="paginaAtual <= 1"
             class="control-btn"
-            title="Página anterior"
+            :title="t('componentes.visualizadorPdf.paginaAnterior')"
           >
             <i class="pi pi-chevron-left"></i>
           </button>
 
           <div class="page-info">
             <input
-              v-model.number="currentPage"
-              @change="onPageChange(currentPage)"
+              v-model.number="paginaAtual"
+              @change="aoMudarPagina(paginaAtual)"
               type="number"
               :min="1"
-              :max="totalPages"
+              :max="totalPaginas"
               class="page-input"
             />
-            <span class="total-pages">/ {{ totalPages }}</span>
+            <span class="total-pages">/ {{ totalPaginas }}</span>
           </div>
 
           <button
             @click="proximaPagina"
-            :disabled="currentPage >= totalPages"
+            :disabled="paginaAtual >= totalPaginas"
             class="control-btn"
-            title="Próxima página"
+            :title="t('componentes.visualizadorPdf.proximaPagina')"
           >
             <i class="pi pi-chevron-right"></i>
           </button>
@@ -177,29 +180,33 @@ const fecharDialog = () => {
         <!-- Info do documento quando página única -->
         <div v-else class="document-info">
           <i class="pi pi-file-pdf text-danger me-1"></i>
-          <small class="text-muted">Documento PDF</small>
+          <small class="text-muted">{{ t('componentes.visualizadorPdf.documentoPdf') }}</small>
         </div>
 
         <!-- Controles de zoom compactos -->
         <div class="zoom-controls d-flex align-items-center">
           <button
             @click="diminuirZoom"
-            :disabled="scale <= 0.5"
+            :disabled="escala <= 0.5"
             class="control-btn"
-            title="Diminuir zoom ({{ Math.round(scale * 100) }}%)"
+            :title="`${t('componentes.visualizadorPdf.diminuirZoom')} (${Math.round(escala * 100)}%)`"
           >
             <i class="pi pi-search-minus"></i>
           </button>
 
-          <span class="zoom-display" @click="resetZoom" title="Clique para resetar zoom">
-            {{ Math.round(scale * 100) }}%
+          <span
+            class="zoom-display"
+            @click="resetarZoom"
+            :title="t('componentes.visualizadorPdf.cliqueResetarZoom')"
+          >
+            {{ Math.round(escala * 100) }}%
           </span>
 
           <button
             @click="aumentarZoom"
-            :disabled="scale >= 3"
+            :disabled="escala >= 3"
             class="control-btn"
-            title="Aumentar zoom ({{ Math.round(scale * 100) }}%)"
+            :title="`${t('componentes.visualizadorPdf.aumentarZoom')} (${Math.round(escala * 100)}%)`"
           >
             <i class="pi pi-search-plus"></i>
           </button>
@@ -207,10 +214,10 @@ const fecharDialog = () => {
       </div>
 
       <!-- Loading -->
-      <div v-if="isLoading" class="flex-1 flex align-items-center justify-content-center">
+      <div v-if="carregando" class="flex-1 flex align-items-center justify-content-center">
         <div class="text-center">
           <i class="pi pi-spin pi-spinner text-primary" style="font-size: 2rem"></i>
-          <p class="mt-3 text-muted">Carregando PDF...</p>
+          <p class="mt-3 text-muted">{{ t('componentes.visualizadorPdf.carregando') }}</p>
         </div>
       </div>
 
@@ -218,11 +225,11 @@ const fecharDialog = () => {
       <div v-else-if="erro" class="flex-1 flex align-items-center justify-content-center">
         <div class="text-center">
           <i class="pi pi-exclamation-triangle text-orange-500" style="font-size: 3rem"></i>
-          <h4 class="mt-3 text-danger">Erro ao carregar PDF</h4>
+          <h4 class="mt-3 text-danger">{{ t('componentes.visualizadorPdf.erroTitulo') }}</h4>
           <p class="text-muted">{{ erro }}</p>
           <button @click="fecharDialog" class="btn btn-primary mt-3">
             <i class="pi pi-times me-2"></i>
-            Fechar
+            {{ t('componentes.visualizadorPdf.fechar') }}
           </button>
         </div>
       </div>
@@ -231,14 +238,14 @@ const fecharDialog = () => {
       <div v-else class="pdf-content flex-1">
         <div class="pdf-scroll-container">
           <VuePdfEmbed
-            :key="`pdf-${pdfKey}-${scale}`"
-            :source="pdfPath"
-            :page="currentPage"
-            :scale="scale"
+            :key="`pdf-${chavePdf}-${escala}`"
+            :source="caminhoPdf"
+            :page="paginaAtual"
+            :scale="escala"
             class="pdf-embed"
-            @loading="isLoading = true"
-            @loaded="onLoad"
-            @load-failed="onError"
+            @loading="carregando = true"
+            @loaded="aoCarregar"
+            @load-failed="aoErro"
           />
         </div>
       </div>

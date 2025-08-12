@@ -194,8 +194,8 @@ const profissionais = [
         <ProfissionalCardComponent
           :profissional="profissional"
           :imagens-profissionais="imagensProfissionais"
-          :get-quantidade-imagens="getQuantidadeImagens"
-          :get-imagem-trabalho="getImagemTrabalho"
+          :obter-quantidade-imagens="getQuantidadeImagens"
+          :obter-imagem-trabalho="getImagemTrabalho"
           :abrir-galeria-trabalho="abrirGaleriaTrabalho"
         />
       </div>

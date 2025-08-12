@@ -78,6 +78,47 @@ export default {
       pilares: {
         titulo: 'Pilares da Missão',
         subtitulo: 'Os fundamentos que sustentam nosso trabalho',
+        inclusaoSocial: {
+          titulo: 'Inclusão Social',
+          descricao:
+            'Promovemos a integração completa de crianças, adolescentes e jovens com deficiência ou em situação de vulnerabilidade na sociedade, garantindo seus direitos e oportunidades.',
+        },
+        autonomia: {
+          titulo: 'Autonomia',
+          descricao:
+            'Empoderamos nossos usuários como protagonistas de seu próprio processo de desenvolvimento, desenvolvendo suas potencialidades e capacidades individuais.',
+        },
+        familiaComunidade: {
+          titulo: 'Família e Comunidade',
+          descricao:
+            'Trabalhamos com toda a família e comunidade como coparticipantes, criando ambientes mais justos, solidários e capazes de dar oportunidades para todos.',
+        },
+      },
+      callToAction: {
+        titulo: 'Faça Parte da Nossa Missão',
+        descricao:
+          'Junte-se a nós na transformação de vidas e na construção de uma sociedade mais inclusiva e solidária.',
+      },
+
+      impacto: {
+        titulo: 'Nosso Impacto',
+        subtitulo: 'Transformando vidas desde 1969',
+        criancasJovens: {
+          titulo: 'Crianças e Jovens',
+          descricao: 'Atendimento psicossocial especializado',
+        },
+        familias: {
+          titulo: 'Famílias',
+          descricao: 'Apoio e orientação familiar',
+        },
+        comunidade: {
+          titulo: 'Comunidade',
+          descricao: 'Fortalecimento social local',
+        },
+        inclusao: {
+          titulo: 'Inclusão',
+          descricao: 'Sociedade mais justa e solidária',
+        },
       },
     },
 
@@ -410,19 +451,54 @@ export default {
     },
 
     footer: {
-      copyright: '© 2023',
-      nosSegue: 'Nos siga',
+      copyright: '© 2024 Instituto Severa Romana. Todos os direitos reservados.',
       creditos: {
-        titulo: 'Desenvolvimento',
-        desenvolvedor: 'Filipe Rosa de Araújo',
+        titulo: 'Desenvolvido com ❤️ por',
+        desenvolvedor: 'Equipe de Desenvolvimento',
       },
+      nosSegue: 'Nos siga nas redes sociais:',
       redesSociais: {
-        whatsapp: 'Whatsapp',
+        whatsapp: 'WhatsApp',
         instagram: 'Instagram',
         facebook: 'Facebook',
-        youtube: 'Youtube',
-        tiktok: 'Tiktok',
+        youtube: 'YouTube',
+        tiktok: 'TikTok',
       },
+    },
+
+    atividadeCard: {
+      galeriaFotos: 'Galeria de Fotos',
+    },
+
+    profissionalCard: {
+      trabalhoAcao: 'Trabalho em Ação',
+    },
+
+    galeriaImagens: {
+      imagemAnterior: 'Imagem anterior (←)',
+      proximaImagem: 'Próxima imagem (→)',
+      carregando: 'Carregando imagem...',
+      erroTitulo: 'Erro ao carregar imagem',
+      erroCarregar: 'Erro ao carregar a imagem',
+      fechar: 'Fechar',
+      miniatura: 'Miniatura',
+    },
+
+    visualizadorPdf: {
+      paginaAnterior: 'Página anterior',
+      proximaPagina: 'Próxima página',
+      documentoPdf: 'Documento PDF',
+      diminuirZoom: 'Diminuir zoom',
+      aumentarZoom: 'Aumentar zoom',
+      cliqueResetarZoom: 'Clique para resetar zoom',
+      carregando: 'Carregando PDF...',
+      erroTitulo: 'Erro ao carregar PDF',
+      erroCarregar: 'Erro ao carregar o PDF. Verifique se o arquivo existe.',
+      fechar: 'Fechar',
+    },
+
+    secaoConteudo: {
+      playerVideo: 'Player de vídeo',
     },
   },
 
@@ -603,6 +679,13 @@ export default {
         descricao:
           'Construímos um futuro sustentável para nossa instituição e para as gerações que atendemos.',
       },
+    },
+
+    callToAction: {
+      titulo: 'Faça Parte da Nossa Visão',
+      descricao:
+        'Junte-se a nós na construção de um futuro mais inclusivo e solidário para todas as crianças, adolescentes e jovens do Rio de Janeiro.',
+      botao: 'Entre em Contato',
     },
   },
 

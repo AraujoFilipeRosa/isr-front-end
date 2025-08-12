@@ -10,7 +10,7 @@ interface Certificacao {
 
 interface Props {
   certificacao: Certificacao
-  botaoTexto: string
+  textoBotao: string
 }
 
 interface Emits {
@@ -48,7 +48,7 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
         class="btn btn-primary btn-sm"
       >
         <i class="pi pi-eye me-2"></i>
-        {{ botaoTexto }}
+        {{ textoBotao }}
       </button>
     </div>
   </div>

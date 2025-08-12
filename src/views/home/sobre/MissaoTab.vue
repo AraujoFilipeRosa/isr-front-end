@@ -11,10 +11,10 @@ const { t } = useI18n()
   <div id="missao" class="container my-5 page-container">
     <!-- Header da Missão -->
     <ComponenteSecaoCabecalho
-      icon="pi-bullseye"
-      :title="t('sobre.missao.titulo')"
-      :description="t('sobre.missao.descricao')"
-      :duration="1000"
+      icone="pi-bullseye"
+      :titulo="t('sobre.missao.titulo')"
+      :descricao="t('sobre.missao.descricao')"
+      :duracao="1000"
     />
 
     <!-- Pilares da Missão -->
@@ -28,7 +28,7 @@ const { t } = useI18n()
     >
       <div class="col-12 text-center mb-5">
         <h2 class="title font-weight-bold">Pilares da Nossa Missão</h2>
-        <p class="text-muted">Fundamentos que guiam nosso trabalho diário</p>
+        <p class="text-muted">{{ t('sobre.missao.pilares.subtitulo') }}</p>
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
@@ -37,10 +37,11 @@ const { t } = useI18n()
             <div class="icon-circle mb-3 flex-shrink-0">
               <i class="pi pi-heart"></i>
             </div>
-            <h3 class="card-title h5 font-weight-bold mb-3">Inclusão Social</h3>
+            <h3 class="card-title h5 font-weight-bold mb-3">
+              {{ t('sobre.missao.pilares.inclusaoSocial.titulo') }}
+            </h3>
             <p class="card-text text-muted flex-grow-1">
-              Promovemos a integração completa de crianças, adolescentes e jovens com deficiência ou
-              em situação de vulnerabilidade na sociedade, garantindo seus direitos e oportunidades.
+              {{ t('sobre.missao.pilares.inclusaoSocial.descricao') }}
             </p>
           </div>
         </div>
@@ -52,10 +53,11 @@ const { t } = useI18n()
             <div class="icon-circle mb-3 flex-shrink-0">
               <i class="pi pi-users"></i>
             </div>
-            <h3 class="card-title h5 font-weight-bold mb-3">Autonomia</h3>
+            <h3 class="card-title h5 font-weight-bold mb-3">
+              {{ t('sobre.missao.pilares.autonomia.titulo') }}
+            </h3>
             <p class="card-text text-muted flex-grow-1">
-              Empoderamos nossos usuários como protagonistas de seu próprio processo de
-              desenvolvimento, desenvolvendo suas potencialidades e capacidades individuais.
+              {{ t('sobre.missao.pilares.autonomia.descricao') }}
             </p>
           </div>
         </div>
@@ -67,10 +69,11 @@ const { t } = useI18n()
             <div class="icon-circle mb-3 flex-shrink-0">
               <i class="pi pi-home"></i>
             </div>
-            <h3 class="card-title h5 font-weight-bold mb-3">Família e Comunidade</h3>
+            <h3 class="card-title h5 font-weight-bold mb-3">
+              {{ t('sobre.missao.pilares.familiaComunidade.titulo') }}
+            </h3>
             <p class="card-text text-muted flex-grow-1">
-              Trabalhamos com toda a família e comunidade como coparticipantes, criando ambientes
-              mais justos, solidários e capazes de dar oportunidades para todos.
+              {{ t('sobre.missao.pilares.familiaComunidade.descricao') }}
             </p>
           </div>
         </div>
@@ -161,50 +164,50 @@ const { t } = useI18n()
       class="row my-5"
     >
       <div class="col-12 text-center mb-4">
-        <h2 class="title font-weight-bold">Nosso Impacto</h2>
-        <p class="text-muted">Transformando vidas desde 1969</p>
+        <h2 class="title font-weight-bold">{{ t('sobre.missao.impacto.titulo') }}</h2>
+        <p class="text-muted">{{ t('sobre.missao.impacto.subtitulo') }}</p>
       </div>
 
       <div class="col-lg-3 col-md-6 text-center mb-4">
         <div class="card-custom card-hover-light p-4 h-100">
           <i class="pi pi-users display-4 text-primary mb-3"></i>
-          <h3 class="h4 font-weight-bold">Crianças e Jovens</h3>
-          <p class="text-muted">Atendimento psicossocial especializado</p>
+          <h3 class="h4 font-weight-bold">{{ t('sobre.missao.impacto.criancasJovens.titulo') }}</h3>
+          <p class="text-muted">{{ t('sobre.missao.impacto.criancasJovens.descricao') }}</p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 text-center mb-4">
         <div class="card-custom card-hover-light p-4 h-100">
           <i class="pi pi-home display-4 text-success mb-3"></i>
-          <h3 class="h4 font-weight-bold">Famílias</h3>
-          <p class="text-muted">Apoio e orientação familiar</p>
+          <h3 class="h4 font-weight-bold">{{ t('sobre.missao.impacto.familias.titulo') }}</h3>
+          <p class="text-muted">{{ t('sobre.missao.impacto.familias.descricao') }}</p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 text-center mb-4">
         <div class="card-custom card-hover-light p-4 h-100">
           <i class="pi pi-globe display-4 text-info mb-3"></i>
-          <h3 class="h4 font-weight-bold">Comunidade</h3>
-          <p class="text-muted">Fortalecimento social local</p>
+          <h3 class="h4 font-weight-bold">{{ t('sobre.missao.impacto.comunidade.titulo') }}</h3>
+          <p class="text-muted">{{ t('sobre.missao.impacto.comunidade.descricao') }}</p>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 text-center mb-4">
         <div class="card-custom card-hover-light p-4 h-100">
           <i class="pi pi-heart display-4 text-danger mb-3"></i>
-          <h3 class="h4 font-weight-bold">Inclusão</h3>
-          <p class="text-muted">Sociedade mais justa e solidária</p>
+          <h3 class="h4 font-weight-bold">{{ t('sobre.missao.impacto.inclusao.titulo') }}</h3>
+          <p class="text-muted">{{ t('sobre.missao.impacto.inclusao.descricao') }}</p>
         </div>
       </div>
     </section>
 
     <!-- Call to Action -->
     <ComponenteChamadaAcao
-      title="Faça Parte da Nossa Missão"
-      description="Junte-se a nós na transformação de vidas e na construção de uma sociedade mais inclusiva e solidária."
-      secondaryButtonText="Faça parte"
-      secondaryButtonIcon="pi pi-envelope"
-      secondaryRoute="contato"
+      :titulo="t('sobre.missao.callToAction.titulo')"
+      :descricao="t('sobre.missao.callToAction.descricao')"
+      textoBotaoSecundario="Faça parte"
+      iconeBotaoSecundario="pi pi-envelope"
+      rotaSecundaria="contato"
     />
   </div>
 </template>

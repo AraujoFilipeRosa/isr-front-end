@@ -2,19 +2,19 @@
 import { computed } from 'vue'
 
 interface Props {
-  variant?: 'default' | 'value' | 'vision' | 'social'
-  customClass?: string
+  variante?: 'padrao' | 'valor' | 'visao' | 'social'
+  classeCustomizada?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'default',
-  customClass: '',
+  variante: 'padrao',
+  classeCustomizada: '',
 })
 
 const cardClass = computed(() => {
   const baseClass = 'card h-100 border-0 shadow-sm'
-  const variantClass = props.variant !== 'default' ? `${props.variant}-card` : ''
-  return `${baseClass} ${variantClass} ${props.customClass}`.trim()
+  const variantClass = props.variante !== 'padrao' ? `${props.variante}-card` : ''
+  return `${baseClass} ${variantClass} ${props.classeCustomizada}`.trim()
 })
 </script>
 
@@ -37,11 +37,11 @@ const cardClass = computed(() => {
 }
 
 /* Variantes específicas podem ser adicionadas aqui se necessário */
-.value-card:hover {
+.valor-card:hover {
   transform: translateY(-3px);
 }
 
-.vision-card:hover {
+.visao-card:hover {
   transform: translateY(-3px);
 }
 

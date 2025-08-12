@@ -12,10 +12,10 @@ const { t } = useI18n()
   <div id="visao" class="container my-5">
     <!-- Header da Visão -->
     <ComponenteSecaoCabecalho
-      icon="pi-eye"
-      :title="t('visao.titulo')"
-      :description="t('visao.descricao')"
-      :duration="1000"
+      icone="pi-eye"
+      :titulo="t('visao.titulo')"
+      :descricao="t('visao.descricao')"
+      :duracao="1000"
     />
 
     <!-- Visão Detalhada -->
@@ -32,58 +32,58 @@ const { t } = useI18n()
         <p class="text-muted">{{ t('visao.futuro.descricao') }}</p>
       </div>
 
-      <div class="col-lg-6 mb-4">
-        <ComponenteCard variant="vision">
-          <div class="vision-icon mb-3">
-            <i class="pi pi-star"></i>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <ComponenteCard variante="visao">
+          <div class="vision-icon mb-3 flex-shrink-0">
+            <i class="pi pi-eye"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.excelencia.titulo') }}
+            {{ t('visao.lista.inovacao.titulo') }}
           </h3>
-          <p class="card-text text-muted">
-            {{ t('visao.objetivos.excelencia.descricao') }}
+          <p class="card-text text-muted flex-grow-1">
+            {{ t('visao.lista.inovacao.descricao') }}
           </p>
         </ComponenteCard>
       </div>
 
-      <div class="col-lg-6 mb-4">
-        <ComponenteCard variant="vision">
-          <div class="vision-icon mb-3">
-            <i class="pi pi-lightbulb"></i>
-          </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.inovacao.titulo') }}
-          </h3>
-          <p class="card-text text-muted">
-            {{ t('visao.objetivos.inovacao.descricao') }}
-          </p>
-        </ComponenteCard>
-      </div>
-
-      <div class="col-lg-6 mb-4">
-        <ComponenteCard variant="vision">
-          <div class="vision-icon mb-3">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <ComponenteCard variante="visao">
+          <div class="vision-icon mb-3 flex-shrink-0">
             <i class="pi pi-globe"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.impacto.titulo') }}
+            {{ t('visao.lista.expansao.titulo') }}
           </h3>
-          <p class="card-text text-muted">
-            {{ t('visao.objetivos.impacto.descricao') }}
+          <p class="card-text text-muted flex-grow-1">
+            {{ t('visao.lista.expansao.descricao') }}
           </p>
         </ComponenteCard>
       </div>
 
-      <div class="col-lg-6 mb-4">
-        <ComponenteCard variant="vision">
-          <div class="vision-icon mb-3">
-            <i class="pi pi-heart"></i>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <ComponenteCard variante="visao">
+          <div class="vision-icon mb-3 flex-shrink-0">
+            <i class="pi pi-users"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.sustentabilidade.titulo') }}
+            {{ t('visao.lista.colaboracao.titulo') }}
           </h3>
-          <p class="card-text text-muted">
-            {{ t('visao.objetivos.sustentabilidade.descricao') }}
+          <p class="card-text text-muted flex-grow-1">
+            {{ t('visao.lista.colaboracao.descricao') }}
+          </p>
+        </ComponenteCard>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <ComponenteCard variante="visao">
+          <div class="vision-icon mb-3 flex-shrink-0">
+            <i class="pi pi-star"></i>
+          </div>
+          <h3 class="card-title h5 font-weight-bold mb-3">
+            {{ t('visao.lista.excelencia.titulo') }}
+          </h3>
+          <p class="card-text text-muted flex-grow-1">
+            {{ t('visao.lista.excelencia.descricao') }}
           </p>
         </ComponenteCard>
       </div>
@@ -91,11 +91,11 @@ const { t } = useI18n()
 
     <!-- Call to Action -->
     <ComponenteChamadaAcao
-      title="Faça Parte da Nossa Visão"
-      description="Junte-se a nós na construção de um futuro mais inclusivo e solidário para todas as crianças, adolescentes e jovens do Rio de Janeiro."
-      secondaryButtonText="Entre em Contato"
-      secondaryButtonIcon="pi pi-envelope"
-      secondaryRoute="contato"
+      :titulo="t('visao.callToAction.titulo')"
+      :descricao="t('visao.callToAction.descricao')"
+      :textoBotaoSecundario="t('visao.callToAction.botao')"
+      iconeBotaoSecundario="pi pi-envelope"
+      rotaSecundaria="contato"
     />
   </div>
 </template>

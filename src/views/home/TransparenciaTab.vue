@@ -51,13 +51,13 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
   <div id="transparencia" class="container my-5 page-container">
     <!-- Header Principal -->
     <ComponenteSecaoCabecalho
-      icon="pi-shield"
-      :title="t('transparencia.titulo')"
-      :description="t('transparencia.descricao')"
-      :duration="1000"
+      icone="pi-shield"
+      :titulo="t('transparencia.titulo')"
+      :descricao="t('transparencia.descricao')"
+      :duracao="1000"
     />
 
-    <TitleSectionComponent
+    <ComponenteSecaoTitulo
       :titulo="t('transparencia.titulo')"
       :descricao="t('transparencia.descricao')"
     />
@@ -101,7 +101,7 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
       </div>
     </section>
 
-    <TitleSectionComponent
+    <ComponenteSecaoTitulo
       :titulo="t('transparencia.certificacoes.titulo')"
       :descricao="t('transparencia.certificacoes.descricao')"
       :info="t('transparencia.certificacoes.instrucao')"
@@ -119,7 +119,7 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
       <div v-for="(cert, index) in certificacoes" :key="index" class="col-lg-4 col-md-6 mb-4">
         <CertificacaoCardComponent
           :certificacao="cert"
-          :botao-texto="t('transparencia.certificacoes.botao')"
+          :texto-botao="t('transparencia.certificacoes.botao')"
           @abrir-certificado="abrirCertificado"
         />
       </div>
@@ -132,7 +132,7 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
     <ComponenteVisualizadorPdf
       v-model="pdfViewerVisible"
       :titulo="currentPdfTitle"
-      :pdf-path="currentPdfPath"
+      :caminho-pdf="currentPdfPath"
     />
   </div>
 </template>

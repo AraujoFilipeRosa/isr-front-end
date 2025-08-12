@@ -10,8 +10,8 @@ interface Profissional {
 interface Props {
   profissional: Profissional
   imagensProfissionais: Record<string, string>
-  getQuantidadeImagens: (chave: string) => number
-  getImagemTrabalho: (chave: string, index: number) => string
+  obterQuantidadeImagens: (chave: string) => number
+  obterImagemTrabalho: (chave: string, indice: number) => string
   abrirGaleriaTrabalho: (profissional: Profissional, imagemClicada: number) => void
 }
 
@@ -57,17 +57,19 @@ const { t } = useI18n()
       </div>
 
       <!-- Galeria de Imagens do Trabalho (se tiver) -->
-      <div v-if="getQuantidadeImagens(profissional.chave) > 0" class="trabalho-galeria">
-        <h6 class="font-weight-bold mb-3 text-primary">Trabalho em Ação</h6>
+      <div v-if="obterQuantidadeImagens(profissional.chave) > 0" class="trabalho-galeria">
+        <h6 class="font-weight-bold mb-3 text-primary">
+          {{ t('componentes.profissionalCard.trabalhoAcao') }}
+        </h6>
         <div class="imagens-grid">
           <div
-            v-for="imgIndex in getQuantidadeImagens(profissional.chave)"
+            v-for="imgIndex in obterQuantidadeImagens(profissional.chave)"
             :key="`${profissional.chave}-trabalho-${imgIndex}`"
             class="trabalho-imagem-container"
             @click="abrirGaleriaTrabalho(profissional, imgIndex - 1)"
           >
             <img
-              :src="getImagemTrabalho(profissional.chave, imgIndex)"
+              :src="obterImagemTrabalho(profissional.chave, imgIndex)"
               :alt="`${t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)} trabalhando ${imgIndex}`"
               class="trabalho-imagem"
               loading="lazy"

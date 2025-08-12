@@ -160,9 +160,9 @@ const atividades = [
       >
         <AtividadeCardComponent
           :atividade="atividade"
-          :index="index"
-          :get-imagem-atividade="getImagemAtividade"
-          :get-quantidade-imagens-atividade="getQuantidadeImagensAtividade"
+          :indice="index"
+          :obter-imagem-atividade="getImagemAtividade"
+          :obter-quantidade-imagens-atividade="getQuantidadeImagensAtividade"
           :abrir-galeria="abrirGaleria"
         />
       </div>

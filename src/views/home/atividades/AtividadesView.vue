@@ -23,10 +23,10 @@ const imagensFatima = {
   <div id="atividades-container" class="container my-5">
     <!-- Header Principal com Animação -->
     <ComponenteSecaoCabecalho
-      icon="pi-sitemap"
-      :title="t('atividades.titulo')"
-      :description="t('atividades.descricao')"
-      :duration="1000"
+      icone="pi-sitemap"
+      :titulo="t('atividades.titulo')"
+      :descricao="t('atividades.descricao')"
+      :duracao="1000"
     />
 
     <!-- Organograma de Liderança - Fátima no topo -->

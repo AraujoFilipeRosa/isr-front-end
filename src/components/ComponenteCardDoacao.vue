@@ -3,95 +3,101 @@
     <div class="card h-100 card-custom card-hover-strong donation-card">
       <div class="card-body text-center p-4 d-flex flex-column">
         <div class="icon-circle mb-3 flex-shrink-0">
-          <i :class="iconClass"></i>
+          <i :class="classeIcone"></i>
         </div>
         <h3 class="card-title h5 font-weight-bold mb-3">
-          {{ title }}
+          {{ titulo }}
         </h3>
         <p class="card-text text-muted flex-grow-1 mb-4">
-          {{ description }}
+          {{ descricao }}
         </p>
 
         <!-- Conteúdo padrão com benefícios (apenas para produtos) -->
-        <div v-if="!showBankInfo && !showVolunteerStats" class="volunteer-benefits">
+        <div
+          v-if="!mostrarInfoBancaria && !mostrarEstatisticasVoluntario"
+          class="volunteer-benefits"
+        >
           <div
-            v-for="(benefit, index) in benefits"
+            v-for="(beneficio, index) in beneficios"
             :key="index"
             class="benefit-item mb-3 p-2 bg-light rounded"
           >
             <i
-              :class="benefit.icon"
-              :style="{ color: benefit.color }"
+              :class="beneficio.icone"
+              :style="{ color: beneficio.cor }"
               class="mb-2 d-block"
               style="font-size: 1.5rem"
             ></i>
             <h6 class="font-weight-bold mb-0">
-              {{ benefit.title }}
+              {{ beneficio.titulo }}
             </h6>
           </div>
         </div>
 
         <!-- Conteúdo para informações bancárias -->
-        <div v-if="showBankInfo" class="donation-details">
+        <div v-if="mostrarInfoBancaria" class="donation-details">
           <div class="bank-info p-3 bg-light rounded mb-3">
             <h6 class="font-weight-bold mb-2">
-              {{ bankInfo?.name }}
+              {{ infoBancaria?.nome }}
             </h6>
             <p class="mb-1">
-              <strong>{{ bankInfo?.agency }}:</strong>
-              {{ bankInfo?.agencyNumber }}
+              <strong>{{ infoBancaria?.agencia }}:</strong>
+              {{ infoBancaria?.numeroAgencia }}
             </p>
             <p class="mb-1">
-              <strong>{{ bankInfo?.account }}:</strong>
-              {{ bankInfo?.accountNumber }}
+              <strong>{{ infoBancaria?.conta }}:</strong>
+              {{ infoBancaria?.numeroConta }}
             </p>
             <p class="mb-0">
-              <strong>{{ bankInfo?.pix }}:</strong>
-              {{ bankInfo?.cnpj }}
+              <strong>{{ infoBancaria?.pix }}:</strong>
+              {{ infoBancaria?.cnpj }}
             </p>
           </div>
-          <div v-if="qrCodeImage" class="qr-code-container">
+          <div v-if="imagemQrCode" class="qr-code-container">
             <div class="qr-code-wrapper">
-              <img :src="qrCodeImage" :alt="qrCodeAlt" class="qr-code-image" loading="lazy" />
+              <img :src="imagemQrCode" :alt="textoAltQrCode" class="qr-code-image" loading="lazy" />
               <div class="qr-code-overlay">
                 <i class="pi pi-qrcode"></i>
-                <span>{{ qrCodeAlt }}</span>
+                <span>{{ textoAltQrCode }}</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Conteúdo para voluntariado com estatísticas -->
-        <div v-if="showVolunteerStats" class="volunteer-benefits">
+        <div v-if="mostrarEstatisticasVoluntario" class="volunteer-benefits">
           <div
-            v-for="(benefit, index) in benefits"
+            v-for="(beneficio, index) in beneficios"
             :key="index"
             class="benefit-item mb-3 p-2 bg-light rounded"
           >
             <i
-              :class="benefit.icon"
-              :style="{ color: benefit.color }"
+              :class="beneficio.icone"
+              :style="{ color: beneficio.cor }"
               class="mb-2 d-block"
               style="font-size: 1.5rem"
             ></i>
             <h6 class="font-weight-bold mb-0">
-              {{ benefit.title }}
+              {{ beneficio.titulo }}
             </h6>
           </div>
-          <div v-if="volunteerStats" class="volunteer-stats-card bg-primary text-white p-3 rounded">
+          <div
+            v-if="estatisticasVoluntario"
+            class="volunteer-stats-card bg-primary text-white p-3 rounded"
+          >
             <div class="row text-center">
               <div class="col-6">
                 <div class="stat-item">
                   <i class="pi pi-heart d-block mb-1" style="font-size: 1.2rem"></i>
-                  <strong class="d-block">{{ volunteerStats.totalVolunteers }}</strong>
-                  <small>{{ volunteerStats.volunteersLabel }}</small>
+                  <strong class="d-block">{{ estatisticasVoluntario.totalVoluntarios }}</strong>
+                  <small>{{ estatisticasVoluntario.rotuloVoluntarios }}</small>
                 </div>
               </div>
               <div class="col-6">
                 <div class="stat-item">
                   <i class="pi pi-clock d-block mb-1" style="font-size: 1.2rem"></i>
-                  <strong class="d-block">{{ volunteerStats.totalHours }}</strong>
-                  <small>{{ volunteerStats.hoursLabel }}</small>
+                  <strong class="d-block">{{ estatisticasVoluntario.totalHoras }}</strong>
+                  <small>{{ estatisticasVoluntario.rotuloHoras }}</small>
                 </div>
               </div>
             </div>
@@ -103,40 +109,40 @@
 </template>
 
 <script setup lang="ts">
-interface Benefit {
-  icon: string
-  title: string
-  color: string
+interface Beneficio {
+  icone: string
+  titulo: string
+  cor: string
 }
 
-interface BankInfo {
-  name: string
-  agency: string
-  agencyNumber: string
-  account: string
-  accountNumber: string
+interface InfoBancaria {
+  nome: string
+  agencia: string
+  numeroAgencia: string
+  conta: string
+  numeroConta: string
   pix: string
   cnpj: string
 }
 
-interface VolunteerStats {
-  totalVolunteers: string
-  volunteersLabel: string
-  totalHours: string
-  hoursLabel: string
+interface EstatisticasVoluntario {
+  totalVoluntarios: string
+  rotuloVoluntarios: string
+  totalHoras: string
+  rotuloHoras: string
 }
 
 interface Props {
-  iconClass: string
-  title: string
-  description: string
-  benefits?: Benefit[]
-  showBankInfo?: boolean
-  bankInfo?: BankInfo
-  qrCodeImage?: string
-  qrCodeAlt?: string
-  showVolunteerStats?: boolean
-  volunteerStats?: VolunteerStats
+  classeIcone: string
+  titulo: string
+  descricao: string
+  beneficios?: Beneficio[]
+  mostrarInfoBancaria?: boolean
+  infoBancaria?: InfoBancaria
+  imagemQrCode?: string
+  textoAltQrCode?: string
+  mostrarEstatisticasVoluntario?: boolean
+  estatisticasVoluntario?: EstatisticasVoluntario
 }
 
 defineProps<Props>()

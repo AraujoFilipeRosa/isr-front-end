@@ -77,6 +77,48 @@ export default {
       pilares: {
         titulo: 'Pilares da Missão',
         subtitulo: 'Os fundamentos que sustentam o nosso trabalho',
+        inclusaoSocial: {
+          titulo: 'Inclusão Social',
+          descricao:
+            'Promovemos a integração completa de crianças, adolescentes e jovens com deficiência ou em situação de vulnerabilidade na sociedade, garantindo os seus direitos e oportunidades.',
+        },
+        autonomia: {
+          titulo: 'Autonomia',
+          descricao:
+            'Empoderamos os nossos utentes como protagonistas do seu próprio processo de desenvolvimento, desenvolvendo as suas potencialidades e capacidades individuais.',
+        },
+        familiaComunidade: {
+          titulo: 'Família e Comunidade',
+          descricao:
+            'Trabalhamos com toda a família e comunidade como coparticipantes, criando ambientes mais justos, solidários e capazes de dar oportunidades para todos.',
+        },
+      },
+
+      callToAction: {
+        titulo: 'Faça Parte da Nossa Missão',
+        descricao:
+          'Junte-se a nós na transformação de vidas e na construção de uma sociedade mais inclusiva e solidária.',
+      },
+
+      impacto: {
+        titulo: 'O Nosso Impacto',
+        subtitulo: 'Transformando vidas desde 1969',
+        criancasJovens: {
+          titulo: 'Crianças e Jovens',
+          descricao: 'Atendimento psicossocial especializado',
+        },
+        familias: {
+          titulo: 'Famílias',
+          descricao: 'Apoio e orientação familiar',
+        },
+        comunidade: {
+          titulo: 'Comunidade',
+          descricao: 'Fortalecimento social local',
+        },
+        inclusao: {
+          titulo: 'Inclusão',
+          descricao: 'Sociedade mais justa e solidária',
+        },
       },
     },
 
@@ -559,6 +601,13 @@ export default {
           'Construímos um futuro sustentável para a nossa instituição e para as gerações que atendemos.',
       },
     },
+
+    callToAction: {
+      titulo: 'Faça Parte da Nossa Visão',
+      descricao:
+        'Junte-se a nós na construção de um futuro mais inclusivo e solidário para todas as crianças, adolescentes e jovens do Rio de Janeiro.',
+      botao: 'Entre em Contacto',
+    },
   },
 
   // ======================
@@ -626,6 +675,41 @@ export default {
         youtube: 'Youtube',
         tiktok: 'Tiktok',
       },
+    },
+
+    atividadeCard: {
+      galeriaFotos: 'Galeria de Fotos',
+    },
+
+    profissionalCard: {
+      trabalhoAcao: 'Trabalho em Acção',
+    },
+
+    galeriaImagens: {
+      imagemAnterior: 'Imagem anterior (←)',
+      proximaImagem: 'Próxima imagem (→)',
+      carregando: 'A carregar imagem...',
+      erroTitulo: 'Erro ao carregar imagem',
+      erroCarregar: 'Erro ao carregar a imagem',
+      fechar: 'Fechar',
+      miniatura: 'Miniatura',
+    },
+
+    visualizadorPdf: {
+      paginaAnterior: 'Página anterior',
+      proximaPagina: 'Próxima página',
+      documentoPdf: 'Documento PDF',
+      diminuirZoom: 'Diminuir zoom',
+      aumentarZoom: 'Aumentar zoom',
+      cliqueResetarZoom: 'Clique para resetar zoom',
+      carregando: 'A carregar PDF...',
+      erroTitulo: 'Erro ao carregar PDF',
+      erroCarregar: 'Erro ao carregar o PDF. Verifique se o ficheiro existe.',
+      fechar: 'Fechar',
+    },
+
+    secaoConteudo: {
+      playerVideo: 'Player de vídeo',
     },
   },
 

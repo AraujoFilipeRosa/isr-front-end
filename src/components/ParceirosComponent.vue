@@ -122,7 +122,7 @@ const parceiros = [
     :delay="50"
     class="my-4"
   >
-    <TitleSectionComponent :titulo="t('parceiros.titulo')">
+    <ComponenteSecaoTitulo :titulo="t('parceiros.titulo')">
       <template #descricao>
         <div class="text-center mb-3">
           <p class="text-muted mb-1">
@@ -133,7 +133,7 @@ const parceiros = [
           </p>
         </div>
       </template>
-    </TitleSectionComponent>
+    </ComponenteSecaoTitulo>
 
     <div class="row justify-content-center">
       <div

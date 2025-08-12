@@ -81,7 +81,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
 
       <!-- WhatsApp -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="social">
+        <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 whatsapp">
             <i class="pi pi-whatsapp"></i>
           </div>
@@ -102,7 +102,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
 
       <!-- Instagram -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="social">
+        <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 instagram">
             <i class="pi pi-instagram"></i>
           </div>
@@ -124,7 +124,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
 
       <!-- Facebook -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="social">
+        <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 facebook">
             <i class="pi pi-facebook"></i>
           </div>
@@ -145,7 +145,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
 
       <!-- YouTube -->
       <div class="col-lg-6 col-md-6 mb-4">
-        <ComponenteCard variant="social">
+        <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 youtube">
             <i class="pi pi-youtube"></i>
           </div>
@@ -166,7 +166,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
 
       <!-- TikTok -->
       <div class="col-lg-6 col-md-6 mb-4">
-        <ComponenteCard variant="social">
+        <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 tiktok">
             <i class="pi pi-tiktok"></i>
           </div>

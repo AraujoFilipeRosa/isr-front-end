@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { Dialog } from 'primevue'
 import { MotionDirective as motion } from '@vueuse/motion'
+import { useI18n } from '@/composables/useI18n'
 
 // Props
 interface Props {
@@ -19,6 +20,8 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
+
+const { t } = useI18n()
 
 // Estado local
 const indiceImagemAtual = ref(0)
@@ -84,7 +87,7 @@ const aoCarregarImagem = () => {
 
 const aoErroImagem = () => {
   carregando.value = false
-  erro.value = 'Erro ao carregar a imagem'
+  erro.value = t('componentes.galeriaImagens.erroCarregar')
 }
 
 const fecharDialog = () => {
@@ -154,7 +157,7 @@ watch(visivel, (visivel) => {
             @click="imagemAnterior"
             :disabled="indiceImagemAtual <= 0"
             class="control-btn"
-            :title="'Imagem anterior (←)'"
+            :title="t('componentes.galeriaImagens.imagemAnterior')"
           >
             <i class="pi pi-chevron-left"></i>
           </button>
@@ -175,7 +178,7 @@ watch(visivel, (visivel) => {
             @click="proximaImagem"
             :disabled="indiceImagemAtual >= imagens.length - 1"
             class="control-btn"
-            :title="'Próxima imagem (→)'"
+            :title="t('componentes.galeriaImagens.proximaImagem')"
           >
             <i class="pi pi-chevron-right"></i>
           </button>
@@ -186,7 +189,7 @@ watch(visivel, (visivel) => {
       <div v-if="carregando" class="flex-grow-1 d-flex align-items-center justify-content-center">
         <div class="text-center">
           <i class="pi pi-spin pi-spinner text-primary" style="font-size: 2rem"></i>
-          <p class="mt-3 text-muted">Carregando imagem...</p>
+          <p class="mt-3 text-muted">{{ t('componentes.galeriaImagens.carregando') }}</p>
         </div>
       </div>
 
@@ -194,11 +197,11 @@ watch(visivel, (visivel) => {
       <div v-else-if="erro" class="flex-grow-1 d-flex align-items-center justify-content-center">
         <div class="text-center">
           <i class="pi pi-exclamation-triangle text-warning" style="font-size: 3rem"></i>
-          <h4 class="mt-3 text-danger">Erro ao carregar imagem</h4>
+          <h4 class="mt-3 text-danger">{{ t('componentes.galeriaImagens.erroTitulo') }}</h4>
           <p class="text-muted">{{ erro }}</p>
           <button @click="fecharDialog" class="btn btn-primary mt-3">
             <i class="pi pi-times me-2"></i>
-            Fechar
+            {{ t('componentes.galeriaImagens.fechar') }}
           </button>
         </div>
       </div>
@@ -237,7 +240,7 @@ watch(visivel, (visivel) => {
           >
             <Image
               :src="imagem"
-              :alt="`Miniatura ${index + 1}`"
+              :alt="`${t('componentes.galeriaImagens.miniatura')} ${index + 1}`"
               class="thumbnail-image"
               loading="lazy"
             />

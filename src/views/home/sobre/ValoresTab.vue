@@ -12,10 +12,10 @@ const { t } = useI18n()
   <div id="valores" class="container my-5">
     <!-- Header dos Valores -->
     <ComponenteSecaoCabecalho
-      icon="pi-heart"
-      :title="t('valores.titulo')"
-      :description="t('valores.descricao')"
-      :duration="1000"
+      icone="pi-heart"
+      :titulo="t('valores.titulo')"
+      :descricao="t('valores.descricao')"
+      :duracao="1000"
     />
 
     <!-- Valores Principais -->
@@ -33,7 +33,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="value">
+        <ComponenteCard variante="valor">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-heart"></i>
           </div>
@@ -47,7 +47,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="value">
+        <ComponenteCard variante="valor">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-globe"></i>
           </div>
@@ -61,7 +61,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="value">
+        <ComponenteCard variante="valor">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-users"></i>
           </div>
@@ -75,7 +75,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="value">
+        <ComponenteCard variante="valor">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-star"></i>
           </div>
@@ -89,7 +89,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="value">
+        <ComponenteCard variante="valor">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-shield"></i>
           </div>
@@ -103,7 +103,7 @@ const { t } = useI18n()
       </div>
 
       <div class="col-lg-4 col-md-6 mb-4">
-        <ComponenteCard variant="value">
+        <ComponenteCard variante="valor">
           <div class="value-icon mb-3 flex-shrink-0">
             <i class="pi pi-user"></i>
           </div>
@@ -194,11 +194,11 @@ const { t } = useI18n()
 
     <!-- Call to Action -->
     <ComponenteChamadaAcao
-      :title="t('valores.callToAction.titulo')"
-      :description="t('valores.callToAction.descricao')"
-      secondaryButtonText="Faça parte"
-      secondaryButtonIcon="pi pi-envelope"
-      secondaryRoute="contato"
+      :titulo="t('valores.callToAction.titulo')"
+      :descricao="t('valores.callToAction.descricao')"
+      textoBotaoSecundario="Faça parte"
+      iconeBotaoSecundario="pi pi-envelope"
+      rotaSecundaria="contato"
     />
   </div>
 </template>

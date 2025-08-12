@@ -41,10 +41,10 @@ onMounted(() => {
   <div id="doe" class="container my-5 page-container">
     <!-- Header da Página -->
     <ComponenteSecaoCabecalho
-      icon="pi-heart"
-      :title="t('doacoes.titulo')"
-      :description="t('doacoes.descricao')"
-      :duration="1000"
+      icone="pi-heart"
+      :titulo="t('doacoes.titulo')"
+      :descricao="t('doacoes.descricao')"
+      :duracao="1000"
     />
 
     <!-- Informações de Impacto -->
@@ -92,7 +92,7 @@ onMounted(() => {
     </section>
 
     <!-- Opções de Doação -->
-    <TitleSectionComponent
+    <ComponenteSecaoTitulo
       :titulo="t('doacoes.comoAjudar.titulo')"
       :descricao="t('doacoes.comoAjudar.descricao')"
     />
@@ -107,75 +107,75 @@ onMounted(() => {
     >
       <!-- Doação Financeira -->
       <ComponenteCardDoacao
-        :icon-class="'pi pi-credit-card'"
-        :title="t('doacoes.formas.financeira.titulo')"
-        :description="t('doacoes.formas.financeira.descricao')"
-        :show-bank-info="true"
-        :bank-info="{
-          name: t('doacoes.formas.financeira.banco.nome'),
-          agency: t('doacoes.formas.financeira.banco.agencia'),
-          agencyNumber: t('doacoes.formas.financeira.banco.agenciaNumero'),
-          account: t('doacoes.formas.financeira.banco.conta'),
-          accountNumber: t('doacoes.formas.financeira.banco.contaNumero'),
+        :classe-icone="'pi pi-credit-card'"
+        :titulo="t('doacoes.formas.financeira.titulo')"
+        :descricao="t('doacoes.formas.financeira.descricao')"
+        :mostrar-info-bancaria="true"
+        :info-bancaria="{
+          nome: t('doacoes.formas.financeira.banco.nome'),
+          agencia: t('doacoes.formas.financeira.banco.agencia'),
+          numeroAgencia: t('doacoes.formas.financeira.banco.agenciaNumero'),
+          conta: t('doacoes.formas.financeira.banco.conta'),
+          numeroConta: t('doacoes.formas.financeira.banco.contaNumero'),
           pix: t('doacoes.formas.financeira.banco.pix'),
           cnpj: t('doacoes.formas.financeira.banco.cnpj'),
         }"
-        :qr-code-image="doeQrCode"
-        :qr-code-alt="t('doacoes.formas.financeira.qrCode')"
+        :imagem-qr-code="doeQrCode"
+        :texto-alt-qr-code="t('doacoes.formas.financeira.qrCode')"
       />
 
       <!-- Doação de Produtos -->
       <ComponenteCardDoacao
-        :icon-class="'pi pi-shopping-bag'"
-        :title="t('doacoes.formas.produtos.titulo')"
-        :description="t('doacoes.formas.produtos.descricao')"
-        :benefits="[
+        :classe-icone="'pi pi-shopping-bag'"
+        :titulo="t('doacoes.formas.produtos.titulo')"
+        :descricao="t('doacoes.formas.produtos.descricao')"
+        :beneficios="[
           {
-            icon: 'pi pi-apple',
-            title: t('doacoes.formas.produtos.categorias.alimentos'),
-            color: '#28a745',
+            icone: 'pi pi-apple',
+            titulo: t('doacoes.formas.produtos.categorias.alimentos'),
+            cor: '#28a745',
           },
           {
-            icon: 'pi pi-home',
-            title: t('doacoes.formas.produtos.categorias.limpeza'),
-            color: '#007bff',
+            icone: 'pi pi-home',
+            titulo: t('doacoes.formas.produtos.categorias.limpeza'),
+            cor: '#007bff',
           },
           {
-            icon: 'pi pi-heart',
-            title: t('doacoes.formas.produtos.categorias.higiene'),
-            color: '#ffc107',
+            icone: 'pi pi-heart',
+            titulo: t('doacoes.formas.produtos.categorias.higiene'),
+            cor: '#ffc107',
           },
         ]"
       />
 
       <!-- Voluntariado -->
       <ComponenteCardDoacao
-        :icon-class="'pi pi-users'"
-        :title="t('doacoes.formas.voluntario.titulo')"
-        :description="t('doacoes.formas.voluntario.descricao')"
-        :show-volunteer-stats="true"
-        :benefits="[
+        :classe-icone="'pi pi-users'"
+        :titulo="t('doacoes.formas.voluntario.titulo')"
+        :descricao="t('doacoes.formas.voluntario.descricao')"
+        :mostrar-estatisticas-voluntario="true"
+        :beneficios="[
           {
-            icon: 'pi pi-heart',
-            title: t('doacoes.formas.voluntario.beneficios.experiencia'),
-            color: '#dc3545',
+            icone: 'pi pi-heart',
+            titulo: t('doacoes.formas.voluntario.beneficios.experiencia'),
+            cor: '#dc3545',
           },
           {
-            icon: 'pi pi-star',
-            title: t('doacoes.formas.voluntario.beneficios.desenvolvimento'),
-            color: '#ffc107',
+            icone: 'pi pi-star',
+            titulo: t('doacoes.formas.voluntario.beneficios.desenvolvimento'),
+            cor: '#ffc107',
           },
           {
-            icon: 'pi pi-briefcase',
-            title: t('doacoes.formas.voluntario.beneficios.curriculo'),
-            color: '#17a2b8',
+            icone: 'pi pi-briefcase',
+            titulo: t('doacoes.formas.voluntario.beneficios.curriculo'),
+            cor: '#17a2b8',
           },
         ]"
-        :volunteer-stats="{
-          totalVolunteers: t('doacoes.formas.voluntario.estatisticas.totalVoluntarios'),
-          volunteersLabel: t('doacoes.formas.voluntario.estatisticas.voluntarios'),
-          totalHours: t('doacoes.formas.voluntario.estatisticas.totalHoras'),
-          hoursLabel: t('doacoes.formas.voluntario.estatisticas.horasDoadas'),
+        :estatisticas-voluntario="{
+          totalVoluntarios: t('doacoes.formas.voluntario.estatisticas.totalVoluntarios'),
+          rotuloVoluntarios: t('doacoes.formas.voluntario.estatisticas.voluntarios'),
+          totalHoras: t('doacoes.formas.voluntario.estatisticas.totalHoras'),
+          rotuloHoras: t('doacoes.formas.voluntario.estatisticas.horasDoadas'),
         }"
       />
     </section>

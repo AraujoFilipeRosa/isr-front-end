@@ -58,15 +58,15 @@ export default {
     </ComponenteSecaoTitulo>
 
     <ComponenteSecaoConteudo
-      video-src="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
-      :title="t('nossaHistoria.video.titulo')"
-      :description="t('nossaHistoria.video.descricao')"
+      src-video="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
+      :titulo="t('nossaHistoria.video.titulo')"
+      :descricao="t('nossaHistoria.video.descricao')"
     />
 
     <ComponenteSecaoConteudo
-      :title="t('nossaHistoria.novaSede.titulo')"
-      :description="t('nossaHistoria.novaSede.descricao')"
-      :inverted="true"
+      :titulo="t('nossaHistoria.novaSede.titulo')"
+      :descricao="t('nossaHistoria.novaSede.descricao')"
+      :invertido="true"
     >
       <template #media>
         <Carousel
