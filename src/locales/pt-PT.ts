@@ -665,8 +665,8 @@ export default {
       copyright: '© 2023',
       nosSegue: 'Siga-nos',
       creditos: {
-        titulo: 'Desenvolvimento',
-        desenvolvedor: 'Filipe Rosa de Araújo',
+        titulo: 'Desenvolvido por',
+        desenvolvedor: 'Filipe Rosa de Araujo',
       },
       redesSociais: {
         whatsapp: 'Whatsapp',

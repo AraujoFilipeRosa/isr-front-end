@@ -453,8 +453,8 @@ export default {
     footer: {
       copyright: '© 2024 Instituto Severa Romana. Todos os direitos reservados.',
       creditos: {
-        titulo: 'Desenvolvido com ❤️ por',
-        desenvolvedor: 'Equipe de Desenvolvimento',
+        titulo: 'Desenvolvido por',
+        desenvolvedor: 'Filipe Rosa de Araujo',
       },
       nosSegue: 'Nos siga nas redes sociais:',
       redesSociais: {
