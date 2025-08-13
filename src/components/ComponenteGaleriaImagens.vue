@@ -132,56 +132,25 @@ watch(visivel, (visivel) => {
     :header="titulo"
     modal
     maximizable
+    :closable="true"
+    :closeOnEscape="true"
     :style="{ width: '95vw', height: '95vh' }"
     :contentStyle="{ height: 'calc(100% - 80px)', padding: '0' }"
     @hide="fecharDialog"
+    @update:visible="(value) => emit('update:modelValue', value)"
   >
     <template #header>
       <div class="d-flex align-items-center gap-2">
         <i class="pi pi-images text-primary"></i>
         <span class="font-weight-bold">{{ titulo }}</span>
-        <span v-if="temMultiplasImagens" class="badge badge-secondary ms-2">
-          {{ indiceImagemAtual + 1 }} / {{ imagens.length }}
-        </span>
       </div>
     </template>
 
     <div class="gallery-viewer-container h-100 d-flex flex-column">
-      <!-- Controles de navegação e zoom -->
-      <div
-        class="gallery-controls d-flex align-items-center justify-content-between gap-3 p-3 border-bottom"
-      >
-        <!-- Controles de navegação -->
-        <div v-if="temMultiplasImagens" class="image-controls d-flex align-items-center">
-          <button
-            @click="imagemAnterior"
-            :disabled="indiceImagemAtual <= 0"
-            class="control-btn"
-            :title="t('componentes.galeriaImagens.imagemAnterior')"
-          >
-            <i class="pi pi-chevron-left"></i>
-          </button>
-
-          <div class="image-info">
-            <input
-              type="number"
-              :value="indiceImagemAtual + 1"
-              :min="1"
-              :max="imagens.length"
-              @input="irParaImagem(parseInt(($event.target as HTMLInputElement).value) - 1)"
-              class="image-input"
-            />
-            <span class="total-images">/ {{ imagens.length }}</span>
-          </div>
-
-          <button
-            @click="proximaImagem"
-            :disabled="indiceImagemAtual >= imagens.length - 1"
-            class="control-btn"
-            :title="t('componentes.galeriaImagens.proximaImagem')"
-          >
-            <i class="pi pi-chevron-right"></i>
-          </button>
+      <!-- Contador de imagens no topo -->
+      <div v-if="temMultiplasImagens" class="image-counter-container p-2 text-center">
+        <div class="image-counter">
+          <span class="counter-text">{{ indiceImagemAtual + 1 }} / {{ imagens.length }}</span>
         </div>
       </div>
 
@@ -206,8 +175,30 @@ watch(visivel, (visivel) => {
         </div>
       </div>
 
-      <!-- Visualizador de Imagem -->
-      <div v-else class="image-content flex-grow-1">
+      <!-- Visualizador de Imagem com controles de navegação -->
+      <div v-else class="image-content flex-grow-1 position-relative">
+        <!-- Seta esquerda -->
+        <button
+          v-if="temMultiplasImagens"
+          @click="imagemAnterior"
+          :disabled="indiceImagemAtual <= 0"
+          class="nav-arrow nav-arrow-left"
+          :title="t('componentes.galeriaImagens.imagemAnterior')"
+        >
+          <i class="pi pi-chevron-left"></i>
+        </button>
+
+        <!-- Seta direita -->
+        <button
+          v-if="temMultiplasImagens"
+          @click="proximaImagem"
+          :disabled="indiceImagemAtual >= imagens.length - 1"
+          class="nav-arrow nav-arrow-right"
+          :title="t('componentes.galeriaImagens.proximaImagem')"
+        >
+          <i class="pi pi-chevron-right"></i>
+        </button>
+
         <div class="image-scroll-container">
           <img
             v-motion
@@ -226,11 +217,8 @@ watch(visivel, (visivel) => {
       </div>
 
       <!-- Miniaturas (se múltiplas imagens) -->
-      <div
-        v-if="temMultiplasImagens && imagens.length <= 10"
-        class="thumbnails-container p-3 border-top"
-      >
-        <div class="d-flex gap-2 justify-content-center flex-wrap">
+      <div v-if="temMultiplasImagens && imagens.length <= 10" class="thumbnails-container p-3">
+        <div class="thumbnails-wrapper">
           <div
             v-for="(imagem, index) in imagens"
             :key="`thumb-${index}`"
@@ -238,7 +226,7 @@ watch(visivel, (visivel) => {
             class="thumbnail"
             :class="{ active: index === indiceImagemAtual }"
           >
-            <Image
+            <img
               :src="imagem"
               :alt="`${t('componentes.galeriaImagens.miniatura')} ${index + 1}`"
               class="thumbnail-image"
@@ -259,75 +247,67 @@ watch(visivel, (visivel) => {
   background: #f8f9fa;
 }
 
-.gallery-controls {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+.image-counter-container {
+  background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid rgba($nav-font-color, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
 }
 
-.control-btn {
-  width: 28px;
-  height: 28px;
+.image-counter {
+  display: inline-block;
+  background: rgba($nav-font-color, 0.1);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+
+.counter-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $nav-font-color;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
   border: none;
-  background: white;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
   cursor: pointer;
-  margin: 0 1px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   &:hover:not(:disabled) {
-    background: $nav-font-color;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
-    background: #f1f1f1;
+    background: rgba(200, 200, 200, 0.8);
   }
 
   i {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
+    color: $nav-font-color;
   }
 }
 
-.image-controls {
-  gap: 4px;
+.nav-arrow-left {
+  left: 20px;
 }
 
-.image-info {
-  display: flex;
-  align-items: center;
-  margin: 0 8px;
-  gap: 4px;
-}
-
-.image-input {
-  width: 40px;
-  height: 22px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  text-align: center;
-  font-size: 0.8rem;
-  padding: 0 2px;
-
-  &:focus {
-    outline: none;
-    border-color: $nav-font-color;
-    box-shadow: 0 0 0 2px rgba($nav-font-color, 0.2);
-  }
-}
-
-.total-images {
-  font-size: 0.8rem;
-  color: #666;
-  white-space: nowrap;
+.nav-arrow-right {
+  right: 20px;
 }
 
 .image-content {
@@ -375,7 +355,6 @@ watch(visivel, (visivel) => {
   height: auto;
   object-fit: contain;
   transition: opacity 0.3s ease;
-  cursor: zoom-in;
 
   // Para imagens muito pequenas, garantir um tamanho mínimo decente
   @media (min-width: 768px) {
@@ -392,6 +371,38 @@ watch(visivel, (visivel) => {
 .thumbnails-container {
   background: white;
   max-height: 120px;
+  overflow: hidden;
+  border-top: 1px solid rgba($nav-font-color, 0.1);
+}
+
+.thumbnails-wrapper {
+  overflow-x: auto; /* Adiciona scroll horizontal */
+  -webkit-overflow-scrolling: touch; /* Melhora o comportamento de scroll */
+  scroll-behavior: smooth;
+  padding-bottom: 5px; /* Adiciona padding para evitar que o scrollbar fique no final */
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  /* Estilização da scrollbar */
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
 }
 
 .thumbnail {
@@ -402,6 +413,8 @@ watch(visivel, (visivel) => {
   cursor: pointer;
   border: 3px solid transparent;
   transition: all 0.2s ease;
+  flex-shrink: 0;
+  position: relative;
 
   &:hover {
     border-color: rgba($nav-font-color, 0.5);
@@ -418,28 +431,35 @@ watch(visivel, (visivel) => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 // Responsividade
 @media (max-width: 768px) {
-  .gallery-controls {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .control-btn {
-    width: 24px;
-    height: 24px;
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
 
     i {
-      font-size: 0.7rem;
+      font-size: 1rem;
     }
   }
 
-  .image-input {
-    width: 36px;
-    height: 20px;
-    font-size: 0.75rem;
+  .nav-arrow-left {
+    left: 10px;
+  }
+
+  .nav-arrow-right {
+    right: 10px;
+  }
+
+  .image-counter {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .counter-text {
+    font-size: 0.8rem;
   }
 
   .image-scroll-container {
@@ -454,6 +474,14 @@ watch(visivel, (visivel) => {
   .thumbnail {
     width: 50px;
     height: 50px;
+  }
+
+  .thumbnails-container {
+    max-height: 100px;
+  }
+
+  .thumbnails-wrapper {
+    gap: 0.5rem;
   }
 }
 </style>
