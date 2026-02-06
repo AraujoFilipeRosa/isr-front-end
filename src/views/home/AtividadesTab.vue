@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
-import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
 
 import fatimaImg from '@/assets/imagens/profissionais/fatima.jpg'
 import fatimaAtendimento1 from '@/assets/imagens/atendimentos/fatima-atendimento-1.jpg'
@@ -118,13 +116,8 @@ const tiposAtividades = [
 
 <template>
   <div id="atividades" class="container my-5">
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
+      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
       <div class="col-12 text-center">
         <i class="pi pi-sitemap display-1 mb-3" style="font-size: 3rem !important"></i>
         <h1 class="display-4 font-weight-bold mb-4">{{ t('atividades.titulo') }}</h1>
@@ -134,25 +127,16 @@ const tiposAtividades = [
       </div>
     </section>
 
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="50"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="50"
+      class="row my-5">
       <div class="col-12">
         <div class="organization-chart">
           <div class="coordinator-node">
             <div class="card border-0 shadow-lg coordinator-card">
               <div class="card-body text-center p-4">
                 <div class="position-relative mb-3">
-                  <img
-                    :src="imagensFatima.foto"
-                    :alt="t('atividades.coordenacao.fatima.nome')"
-                    class="coordinator-photo rounded-circle"
-                  />
+                  <img :src="imagensFatima.foto" :alt="t('atividades.coordenacao.fatima.nome')"
+                    class="coordinator-photo rounded-circle" />
                   <div class="coordinator-badge">
                     <i class="pi pi-crown"></i>
                   </div>
@@ -193,14 +177,8 @@ const tiposAtividades = [
     </section>
 
     <!-- Galeria Fátima em Ação - Serviço Social -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 30 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="50"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 30 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="50"
+      class="row my-5">
       <div class="col-12">
         <div class="text-center mb-4">
           <h3 class="h4 font-weight-bold text-primary mb-2">Serviço Social em Ação</h3>
@@ -208,29 +186,16 @@ const tiposAtividades = [
         </div>
 
         <div class="fatima-gallery">
-          <div
-            v-for="imagemIndex in 3"
-            :key="`fatima-acao-${imagemIndex}`"
-            v-motion
-            :initial="{ opacity: 0, scale: 0.9 }"
-            :visible="{ opacity: 1, scale: 1 }"
-            :duration="600"
-            :delay="150 + imagemIndex * 100"
-            class="gallery-item"
-          >
+          <div v-for="imagemIndex in 3" :key="`fatima-acao-${imagemIndex}`" v-motion
+            :initial="{ opacity: 0, scale: 0.9 }" :visible="{ opacity: 1, scale: 1 }" :duration="600"
+            :delay="150 + imagemIndex * 100" class="gallery-item">
             <div class="image-container">
-              <Image
-                :src="imagensFatima[`atendimento${imagemIndex}` as keyof typeof imagensFatima]"
-                :alt="`Fátima em atendimento ${imagemIndex}`"
-                class="gallery-image"
-                width="100%"
-                height="auto"
-                preview
+              <Image :src="imagensFatima[`atendimento${imagemIndex}` as keyof typeof imagensFatima]"
+                :alt="`Fátima em atendimento ${imagemIndex}`" class="gallery-image" width="100%" height="auto" preview
                 :pt="{
                   root: { class: 'w-100 h-100' },
                   image: { class: 'w-100 h-100 object-fit-cover' },
-                }"
-              />
+                }" />
               <div class="image-overlay">
                 <i class="pi pi-eye"></i>
               </div>
@@ -240,14 +205,8 @@ const tiposAtividades = [
       </div>
     </section>
 
-    <section
-      v-motion
-      :initial="{ opacity: 0, x: 0 }"
-      :visible="{ opacity: 1, x: 0 }"
-      :duration="1000"
-      :delay="50"
-      class="row my-5 py-5 bg-light rounded"
-    >
+    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="50"
+      class="row my-5 py-5 bg-light rounded">
       <div class="col-12">
         <div class="text-center mb-5">
           <h2 class="title font-weight-bold mb-3">{{ t('atividades.protecaoEspecial.titulo') }}</h2>
@@ -258,26 +217,16 @@ const tiposAtividades = [
           <div class="main-connector-line"></div>
 
           <div class="team-grid">
-            <div
-              v-for="(membro, index) in equipeProtecaoEspecial"
-              :key="membro.chave"
-              v-motion
-              :initial="{ opacity: 0, scale: 0.8 }"
-              :visible="{ opacity: 1, scale: 1 }"
-              :duration="600"
-              :delay="50 + index * 100"
-              class="team-node"
-            >
+            <div v-for="(membro, index) in equipeProtecaoEspecial" :key="membro.chave" v-motion
+              :initial="{ opacity: 0, scale: 0.8 }" :visible="{ opacity: 1, scale: 1 }" :duration="600"
+              :delay="50 + index * 100" class="team-node">
               <div class="member-connector-line"></div>
 
               <div class="card border-0 shadow team-member-card">
                 <div class="card-body p-3 text-center">
                   <div class="position-relative mb-3">
-                    <img
-                      :src="`/imagens/atividades/${membro.imagem}`"
-                      :alt="membro.nome"
-                      class="member-photo rounded-circle"
-                    />
+                    <img :src="`/imagens/atividades/${membro.imagem}`" :alt="membro.nome"
+                      class="member-photo rounded-circle" />
                     <div class="member-badge">
                       <i :class="`pi ${membro.icone}`"></i>
                     </div>
@@ -293,14 +242,8 @@ const tiposAtividades = [
       </div>
     </section>
 
-    <section
-      v-motion
-      :initial="{ opacity: 0, x: 0 }"
-      :visible="{ opacity: 1, x: 0 }"
-      :duration="1000"
-      :delay="50"
-      class="row my-5 py-5 bg-light rounded"
-    >
+    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="50"
+      class="row my-5 py-5 bg-light rounded">
       <div class="col-12">
         <div class="text-center mb-5">
           <h2 class="title font-weight-bold mb-3">
@@ -367,7 +310,7 @@ const tiposAtividades = [
   right: -10px;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  background: linear-gradient(318deg, #ffd700, #ff8c00);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -585,7 +528,7 @@ const tiposAtividades = [
   right: -8px;
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+  background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -707,7 +650,7 @@ const tiposAtividades = [
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(44, 109, 173, 0.8), rgba(92, 159, 226, 0.6));
+  background: linear-gradient(318deg, rgba(44, 109, 173, 0.8), rgba(92, 159, 226, 0.6));
   display: flex;
   align-items: center;
   justify-content: center;

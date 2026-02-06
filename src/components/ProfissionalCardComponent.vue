@@ -25,13 +25,10 @@ const { t } = useI18n()
       <!-- Header do Card com Foto/Ícone -->
       <div class="profissional-header mb-3">
         <div class="photo-container">
-          <img
-            v-if="profissional.imagem"
+          <img v-if="profissional.imagem"
             :src="imagensProfissionais[profissional.imagem as keyof typeof imagensProfissionais]"
             :alt="t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)"
-            class="profissional-photo"
-            loading="lazy"
-          />
+            class="profissional-photo" loading="lazy" />
           <div v-else class="default-avatar">
             <i :class="`pi ${profissional.icone}`"></i>
           </div>
@@ -62,18 +59,12 @@ const { t } = useI18n()
           {{ t('componentes.profissionalCard.trabalhoAcao') }}
         </h6>
         <div class="imagens-grid">
-          <div
-            v-for="imgIndex in obterQuantidadeImagens(profissional.chave)"
-            :key="`${profissional.chave}-trabalho-${imgIndex}`"
-            class="trabalho-imagem-container"
-            @click="abrirGaleriaTrabalho(profissional, imgIndex - 1)"
-          >
-            <img
-              :src="obterImagemTrabalho(profissional.chave, imgIndex)"
+          <div v-for="imgIndex in obterQuantidadeImagens(profissional.chave)"
+            :key="`${profissional.chave}-trabalho-${imgIndex}`" class="trabalho-imagem-container"
+            @click="abrirGaleriaTrabalho(profissional, imgIndex - 1)">
+            <img :src="obterImagemTrabalho(profissional.chave, imgIndex)"
               :alt="`${t(`atividades.equipeAtendimentos.profissionais.${profissional.chave}.nome`)} trabalhando ${imgIndex}`"
-              class="trabalho-imagem"
-              loading="lazy"
-            />
+              class="trabalho-imagem" loading="lazy" />
             <div class="imagem-overlay">
               <i class="pi pi-eye"></i>
             </div>
@@ -129,7 +120,7 @@ const { t } = useI18n()
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, $nav-font-color-light, $nav-font-color);
+  background: linear-gradient(318deg, $nav-font-color-light, $nav-font-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +139,7 @@ const { t } = useI18n()
   right: -8px;
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+  background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -235,6 +226,7 @@ const { t } = useI18n()
 
 // ===== RESPONSIVIDADE =====
 @media (max-width: 768px) {
+
   .profissional-photo,
   .default-avatar {
     width: 70px;
@@ -254,6 +246,7 @@ const { t } = useI18n()
 }
 
 @media (max-width: 576px) {
+
   .profissional-photo,
   .default-avatar {
     width: 60px;

@@ -1,19 +1,12 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
-import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
-import ComponenteCard from '@/components/ComponenteCard.vue'
+import ComponenteCard from '@/components/ComponenteCard.vue';
 </script>
 
 <template>
   <div id="novidades" class="container my-5">
     <!-- Header da Página -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
+      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
       <div class="col-12 text-center">
         <i class="pi pi-bell display-1 mb-3" style="font-size: 3rem !important"></i>
         <h1 class="display-4 font-weight-bold mb-4">Novidades do ISR</h1>
@@ -25,14 +18,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
     </section>
 
     <!-- Seção Principal de Novidades -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="200"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
+      class="row my-5">
       <div class="col-12">
         <div class="card border-0 shadow-lg news-highlight-card">
           <div class="card-body p-5 text-center">
@@ -66,14 +53,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
     </section>
 
     <!-- Redes Sociais Section -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="400"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="400"
+      class="row my-5">
       <div class="col-12 text-center mb-5">
         <h2 class="title font-weight-bold">Nos Acompanhe nas Redes Sociais</h2>
         <p class="text-muted">Escolha sua plataforma favorita e fique conectado conosco!</p>
@@ -89,12 +70,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
           <p class="card-text text-muted flex-grow-1">
             Entre em contato direto conosco. Tire suas dúvidas e receba informações importantes.
           </p>
-          <a
-            href="https://wa.me/5521992206577"
-            class="btn btn-success btn-block mt-auto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://wa.me/5521992206577" class="btn btn-success btn-block mt-auto" target="_blank"
+            rel="noopener noreferrer">
             <i class="pi pi-whatsapp me-2"></i>Conversar
           </a>
         </ComponenteCard>
@@ -111,12 +88,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
             Fotos e vídeos do nosso dia a dia, eventos especiais e momentos únicos dos nossos
             usuários.
           </p>
-          <a
-            href="https://www.instagram.com/instituto.severa.romana/?hl=pt-br"
-            class="btn btn-instagram btn-block mt-auto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.instagram.com/instituto.severa.romana/?hl=pt-br"
+            class="btn btn-instagram btn-block mt-auto" target="_blank" rel="noopener noreferrer">
             <i class="pi pi-instagram me-2"></i>Seguir
           </a>
         </ComponenteCard>
@@ -132,12 +105,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
           <p class="card-text text-muted flex-grow-1">
             Notícias detalhadas, eventos e informações sobre nossos programas e atividades.
           </p>
-          <a
-            href="https://www.facebook.com/instseveraromana"
-            class="btn btn-facebook btn-block mt-auto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.facebook.com/instseveraromana" class="btn btn-facebook btn-block mt-auto" target="_blank"
+            rel="noopener noreferrer">
             <i class="pi pi-facebook me-2"></i>Curtir
           </a>
         </ComponenteCard>
@@ -153,12 +122,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
           <p class="card-text text-muted flex-grow-1">
             Vídeos dos nossos eventos, depoimentos e documentários sobre o trabalho do ISR.
           </p>
-          <a
-            href="https://www.youtube.com/@institutoseveraromana650"
-            class="btn btn-youtube btn-block mt-auto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.youtube.com/@institutoseveraromana650" class="btn btn-youtube btn-block mt-auto"
+            target="_blank" rel="noopener noreferrer">
             <i class="pi pi-youtube me-2"></i>Inscrever-se
           </a>
         </ComponenteCard>
@@ -174,12 +139,8 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
           <p class="card-text text-muted flex-grow-1">
             Conteúdo divertido e educativo sobre inclusão social e nossas atividades.
           </p>
-          <a
-            href="https://www.tiktok.com/@institutoseveraromana"
-            class="btn btn-tiktok btn-block mt-auto"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.tiktok.com/@institutoseveraromana" class="btn btn-tiktok btn-block mt-auto"
+            target="_blank" rel="noopener noreferrer">
             <i class="pi pi-tiktok me-2"></i>Seguir
           </a>
         </ComponenteCard>
@@ -210,9 +171,9 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
   }
 
   .news-highlight-icon {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -282,14 +243,12 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
     }
 
     &.instagram {
-      background: linear-gradient(
-        45deg,
-        #f09433 0%,
-        #e6683c 25%,
-        #dc2743 50%,
-        #cc2366 75%,
-        #bc1888 100%
-      );
+      background: linear-gradient(45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%);
     }
 
     &.facebook {
@@ -321,14 +280,12 @@ import ComponenteCard from '@/components/ComponenteCard.vue'
     }
 
     &.btn-instagram {
-      background: linear-gradient(
-        45deg,
-        #f09433 0%,
-        #e6683c 25%,
-        #dc2743 50%,
-        #cc2366 75%,
-        #bc1888 100%
-      );
+      background: linear-gradient(45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%);
       border: none;
       color: white;
     }

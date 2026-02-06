@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 import { Image } from 'primevue'
@@ -22,34 +21,21 @@ const imagensFatima = {
 <template>
   <div id="atividades-container" class="container my-5">
     <!-- Header Principal com Animação -->
-    <ComponenteSecaoCabecalho
-      icone="pi-sitemap"
-      :titulo="t('atividades.titulo')"
-      :descricao="t('atividades.descricao')"
-      :duracao="1000"
-    />
+    <ComponenteSecaoCabecalho icone="pi-sitemap" :titulo="t('atividades.titulo')" :descricao="t('atividades.descricao')"
+      :duracao="1000" />
 
     <!-- Organograma de Liderança - Fátima no topo -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="50"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="50"
+      class="row my-5">
       <div class="col-12">
         <div class="organization-chart">
           <!-- Coordenadora Principal -->
           <div class="coordinator-node">
             <div class="card border-0 shadow-lg coordinator-card">
               <div class="card-body text-center p-4">
-                <div class="position-relative mb-3">
-                  <img
-                    :src="imagensFatima.foto"
-                    :alt="t('atividades.coordenacao.fatima.nome')"
-                    class="coordinator-photo rounded-circle"
-                  />
+                <div class="position-relative d-flex justify-content-center mb-3">
+                  <img :src="imagensFatima.foto" :alt="t('atividades.coordenacao.fatima.nome')"
+                    class="coordinator-photo rounded-circle" />
                   <div class="coordinator-badge">
                     <i class="pi pi-crown"></i>
                   </div>
@@ -94,14 +80,8 @@ const imagensFatima = {
     </section>
 
     <!-- Galeria Fátima em Ação - Serviço Social -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="50"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="50"
+      class="row my-5">
       <div class="col-12">
         <div class="text-center mb-4">
           <h2 class="title font-weight-bold mb-2">
@@ -112,30 +92,16 @@ const imagensFatima = {
 
         <!-- Grid das 3 Imagens -->
         <div class="fatima-gallery">
-          <div
-            v-for="imagemIndex in 3"
-            :key="`fatima-acao-${imagemIndex}`"
-            v-motion
-            :initial="{ opacity: 0, scale: 0.9 }"
-            :visible="{ opacity: 1, scale: 1 }"
-            :duration="600"
-            :delay="150 + imagemIndex * 100"
-            class="gallery-item"
-          >
+          <div v-for="imagemIndex in 3" :key="`fatima-acao-${imagemIndex}`" v-motion
+            :initial="{ opacity: 0, scale: 0.9 }" :visible="{ opacity: 1, scale: 1 }" :duration="600"
+            :delay="150 + imagemIndex * 100" class="gallery-item">
             <div>
-              <Image
-                :src="`/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
+              <Image :src="`/imagens/atividades/fatima-atendimento-${imagemIndex}.jpg`"
                 :alt="`${t('atividades.equipeAtendimentos.servicoSocial.imagemAlt')} ${imagemIndex}`"
-                class="gallery-image"
-                width="100%"
-                height="auto"
-                loading="lazy"
-                preview
-                :pt="{
+                class="gallery-image" width="100%" height="auto" loading="lazy" preview :pt="{
                   root: { class: 'w-100 h-100' },
                   image: { class: 'w-100 h-100 object-fit-cover' },
-                }"
-              />
+                }" />
               <div class="image-overlay">
                 <i class="pi pi-eye"></i>
               </div>

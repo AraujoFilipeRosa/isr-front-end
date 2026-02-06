@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
 import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
@@ -11,22 +10,12 @@ const { t } = useI18n()
 <template>
   <div id="valores" class="container my-5">
     <!-- Header dos Valores -->
-    <ComponenteSecaoCabecalho
-      icone="pi-heart"
-      :titulo="t('valores.titulo')"
-      :descricao="t('valores.descricao')"
-      :duracao="1000"
-    />
+    <ComponenteSecaoCabecalho icone="pi-heart" :titulo="t('valores.titulo')" :descricao="t('valores.descricao')"
+      :duracao="1000" />
 
     <!-- Valores Principais -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 0 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      :delay="200"
-      class="row my-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
+      class="row my-5">
       <div class="col-12 text-center mb-5">
         <h2 class="title font-weight-bold">{{ t('valores.fundamentais.titulo') }}</h2>
         <p class="text-muted">{{ t('valores.fundamentais.descricao') }}</p>
@@ -118,14 +107,8 @@ const { t } = useI18n()
     </section>
 
     <!-- Como Aplicamos Nossos Valores -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, x: 0 }"
-      :visible="{ opacity: 1, x: 0 }"
-      :duration="1000"
-      :delay="200"
-      class="row my-5 py-5 bg-light rounded"
-    >
+    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="200"
+      class="row my-5 py-5 bg-light rounded">
       <div class="col-12 text-center mb-4">
         <h2 class="title font-weight-bold">{{ t('valores.aplicacao.titulo') }}</h2>
         <p class="text-muted">{{ t('valores.aplicacao.descricao') }}</p>
@@ -193,13 +176,8 @@ const { t } = useI18n()
     </section>
 
     <!-- Call to Action -->
-    <ComponenteChamadaAcao
-      :titulo="t('valores.callToAction.titulo')"
-      :descricao="t('valores.callToAction.descricao')"
-      textoBotaoSecundario="Faça parte"
-      iconeBotaoSecundario="pi pi-envelope"
-      rotaSecundaria="contato"
-    />
+    <ComponenteChamadaAcao :titulo="t('valores.callToAction.titulo')" :descricao="t('valores.callToAction.descricao')"
+      textoBotaoSecundario="Faça parte" iconeBotaoSecundario="pi pi-envelope" rotaSecundaria="contato" />
   </div>
 </template>
 
@@ -226,7 +204,7 @@ const { t } = useI18n()
   .value-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+    background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -243,7 +221,7 @@ const { t } = useI18n()
 .application-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+  background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
