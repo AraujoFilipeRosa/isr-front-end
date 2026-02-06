@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { MotionDirective as motion } from '@vueuse/motion'
 import { ref, onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
@@ -39,12 +40,22 @@ onMounted(() => {
 <template>
   <div id="doe" class="container my-5 page-container">
     <!-- Header da Página -->
-    <ComponenteSecaoCabecalho icone="pi-heart" :titulo="t('doacoes.titulo')" :descricao="t('doacoes.descricao')"
-      :duracao="1000" />
+    <ComponenteSecaoCabecalho
+      icone="pi-heart"
+      :titulo="t('doacoes.titulo')"
+      :descricao="t('doacoes.descricao')"
+      :duracao="1000"
+    />
 
     <!-- Informações de Impacto -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="50"
-      class="row my-5">
+    <section
+      v-motion
+      :initial="{ opacity: 0, y: 0 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :duration="1000"
+      :delay="50"
+      class="row my-5"
+    >
       <div class="col-12">
         <div class="card-custom impact-card">
           <div class="card-body p-5 text-center">
@@ -81,13 +92,26 @@ onMounted(() => {
     </section>
 
     <!-- Opções de Doação -->
-    <ComponenteSecaoTitulo :titulo="t('doacoes.comoAjudar.titulo')" :descricao="t('doacoes.comoAjudar.descricao')" />
+    <ComponenteSecaoTitulo
+      :titulo="t('doacoes.comoAjudar.titulo')"
+      :descricao="t('doacoes.comoAjudar.descricao')"
+    />
 
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="50"
-      class="row my-5">
+    <section
+      v-motion
+      :initial="{ opacity: 0, y: 0 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :duration="1000"
+      :delay="50"
+      class="row my-5"
+    >
       <!-- Doação Financeira -->
-      <ComponenteCardDoacao :classe-icone="'pi pi-credit-card'" :titulo="t('doacoes.formas.financeira.titulo')"
-        :descricao="t('doacoes.formas.financeira.descricao')" :mostrar-info-bancaria="true" :info-bancaria="{
+      <ComponenteCardDoacao
+        :classe-icone="'pi pi-credit-card'"
+        :titulo="t('doacoes.formas.financeira.titulo')"
+        :descricao="t('doacoes.formas.financeira.descricao')"
+        :mostrar-info-bancaria="true"
+        :info-bancaria="{
           nome: t('doacoes.formas.financeira.banco.nome'),
           agencia: t('doacoes.formas.financeira.banco.agencia'),
           numeroAgencia: t('doacoes.formas.financeira.banco.agenciaNumero'),
@@ -95,11 +119,17 @@ onMounted(() => {
           numeroConta: t('doacoes.formas.financeira.banco.contaNumero'),
           pix: t('doacoes.formas.financeira.banco.pix'),
           cnpj: t('doacoes.formas.financeira.banco.cnpj'),
-        }" :imagem-qr-code="doeQrCode" :texto-alt-qr-code="t('doacoes.formas.financeira.qrCode')" />
+        }"
+        :imagem-qr-code="doeQrCode"
+        :texto-alt-qr-code="t('doacoes.formas.financeira.qrCode')"
+      />
 
       <!-- Doação de Produtos -->
-      <ComponenteCardDoacao :classe-icone="'pi pi-shopping-bag'" :titulo="t('doacoes.formas.produtos.titulo')"
-        :descricao="t('doacoes.formas.produtos.descricao')" :beneficios="[
+      <ComponenteCardDoacao
+        :classe-icone="'pi pi-shopping-bag'"
+        :titulo="t('doacoes.formas.produtos.titulo')"
+        :descricao="t('doacoes.formas.produtos.descricao')"
+        :beneficios="[
           {
             icone: 'pi pi-apple',
             titulo: t('doacoes.formas.produtos.categorias.alimentos'),
@@ -115,11 +145,16 @@ onMounted(() => {
             titulo: t('doacoes.formas.produtos.categorias.higiene'),
             cor: '#ffc107',
           },
-        ]" />
+        ]"
+      />
 
       <!-- Voluntariado -->
-      <ComponenteCardDoacao :classe-icone="'pi pi-users'" :titulo="t('doacoes.formas.voluntario.titulo')"
-        :descricao="t('doacoes.formas.voluntario.descricao')" :mostrar-estatisticas-voluntario="true" :beneficios="[
+      <ComponenteCardDoacao
+        :classe-icone="'pi pi-users'"
+        :titulo="t('doacoes.formas.voluntario.titulo')"
+        :descricao="t('doacoes.formas.voluntario.descricao')"
+        :mostrar-estatisticas-voluntario="true"
+        :beneficios="[
           {
             icone: 'pi pi-heart',
             titulo: t('doacoes.formas.voluntario.beneficios.experiencia'),
@@ -135,12 +170,14 @@ onMounted(() => {
             titulo: t('doacoes.formas.voluntario.beneficios.curriculo'),
             cor: '#17a2b8',
           },
-        ]" :estatisticas-voluntario="{
+        ]"
+        :estatisticas-voluntario="{
           totalVoluntarios: t('doacoes.formas.voluntario.estatisticas.totalVoluntarios'),
           rotuloVoluntarios: t('doacoes.formas.voluntario.estatisticas.voluntarios'),
           totalHoras: t('doacoes.formas.voluntario.estatisticas.totalHoras'),
           rotuloHoras: t('doacoes.formas.voluntario.estatisticas.horasDoadas'),
-        }" />
+        }"
+      />
     </section>
   </div>
 </template>
@@ -161,7 +198,7 @@ onMounted(() => {
   .impact-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+    background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -214,7 +251,7 @@ onMounted(() => {
   .donation-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+    background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -295,9 +332,11 @@ onMounted(() => {
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(318deg,
-          rgba($nav-font-color, 0.9) 0%,
-          rgba($nav-font-color-light, 0.9) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba($nav-font-color, 0.9) 0%,
+        rgba($nav-font-color-light, 0.9) 100%
+      );
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -340,7 +379,7 @@ onMounted(() => {
     .product-icon {
       width: 60px;
       height: 60px;
-      background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+      background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -407,7 +446,7 @@ onMounted(() => {
     .volunteer-icon {
       width: 60px;
       height: 60px;
-      background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+      background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
       border-radius: 50%;
       display: flex;
       align-items: center;

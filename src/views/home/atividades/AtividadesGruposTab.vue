@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteSecaoTitulo from '@/components/ComponenteSecaoTitulo.vue'
 import ComponenteGaleriaImagens from '@/components/ComponenteGaleriaImagens.vue'
@@ -140,21 +141,40 @@ const atividades = [
 <template>
   <div class="atividades-grupos">
     <!-- Header da Seção -->
-    <ComponenteSecaoTitulo :titulo="t('atividades.atividadesGrupos.titulo')"
-      :descricao="t('atividades.atividadesGrupos.descricao')" />
+    <ComponenteSecaoTitulo
+      :titulo="t('atividades.atividadesGrupos.titulo')"
+      :descricao="t('atividades.atividadesGrupos.descricao')"
+    />
 
     <!-- Grid das Atividades -->
     <section class="atividades-grid">
-      <div v-for="(atividade, index) in atividades" :key="atividade.chave" v-motion :initial="{ opacity: 0, y: 0 }"
-        :visible="{ opacity: 1, y: 0 }" :duration="600" :delay="index" class="atividade-card-container">
-        <AtividadeCardComponent :atividade="atividade" :indice="index" :obter-imagem-atividade="getImagemAtividade"
-          :obter-quantidade-imagens-atividade="getQuantidadeImagensAtividade" :abrir-galeria="abrirGaleria" />
+      <div
+        v-for="(atividade, index) in atividades"
+        :key="atividade.chave"
+        v-motion
+        :initial="{ opacity: 0, y: 0 }"
+        :visible="{ opacity: 1, y: 0 }"
+        :duration="600"
+        :delay="index * 50"
+        class="atividade-card-container"
+      >
+        <AtividadeCardComponent
+          :atividade="atividade"
+          :indice="index"
+          :obter-imagem-atividade="getImagemAtividade"
+          :obter-quantidade-imagens-atividade="getQuantidadeImagensAtividade"
+          :abrir-galeria="abrirGaleria"
+        />
       </div>
     </section>
 
     <!-- Galeria de Imagens Modal -->
-    <ComponenteGaleriaImagens v-model="galeriaVisivel" :titulo="tituloGaleria" :imagens="imagensGaleria"
-      :imagem-inicial="imagemInicial" />
+    <ComponenteGaleriaImagens
+      v-model="galeriaVisivel"
+      :titulo="tituloGaleria"
+      :imagens="imagensGaleria"
+      :imagem-inicial="imagemInicial"
+    />
   </div>
 </template>
 

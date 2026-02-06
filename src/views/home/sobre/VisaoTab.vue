@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
 import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
@@ -10,12 +11,22 @@ const { t } = useI18n()
 <template>
   <div id="visao" class="container my-5">
     <!-- Header da Visão -->
-    <ComponenteSecaoCabecalho icone="pi-eye" :titulo="t('visao.titulo')" :descricao="t('visao.descricao')"
-      :duracao="1000" />
+    <ComponenteSecaoCabecalho
+      icone="pi-eye"
+      :titulo="t('visao.titulo')"
+      :descricao="t('visao.descricao')"
+      :duracao="1000"
+    />
 
     <!-- Visão Detalhada -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
-      class="row justify-content-center my-5">
+    <section
+      v-motion
+      :initial="{ opacity: 0, y: 0 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :duration="1000"
+      :delay="200"
+      class="row my-5"
+    >
       <div class="col-12 text-center mb-5">
         <h2 class="title font-weight-bold">{{ t('visao.futuro.titulo') }}</h2>
         <p class="text-muted">{{ t('visao.futuro.descricao') }}</p>
@@ -27,10 +38,10 @@ const { t } = useI18n()
             <i class="pi pi-eye"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.inovacao.titulo') }}
+            {{ t('visao.lista.inovacao.titulo') }}
           </h3>
           <p class="card-text text-muted flex-grow-1">
-            {{ t('visao.objetivos.inovacao.descricao') }}
+            {{ t('visao.lista.inovacao.descricao') }}
           </p>
         </ComponenteCard>
       </div>
@@ -41,10 +52,10 @@ const { t } = useI18n()
             <i class="pi pi-globe"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.sustentabilidade.titulo') }}
+            {{ t('visao.lista.expansao.titulo') }}
           </h3>
           <p class="card-text text-muted flex-grow-1">
-            {{ t('visao.objetivos.sustentabilidade.descricao') }}
+            {{ t('visao.lista.expansao.descricao') }}
           </p>
         </ComponenteCard>
       </div>
@@ -55,10 +66,10 @@ const { t } = useI18n()
             <i class="pi pi-users"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.impacto.titulo') }}
+            {{ t('visao.lista.colaboracao.titulo') }}
           </h3>
           <p class="card-text text-muted flex-grow-1">
-            {{ t('visao.objetivos.impacto.descricao') }}
+            {{ t('visao.lista.colaboracao.descricao') }}
           </p>
         </ComponenteCard>
       </div>
@@ -69,19 +80,23 @@ const { t } = useI18n()
             <i class="pi pi-star"></i>
           </div>
           <h3 class="card-title h5 font-weight-bold mb-3">
-            {{ t('visao.objetivos.excelencia.titulo') }}
+            {{ t('visao.lista.excelencia.titulo') }}
           </h3>
           <p class="card-text text-muted flex-grow-1">
-            {{ t('visao.objetivos.excelencia.descricao') }}
+            {{ t('visao.lista.excelencia.descricao') }}
           </p>
         </ComponenteCard>
       </div>
     </section>
 
     <!-- Call to Action -->
-    <ComponenteChamadaAcao :titulo="t('visao.callToAction.titulo')" :descricao="t('visao.callToAction.descricao')"
-      :textoBotaoSecundario="t('visao.callToAction.botao')" iconeBotaoSecundario="pi pi-envelope"
-      rotaSecundaria="contato" />
+    <ComponenteChamadaAcao
+      :titulo="t('visao.callToAction.titulo')"
+      :descricao="t('visao.callToAction.descricao')"
+      :textoBotaoSecundario="t('visao.callToAction.botao')"
+      iconeBotaoSecundario="pi pi-envelope"
+      rotaSecundaria="contato"
+    />
   </div>
 </template>
 
@@ -104,7 +119,7 @@ const { t } = useI18n()
   .vision-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+    background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
     align-items: center;

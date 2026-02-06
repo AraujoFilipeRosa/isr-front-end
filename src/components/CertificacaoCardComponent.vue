@@ -29,8 +29,12 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
   <div class="card h-100 card-custom card-hover-strong certificacao-card">
     <div class="card-body text-center p-4 d-flex flex-column">
       <div class="certificacao-image-container mb-3 flex-shrink-0">
-        <Image :src="certificacao.imagem" :alt="certificacao.titulo" class="certificacao-image"
-          @click="abrirCertificado(certificacao.pdf, certificacao.titulo)" />
+        <Image
+          :src="certificacao.imagem"
+          :alt="certificacao.titulo"
+          class="certificacao-image"
+          @click="abrirCertificado(certificacao.pdf, certificacao.titulo)"
+        />
         <div class="overlay">
           <i class="pi pi-eye overlay-icon"></i>
         </div>
@@ -39,7 +43,10 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
       <p class="card-text text-muted flex-grow-1 mb-4">
         {{ certificacao.descricao }}
       </p>
-      <button @click="abrirCertificado(certificacao.pdf, certificacao.titulo)" class="btn btn-primary btn-sm">
+      <button
+        @click="abrirCertificado(certificacao.pdf, certificacao.titulo)"
+        class="btn btn-primary btn-sm"
+      >
         <i class="pi pi-eye me-2"></i>
         {{ textoBotao }}
       </button>
@@ -83,9 +90,11 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(318deg,
-        rgba($nav-font-color, 0.8) 0%,
-        rgba($nav-font-color-light, 0.8) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba($nav-font-color, 0.8) 0%,
+      rgba($nav-font-color-light, 0.8) 100%
+    );
     display: flex;
     align-items: center;
     justify-content: center;

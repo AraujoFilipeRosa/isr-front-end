@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { MotionDirective as motion } from '@vueuse/motion'
+import { ref } from 'vue'
 
 const formData = ref({
   nome: '',
@@ -17,8 +18,13 @@ const handleSubmit = () => {
 <template>
   <div id="contato" class="container my-5">
     <!-- Header da Página -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
-      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
+    <section
+      v-motion
+      :initial="{ opacity: 0, y: 0 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :duration="1000"
+      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg"
+    >
       <div class="col-12 text-center">
         <i class="pi pi-envelope display-1 mb-3" style="font-size: 3rem !important"></i>
         <h1 class="display-4 font-weight-bold mb-4">Entre em Contato</h1>
@@ -29,13 +35,19 @@ const handleSubmit = () => {
     </section>
 
     <!-- Informações de Contato e Mapa -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
-      class="row my-5">
+    <section
+      v-motion
+      :initial="{ opacity: 0, y: 0 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :duration="1000"
+      :delay="200"
+      class="row my-5"
+    >
       <!-- Informações de Contato -->
       <div class="col-lg-6 mb-4">
         <div class="card border-0 shadow-lg h-100 contact-info-card">
           <div class="card-body p-5">
-            <h2 class="card-title h4 font-weight-bold mb-4 text-center">Nossas Informações</h2>
+            <h2 class="card-title h3 font-weight-bold mb-4 text-center">Nossas Informações</h2>
 
             <!-- Endereço -->
             <div class="contact-item mb-4">
@@ -89,8 +101,11 @@ const handleSubmit = () => {
                   <i class="pi pi-map-marker display-4 text-primary mb-3"></i>
                   <h4 class="font-weight-bold mb-2">Nossa Localização</h4>
                   <p class="text-muted mb-3">Rua Tôrres Sobrinho, 32 - Méier</p>
-                  <a href="https://maps.google.com/?q=Rua+Tôrres+Sobrinho,+32+-+Méier+-+Rio+de+Janeiro+-+RJ"
-                    target="_blank" class="btn btn-primary btn-sm">
+                  <a
+                    href="https://maps.google.com/?q=Rua+Tôrres+Sobrinho,+32+-+Méier+-+Rio+de+Janeiro+-+RJ"
+                    target="_blank"
+                    class="btn btn-primary"
+                  >
                     <i class="pi pi-external-link text-white me-2"></i>Ver no Google Maps
                   </a>
                 </div>
@@ -117,12 +132,12 @@ const handleSubmit = () => {
 .contact-info-card {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 16px;
-  // transition: all 0.3s ease;
+  transition: all 0.3s ease;
 
-  // &:hover {
-  //   transform: translateY(-5px);
-  //   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
-  // }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  }
 }
 
 .contact-item {
@@ -134,14 +149,14 @@ const handleSubmit = () => {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
-  // &:hover {
-  //   transform: translateY(-3px);
-  //   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  // }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
 
   .contact-icon {
-    // width: 30px;
-    // height: 30px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(-20deg, $nav-font-color, $nav-font-color-light);
     border-radius: 50%;
     display: flex;
@@ -149,10 +164,9 @@ const handleSubmit = () => {
     justify-content: center;
     margin-right: 1rem;
     flex-shrink: 0;
-    padding: 8px;
 
     i {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: white;
     }
   }
@@ -201,9 +215,9 @@ const handleSubmit = () => {
   padding: 2rem;
   transition: all 0.3s ease;
 
-  // &:hover {
-  //   background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
-  // }
+  &:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  }
 
   .map-content {
     i {
@@ -250,7 +264,7 @@ const handleSubmit = () => {
     .method-icon {
       width: 40px;
       height: 40px;
-      background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+      background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
       border-radius: 50%;
       display: flex;
       align-items: center;

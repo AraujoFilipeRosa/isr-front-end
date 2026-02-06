@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue';
-import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue';
-import { useI18n } from '@/composables/useI18n';
+import { MotionDirective as motion } from '@vueuse/motion'
+import ComponenteChamadaAcao from '@/components/ComponenteChamadaAcao.vue'
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
+import { useI18n } from '@/composables/useI18n'
 
 const { t } = useI18n()
 </script>
@@ -9,12 +10,22 @@ const { t } = useI18n()
 <template>
   <div id="missao" class="container my-5 page-container">
     <!-- Header da Missão -->
-    <ComponenteSecaoCabecalho icone="pi-bullseye" :titulo="t('sobre.missao.titulo')"
-      :descricao="t('sobre.missao.descricao')" :duracao="1000" />
+    <ComponenteSecaoCabecalho
+      icone="pi-bullseye"
+      :titulo="t('sobre.missao.titulo')"
+      :descricao="t('sobre.missao.descricao')"
+      :duracao="1000"
+    />
 
     <!-- Pilares da Missão -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
-      class="row my-5">
+    <section
+      v-motion
+      :initial="{ opacity: 0, y: 0 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :duration="1000"
+      :delay="200"
+      class="row my-5"
+    >
       <div class="col-12 text-center mb-5">
         <h2 class="title font-weight-bold">Pilares da Nossa Missão</h2>
         <p class="text-muted">{{ t('sobre.missao.pilares.subtitulo') }}</p>
@@ -70,9 +81,15 @@ const { t } = useI18n()
     </section>
 
     <!-- Como Atuamos -->
-    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="200"
-      class="row my-5 py-4 px-3 bg-light rounded">
-      <div class="col-sm-12 col-md-12 col-lg-6">
+    <section
+      v-motion
+      :initial="{ opacity: 0, x: 0 }"
+      :visible="{ opacity: 1, x: 0 }"
+      :duration="1000"
+      :delay="200"
+      class="row my-5 py-5 bg-light rounded"
+    >
+      <div class="col-md-6">
         <h2 class="title font-weight-bold mb-4">Como Atuamos</h2>
         <div class="mb-4">
           <div class="d-flex align-items-center mb-3">
@@ -108,9 +125,9 @@ const { t } = useI18n()
         </div>
       </div>
 
-      <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="col-md-6">
         <div class="bg-white p-4 rounded shadow-sm">
-          <h3 class="font-weight-bold mb-3">Nossos Pilares</h3>
+          <h3 class="font-weight-bold mb-3">Nossos Pilares de Atuação</h3>
           <ul class="list-unstyled">
             <li class="mb-2">
               <i class="pi pi-check-circle text-success me-2"></i>
@@ -138,8 +155,14 @@ const { t } = useI18n()
     </section>
 
     <!-- Impacto -->
-    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="200"
-      class="row my-5">
+    <section
+      v-motion
+      :initial="{ opacity: 0, x: 0 }"
+      :visible="{ opacity: 1, x: 0 }"
+      :duration="1000"
+      :delay="200"
+      class="row my-5"
+    >
       <div class="col-12 text-center mb-4">
         <h2 class="title font-weight-bold">{{ t('sobre.missao.impacto.titulo') }}</h2>
         <p class="text-muted">{{ t('sobre.missao.impacto.subtitulo') }}</p>
@@ -179,9 +202,13 @@ const { t } = useI18n()
     </section>
 
     <!-- Call to Action -->
-    <ComponenteChamadaAcao :titulo="t('sobre.missao.callToAction.titulo')"
-      :descricao="t('sobre.missao.callToAction.descricao')" textoBotaoSecundario="Faça parte"
-      iconeBotaoSecundario="pi pi-envelope" rotaSecundaria="contato" />
+    <ComponenteChamadaAcao
+      :titulo="t('sobre.missao.callToAction.titulo')"
+      :descricao="t('sobre.missao.callToAction.descricao')"
+      textoBotaoSecundario="Faça parte"
+      iconeBotaoSecundario="pi pi-envelope"
+      rotaSecundaria="contato"
+    />
   </div>
 </template>
 

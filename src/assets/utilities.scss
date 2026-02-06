@@ -58,7 +58,7 @@
 .icon-circle {
   width: 70px;
   height: 70px;
-  background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
+  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -369,12 +369,10 @@
 }
 
 @keyframes pulse {
-
   0%,
   100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.1);
   }
