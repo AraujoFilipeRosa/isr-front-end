@@ -1,7 +1,14 @@
 @use './base.scss' as *;
+@use './bootstrap.scss' as *;
+
+
 
 .page-container {
-  padding-top: $app-padding-top;
+  padding-top: 20px;
+
+  @include media-breakpoint-up(md) {
+    padding-top: $app-padding-top;
+  }
 }
 
 .section-container {

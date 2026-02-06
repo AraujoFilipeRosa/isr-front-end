@@ -1,3 +1,4 @@
+@use './bootstrap.scss' as *;
 @use './base.scss' as *;
 @use './buttons.scss' as *;
 @use './utilities.scss' as *;
@@ -22,5 +23,13 @@ a.link {
   &:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
+  }
+}
+
+#app {
+  padding-left: 0;
+
+  @include media-breakpoint-down(md) {
+    padding-left: $app-main-padding-left;
   }
 }

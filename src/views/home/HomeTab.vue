@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteSecaoConteudo from '@/components/ComponenteSecaoConteudo.vue'
 import ComponenteSecaoTitulo from '@/components/ComponenteSecaoTitulo.vue'
@@ -15,39 +14,18 @@ const { t } = useI18n()
 <template>
   <div id="home" class="container my-5 page-container">
     <ComponenteSecaoTitulo :titulo="t('home.titulo')" :descricao="t('home.descricao')" />
-    <ComponenteSecaoConteudo
-      :src-imagem="bannerReciclagemImg"
-      alt-imagem="Reciclagem"
-      :titulo="t('home.secoes.reciclagem.titulo')"
-      :descricao="t('home.secoes.reciclagem.descricao')"
-    />
-    <ComponenteSecaoConteudo
-      :src-imagem="bannerNossosProgramasImg"
-      alt-imagem="Nossos Programas"
-      :titulo="t('home.secoes.programas.titulo')"
-      :descricao="t('home.secoes.programas.descricao')"
-      :invertido="true"
-    />
-    <ComponenteSecaoConteudo
-      :src-imagem="bannerVoluntarioImg"
-      alt-imagem="Doações e Bazar"
-      :titulo="t('home.secoes.doacoesBazar.titulo')"
-      :descricao="t('home.secoes.doacoesBazar.descricao')"
-    />
-    <ComponenteSecaoConteudo
-      :src-imagem="bannerDoacoesBazarImg"
-      alt-imagem="Banner Doações e Bazar"
-      :titulo="t('home.secoes.metodologia.titulo')"
-      :descricao="t('home.secoes.metodologia.descricao')"
-      :invertido="true"
-    />
-    <ComponenteChamadaAcao
-      :titulo="t('home.secoes.chamadaAcao.titulo')"
-      :descricao="t('home.secoes.chamadaAcao.descricao')"
-      textoBotaoPrimario="Faça parte"
-      iconeBotaoPrimario="pi pi-envelope"
-      rotaPrimaria="contato"
-    />
+    <ComponenteSecaoConteudo :src-imagem="bannerReciclagemImg" alt-imagem="Reciclagem"
+      :titulo="t('home.secoes.reciclagem.titulo')" :descricao="t('home.secoes.reciclagem.descricao')" />
+    <ComponenteSecaoConteudo :src-imagem="bannerNossosProgramasImg" alt-imagem="Nossos Programas"
+      :titulo="t('home.secoes.programas.titulo')" :descricao="t('home.secoes.programas.descricao')" :invertido="true" />
+    <ComponenteSecaoConteudo :src-imagem="bannerVoluntarioImg" alt-imagem="Doações e Bazar"
+      :titulo="t('home.secoes.doacoesBazar.titulo')" :descricao="t('home.secoes.doacoesBazar.descricao')" />
+    <ComponenteSecaoConteudo :src-imagem="bannerDoacoesBazarImg" alt-imagem="Banner Doações e Bazar"
+      :titulo="t('home.secoes.metodologia.titulo')" :descricao="t('home.secoes.metodologia.descricao')"
+      :invertido="true" />
+    <ComponenteChamadaAcao :titulo="t('home.secoes.chamadaAcao.titulo')"
+      :descricao="t('home.secoes.chamadaAcao.descricao')" textoBotaoPrimario="Faça parte"
+      iconeBotaoPrimario="pi pi-envelope" rotaPrimaria="contato" />
 
     <!-- Seção de Parceiros -->
     <ParceirosComponent />
