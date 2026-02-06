@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 
 interface Atividade {
@@ -21,14 +20,8 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div
-    v-motion
-    :initial="{ opacity: 0, y: 0 }"
-    :visible="{ opacity: 1, y: 0 }"
-    :duration="600"
-    :delay="indice * 50"
-    class="atividade-card-container"
-  >
+  <div v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="600" :delay="indice * 50"
+    class="atividade-card-container">
     <div class="card border-0 shadow atividade-card h-100">
       <div class="card-body p-4 d-flex flex-column">
         <!-- Header da Atividade -->
@@ -55,30 +48,17 @@ const { t } = useI18n()
           <h6 class="font-weight-bold mb-3 text-primary">
             {{ t('componentes.atividadeCard.galeriaFotos') }}
           </h6>
-          <div
-            class="imagens-grid"
-            :class="{
-              'grid-single': obterQuantidadeImagensAtividade(atividade.chave) === 1,
-              'grid-multiple': obterQuantidadeImagensAtividade(atividade.chave) > 1,
-            }"
-          >
-            <div
-              v-for="imgIndex in obterQuantidadeImagensAtividade(atividade.chave)"
-              :key="`${atividade.chave}-${imgIndex}`"
-              v-motion
-              :initial="{ opacity: 0, scale: 0.9 }"
-              :visible="{ opacity: 1, scale: 1 }"
-              :duration="400"
-              :delay="50 + imgIndex * 100"
-              class="atividade-imagem-container"
-              @click="abrirGaleria(atividade, imgIndex - 1)"
-            >
-              <img
-                :src="obterImagemAtividade(atividade.chave, imgIndex)"
+          <div class="imagens-grid" :class="{
+            'grid-single': obterQuantidadeImagensAtividade(atividade.chave) === 1,
+            'grid-multiple': obterQuantidadeImagensAtividade(atividade.chave) > 1,
+          }">
+            <div v-for="imgIndex in obterQuantidadeImagensAtividade(atividade.chave)"
+              :key="`${atividade.chave}-${imgIndex}`" v-motion :initial="{ opacity: 0, scale: 0.9 }"
+              :visible="{ opacity: 1, scale: 1 }" :duration="400" :delay="50 + imgIndex * 100"
+              class="atividade-imagem-container" @click="abrirGaleria(atividade, imgIndex - 1)">
+              <img :src="obterImagemAtividade(atividade.chave, imgIndex)"
                 :alt="`${t(`atividades.atividadesGrupos.atividades.${atividade.chave}.titulo`)} ${imgIndex}`"
-                class="atividade-imagem"
-                loading="lazy"
-              />
+                class="atividade-imagem" loading="lazy" />
               <div class="imagem-overlay">
                 <i class="pi pi-search-plus"></i>
               </div>
@@ -311,6 +291,7 @@ const { t } = useI18n()
   }
 
   &:hover {
+
     &::before,
     &::after {
       opacity: 1;
@@ -338,7 +319,7 @@ const { t } = useI18n()
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(44, 109, 173, 0.8), rgba(92, 159, 226, 0.7));
+  background: linear-gradient(318deg, rgba(44, 109, 173, 0.8), rgba(92, 159, 226, 0.7));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -401,10 +382,12 @@ const { t } = useI18n()
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }

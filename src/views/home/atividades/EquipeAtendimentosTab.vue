@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteGaleriaImagens from '@/components/ComponenteGaleriaImagens.vue'
 import ProfissionalCardComponent from '@/components/ProfissionalCardComponent.vue'
@@ -162,13 +161,7 @@ const profissionais = [
 <template>
   <div class="equipe-atendimentos">
     <!-- Header da Seção -->
-    <section
-      v-motion
-      :initial="{ opacity: 0, y: 30 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :duration="1000"
-      class="mb-5"
-    >
+    <section v-motion :initial="{ opacity: 0, y: 30 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" class="mb-5">
       <div class="text-center">
         <h2 class="title font-weight-bold mb-3">
           {{ t('atividades.equipeAtendimentos.titulo') }}
@@ -181,33 +174,18 @@ const profissionais = [
 
     <!-- Grid dos Profissionais -->
     <section class="profissionais-grid">
-      <div
-        v-for="(profissional, index) in profissionais"
-        :key="profissional.chave"
-        v-motion
-        :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0 }"
-        :duration="600"
-        :delay="index * 5"
-        class="profissional-card-container"
-      >
-        <ProfissionalCardComponent
-          :profissional="profissional"
-          :imagens-profissionais="imagensProfissionais"
-          :obter-quantidade-imagens="getQuantidadeImagens"
-          :obter-imagem-trabalho="getImagemTrabalho"
-          :abrir-galeria-trabalho="abrirGaleriaTrabalho"
-        />
+      <div v-for="(profissional, index) in profissionais" :key="profissional.chave" v-motion
+        :initial="{ opacity: 0, y: 30 }" :visible="{ opacity: 1, y: 0 }" :duration="600" :delay="index"
+        class="profissional-card-container">
+        <ProfissionalCardComponent :profissional="profissional" :imagens-profissionais="imagensProfissionais"
+          :obter-quantidade-imagens="getQuantidadeImagens" :obter-imagem-trabalho="getImagemTrabalho"
+          :abrir-galeria-trabalho="abrirGaleriaTrabalho" />
       </div>
     </section>
 
     <!-- Galeria de Imagens Modal -->
-    <ComponenteGaleriaImagens
-      v-model="galeriaVisivel"
-      :titulo="tituloGaleria"
-      :imagens="imagensGaleria"
-      :imagem-inicial="imagemInicial"
-    />
+    <ComponenteGaleriaImagens v-model="galeriaVisivel" :titulo="tituloGaleria" :imagens="imagensGaleria"
+      :imagem-inicial="imagemInicial" />
   </div>
 </template>
 
