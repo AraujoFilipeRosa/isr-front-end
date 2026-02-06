@@ -13,21 +13,10 @@
         </p>
 
         <!-- Conteúdo padrão com benefícios (apenas para produtos) -->
-        <div
-          v-if="!mostrarInfoBancaria && !mostrarEstatisticasVoluntario"
-          class="volunteer-benefits"
-        >
-          <div
-            v-for="(beneficio, index) in beneficios"
-            :key="index"
-            class="benefit-item mb-3 p-2 bg-light rounded"
-          >
-            <i
-              :class="beneficio.icone"
-              :style="{ color: beneficio.cor }"
-              class="mb-2 d-block"
-              style="font-size: 1.5rem"
-            ></i>
+        <div v-if="!mostrarInfoBancaria && !mostrarEstatisticasVoluntario" class="volunteer-benefits">
+          <div v-for="(beneficio, index) in beneficios" :key="index" class="benefit-item mb-3 p-2 bg-light rounded">
+            <i :class="beneficio.icone" :style="{ color: beneficio.cor }" class="mb-2 d-block"
+              style="font-size: 1.5rem"></i>
             <h6 class="font-weight-bold mb-0">
               {{ beneficio.titulo }}
             </h6>
@@ -66,25 +55,14 @@
 
         <!-- Conteúdo para voluntariado com estatísticas -->
         <div v-if="mostrarEstatisticasVoluntario" class="volunteer-benefits">
-          <div
-            v-for="(beneficio, index) in beneficios"
-            :key="index"
-            class="benefit-item mb-3 p-2 bg-light rounded"
-          >
-            <i
-              :class="beneficio.icone"
-              :style="{ color: beneficio.cor }"
-              class="mb-2 d-block"
-              style="font-size: 1.5rem"
-            ></i>
+          <div v-for="(beneficio, index) in beneficios" :key="index" class="benefit-item mb-3 p-2 bg-light rounded">
+            <i :class="beneficio.icone" :style="{ color: beneficio.cor }" class="mb-2 d-block"
+              style="font-size: 1.5rem"></i>
             <h6 class="font-weight-bold mb-0">
               {{ beneficio.titulo }}
             </h6>
           </div>
-          <div
-            v-if="estatisticasVoluntario"
-            class="volunteer-stats-card bg-primary text-white p-3 rounded"
-          >
+          <div v-if="estatisticasVoluntario" class="volunteer-stats-card bg-primary text-white p-3 rounded">
             <div class="row text-center">
               <div class="col-6">
                 <div class="stat-item">
@@ -174,7 +152,7 @@ defineProps<Props>()
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, $nav-font-color, $nav-font-color-light);
+  background: linear-gradient(318deg, $nav-font-color, $nav-font-color-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,11 +214,9 @@ defineProps<Props>()
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba($nav-font-color, 0.9) 0%,
-    rgba($nav-font-color-light, 0.9) 100%
-  );
+  background: linear-gradient(318deg,
+      rgba($nav-font-color, 0.9) 0%,
+      rgba($nav-font-color-light, 0.9) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
