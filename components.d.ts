@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AtividadeCardComponent: typeof import('./src/components/AtividadeCardComponent.vue')['default']
     Badge: typeof import('primevue/badge')['default']
+    Button: typeof import('primevue/button')['default']
     Carousel: typeof import('primevue/carousel')['default']
     CertificacaoCardComponent: typeof import('./src/components/CertificacaoCardComponent.vue')['default']
     ComponenteCard: typeof import('./src/components/ComponenteCard.vue')['default']
@@ -22,11 +23,16 @@ declare module 'vue' {
     ComponenteSecaoConteudo: typeof import('./src/components/ComponenteSecaoConteudo.vue')['default']
     ComponenteSecaoTitulo: typeof import('./src/components/ComponenteSecaoTitulo.vue')['default']
     ComponenteVisualizadorPdf: typeof import('./src/components/ComponenteVisualizadorPdf.vue')['default']
+    Drawer: typeof import('primevue/drawer')['default']
     Image: typeof import('primevue/image')['default']
     Menubar: typeof import('primevue/menubar')['default']
     ParceirosComponent: typeof import('./src/components/ParceirosComponent.vue')['default']
     ProfissionalCardComponent: typeof import('./src/components/ProfissionalCardComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+  }
+  export interface GlobalDirectives {
+    Ripple: typeof import('primevue/ripple')['default']
+    StyleClass: typeof import('primevue/styleclass')['default']
   }
 }
