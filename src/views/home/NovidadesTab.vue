@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import ComponenteCard from '@/components/ComponenteCard.vue';
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue';
 </script>
 
 <template>
-  <div id="novidades" class="container my-5">
+  <div id="novidades" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <!-- Header da Página -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
-      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
-      <div class="col-12 text-center">
-        <i class="pi pi-bell display-1 mb-3" style="font-size: 3rem !important"></i>
-        <h1 class="display-4 font-weight-bold mb-4">Novidades do ISR</h1>
-        <p class="lead text-center mx-auto" style="max-width: 800px">
-          Fique por dentro das últimas notícias, eventos e conquistas do Instituto Severa Romana.
-          Acompanhe nossa jornada de transformação social e inclusão.
-        </p>
-      </div>
-    </section>
+    <ComponenteSecaoCabecalho icone="pi-eye" :titulo="'Novidades do ISR'"
+      :descricao="'Fique por dentro das últimas notícias, eventos e conquistas do Instituto Severa Romana. Acompanhe nossa jornada de transformação social e inclusão.'"
+      :duracao="1000" />
 
     <!-- Seção Principal de Novidades -->
     <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
@@ -33,13 +26,13 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
             </p>
             <div class="highlight-stats">
               <div class="row">
-                <div class="col-md-6 text-center mb-3">
+                <div class="col-sm-6 col-md-6 text-center mb-3">
                   <div class="stat-item">
                     <div class="stat-number">+1000</div>
                     <div class="stat-label">Seguidores</div>
                   </div>
                 </div>
-                <div class="col-md-6 text-center mb-3">
+                <div class="col-sm-6 col-md-6 text-center mb-3">
                   <div class="stat-item">
                     <div class="stat-number">5</div>
                     <div class="stat-label">Plataformas</div>
@@ -61,7 +54,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
       </div>
 
       <!-- WhatsApp -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-sm-6 col-lg-4 col-md-6 mb-4">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 whatsapp">
             <i class="pi pi-whatsapp"></i>
@@ -78,7 +71,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
       </div>
 
       <!-- Instagram -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-sm-6 col-lg-4 col-md-6 mb-4">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 instagram">
             <i class="pi pi-instagram"></i>
@@ -96,7 +89,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
       </div>
 
       <!-- Facebook -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-sm-6 col-lg-4 col-md-6 mb-4">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 facebook">
             <i class="pi pi-facebook"></i>
@@ -113,7 +106,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
       </div>
 
       <!-- YouTube -->
-      <div class="col-lg-6 col-md-6 mb-4">
+      <div class="col-sm-6 col-lg-6 col-md-6 mb-4">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 youtube">
             <i class="pi pi-youtube"></i>
@@ -130,7 +123,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
       </div>
 
       <!-- TikTok -->
-      <div class="col-lg-6 col-md-6 mb-4">
+      <div class="col-sm-6 col-lg-6 col-md-6 mb-4">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-3 flex-shrink-0 tiktok">
             <i class="pi pi-tiktok"></i>
@@ -152,9 +145,9 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
-#novidades {
-  padding-top: $app-padding-top;
-}
+// #novidades {
+//   padding-top: $app-padding-top;
+// }
 
 .bg-custom-primary {
   background: $heading-section-color;

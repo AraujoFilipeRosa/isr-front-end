@@ -12,7 +12,7 @@ import bannerVoluntarioImg from '@/assets/imagens/banner-voluntario.jpg'
 const { t } = useI18n()
 </script>
 <template>
-  <div id="home" class="container my-5 page-container">
+  <div id="home" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <ComponenteSecaoTitulo :titulo="t('home.titulo')" :descricao="t('home.descricao')" />
     <ComponenteSecaoConteudo :src-imagem="bannerReciclagemImg" alt-imagem="Reciclagem"
       :titulo="t('home.secoes.reciclagem.titulo')" :descricao="t('home.secoes.reciclagem.descricao')" />

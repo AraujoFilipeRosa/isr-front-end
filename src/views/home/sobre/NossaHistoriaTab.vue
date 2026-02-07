@@ -44,7 +44,7 @@ export default {
 }
 </script>
 <template>
-  <div id="nossa-historia" class="container my-5">
+  <div id="nossa-historia" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <ComponenteSecaoTitulo :titulo="t('nossaHistoria.titulo')">
       <p class="text-center text-secondary mb-3">
         {{ t('nossaHistoria.historia.paragrafos.fundacao') }}
@@ -57,41 +57,20 @@ export default {
       </p>
     </ComponenteSecaoTitulo>
 
-    <ComponenteSecaoConteudo
-      src-video="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
-      :titulo="t('nossaHistoria.video.titulo')"
-      :descricao="t('nossaHistoria.video.descricao')"
-    />
+    <ComponenteSecaoConteudo src-video="https://www.youtube.com/embed/0wbL6taCXu4?si=vRbab7Q42RZNnxsJ"
+      :titulo="t('nossaHistoria.video.titulo')" :descricao="t('nossaHistoria.video.descricao')" />
 
-    <ComponenteSecaoConteudo
-      :titulo="t('nossaHistoria.novaSede.titulo')"
-      :descricao="t('nossaHistoria.novaSede.descricao')"
-      :invertido="true"
-    >
+    <ComponenteSecaoConteudo :titulo="t('nossaHistoria.novaSede.titulo')"
+      :descricao="t('nossaHistoria.novaSede.descricao')" :invertido="true">
       <template #media>
-        <Carousel
-          :value="imagensNovaSede"
-          :numVisible="1"
-          :numScroll="1"
-          :autoplayInterval="5000"
-          :showNavigators="true"
-          :showIndicators="true"
-          circular
-          class="custom-carousel nova-sede-carousel"
-        >
+        <Carousel :value="imagensNovaSede" :numVisible="1" :numScroll="1" :autoplayInterval="5000"
+          :showNavigators="true" :showIndicators="true" circular class="custom-carousel nova-sede-carousel">
           <template #item="slotProps">
             <div class="carousel-item-container">
-              <Image
-                :src="slotProps.data.src"
-                :alt="slotProps.data.alt"
-                width="100%"
-                height="auto"
-                preview
-                :pt="{
-                  root: { class: 'w-100 h-100' },
-                  image: { class: 'w-100 h-100 object-fit-cover' },
-                }"
-              />
+              <Image :src="slotProps.data.src" :alt="slotProps.data.alt" width="100%" height="auto" preview :pt="{
+                root: { class: 'w-100 h-100' },
+                image: { class: 'w-100 h-100 object-fit-cover' },
+              }" />
             </div>
           </template>
         </Carousel>
@@ -102,9 +81,9 @@ export default {
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
-#nossa-historia {
-  padding-top: $app-padding-top;
-}
+// #nossa-historia {
+//   padding-top: $app-padding-top;
+// }
 
 .nova-sede-carousel {
   max-width: 800px;

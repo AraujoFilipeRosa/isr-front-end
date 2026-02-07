@@ -8,7 +8,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div id="visao" class="container my-5">
+  <div id="visao" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <!-- Header da Visão -->
     <ComponenteSecaoCabecalho icone="pi-eye" :titulo="t('visao.titulo')" :descricao="t('visao.descricao')"
       :duracao="1000" />
@@ -88,9 +88,9 @@ const { t } = useI18n()
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
-#visao {
-  padding-top: $app-padding-top;
-}
+// #visao {
+//   padding-top: $app-padding-top;
+// }
 
 .vision-card {
   transition: all 0.3s ease;

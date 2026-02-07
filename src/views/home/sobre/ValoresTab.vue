@@ -8,7 +8,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div id="valores" class="container my-5">
+  <div id="valores" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <!-- Header dos Valores -->
     <ComponenteSecaoCabecalho icone="pi-heart" :titulo="t('valores.titulo')" :descricao="t('valores.descricao')"
       :duracao="1000" />
@@ -184,9 +184,9 @@ const { t } = useI18n()
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
-#valores {
-  padding-top: $app-padding-top;
-}
+// #valores {
+//   padding-top: $app-padding-top;
+// }
 
 .bg-custom-primary {
   background: $heading-section-color;

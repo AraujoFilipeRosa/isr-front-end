@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 import ComponenteCard from '@/components/ComponenteCard.vue'
 import isrLogo from '@/assets/imagens/isr-logo.png'
@@ -8,7 +7,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div id="erro-404" class="container my-5">
+  <div id="erro-404" class="container-sm-fluid container-md-fluid container-lg my-5">
     <!-- Header da Página 404 -->
     <section class="row bg-custom-primary text-white rounded shadow-lg">
       <div class="col-12 text-center">

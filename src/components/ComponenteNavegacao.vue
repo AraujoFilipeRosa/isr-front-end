@@ -83,9 +83,11 @@ const { itensMenu, itensSubMenu } = useNavigation()
   <Drawer v-model:visible="visible" :block-scroll="true">
     <template #container="{ closeCallback }">
       <div class="d-flex flex-column h-100 p-2">
-        <span class="d-flex justify-content-between align-items-center gap-2 pb-2 shrink-0">
-          <img :src="isrLogo" alt="Logo" width="50">
-          <img :src="isrLogoTexto" alt="Logo" width="180" />
+        <span class="d-flex justify-content-between pb-2 ">
+          <router-link class="d-flex align-items-center gap-2 shrink-0" :to="{ name: 'home' }">
+            <img :src="isrLogo" alt="Logo" width="50">
+            <img :src="isrLogoTexto" alt="Logo" width="180" />
+          </router-link>
           <span>
             <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"
               size="small"></Button>
@@ -107,25 +109,46 @@ const { itensMenu, itensSubMenu } = useNavigation()
               </div>
               <ul class="list-none p-0 m-0 overflow-hidden">
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'novidades' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-bell mr-2"></i>
+                      <span>Novidades</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-bell mr-2"></i>
                     <span>Novidades</span>
-                  </a>
+                  </a> -->
                 </li>
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'transparencia' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-chart-line mr-2"></i>
+                      <span>Transparência</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-chart-line mr-2"></i>
                     <span>Transparência</span>
-                  </a>
+                  </a> -->
                 </li>
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'contato' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-envelope mr-2"></i>
+                      <span>Contato</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-envelope mr-2"></i>
                     <span>Contato</span>
-                  </a>
+                  </a> -->
                 </li>
               </ul>
             </li>
@@ -143,18 +166,34 @@ const { itensMenu, itensSubMenu } = useNavigation()
               </div>
               <ul class="list-none p-0 m-0 overflow-hidden">
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'equipe-atendimentos' }"
+                    @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-users mr-2"></i>
+                      <span>Equipe e Atendimentos</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-users mr-2"></i>
                     <span>Equipe e Atendimentos</span>
-                  </a>
+                  </a> -->
                 </li>
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'atividades-grupos' }"
+                    @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-users mr-2"></i>
+                      <span>Atividades em Grupo</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-users mr-2"></i>
                     <span>Atividades em Grupo</span>
-                  </a>
+                  </a> -->
                 </li>
               </ul>
             </li>
@@ -172,11 +211,18 @@ const { itensMenu, itensSubMenu } = useNavigation()
               </div>
               <ul class="list-none p-0 m-0 overflow-hidden">
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'doe' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-heart mr-2"></i>
+                      <span>Doe</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-heart mr-2"></i>
                     <span>Doe</span>
-                  </a>
+                  </a> -->
                 </li>
               </ul>
             </li>
@@ -194,32 +240,60 @@ const { itensMenu, itensSubMenu } = useNavigation()
               </div>
               <ul class="list-none p-0 m-0 overflow-hidden">
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'nossa-historia' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-book mr-2"></i>
+                      <span>Nossa História</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-book mr-2"></i>
                     <span>Nossa História</span>
-                  </a>
+                  </a> -->
                 </li>
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'missao' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-bullseye mr-2"></i>
+                      <span>Missão</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-bullseye mr-2"></i>
                     <span>Missão</span>
-                  </a>
+                  </a> -->
                 </li>
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'visao' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-eye mr-2"></i>
+                      <span>Visão</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-eye mr-2"></i>
                     <span>Visão</span>
-                  </a>
+                  </a> -->
                 </li>
                 <li>
-                  <a v-ripple
+                  <router-link class="text-decoration-none" :to="{ name: 'valores' }" @click="visible = false">
+                    <div
+                      class="text-secondary d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                      <i class="pi pi-heart mr-2"></i>
+                      <span>Valores</span>
+                    </div>
+                  </router-link>
+                  <!-- <a v-ripple
                     class="text-decoration-none d-flex align-items-center cursor-pointer p-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
                     <i class="pi pi-heart mr-2"></i>
                     <span>Valores</span>
-                  </a>
+                  </a> -->
                 </li>
               </ul>
             </li>

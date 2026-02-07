@@ -15,7 +15,7 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div id="contato" class="container my-5">
+  <div id="contato" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <!-- Header da Página -->
     <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
       class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
@@ -106,9 +106,9 @@ const handleSubmit = () => {
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
-#contato {
-  padding-top: $app-padding-top;
-}
+// #contato {
+//   padding-top: $app-padding-top;
+// }
 
 .bg-custom-primary {
   background: $heading-section-color;

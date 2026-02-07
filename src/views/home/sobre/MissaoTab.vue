@@ -7,7 +7,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div id="missao" class="container my-5 page-container">
+  <div id="missao" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
     <!-- Header da Missão -->
     <ComponenteSecaoCabecalho icone="pi-bullseye" :titulo="t('sobre.missao.titulo')"
       :descricao="t('sobre.missao.descricao')" :duracao="1000" />
