@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="props.duracao"
     :delay="props.atraso"
-    :class="`row my-4 py-5 px-4 bg-primary-custom text-white rounded-none md:rounded-lg shadow-custom-strong ${props.classeCustomizada}`">
+    :class="`row mt-lg-4 mb-4 py-5 px-4 bg-primary-custom text-white rounded-none md:rounded-lg shadow-custom-strong ${props.classeCustomizada}`">
     <div class="col-12 text-center">
       <i :class="`pi ${props.icone} display-1 mb-3`" style="font-size: 3rem !important"></i>
       <h1 class="display-4 font-weight-bold mb-4">{{ props.titulo }}</h1>

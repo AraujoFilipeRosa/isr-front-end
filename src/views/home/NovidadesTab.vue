@@ -4,9 +4,9 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 </script>
 
 <template>
-  <div id="novidades" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="novidades" class="container-sm-fluid container-md-fluid container-lg mt-lg-5 mb-lg-5 page-container">
     <!-- Header da Página -->
-    <ComponenteSecaoCabecalho icone="pi-eye" :titulo="'Novidades do ISR'"
+    <ComponenteSecaoCabecalho icone="pi pi-bell" :titulo="'Novidades do ISR'"
       :descricao="'Fique por dentro das últimas notícias, eventos e conquistas do Instituto Severa Romana. Acompanhe nossa jornada de transformação social e inclusão.'"
       :duracao="1000" />
 

@@ -19,7 +19,8 @@ const imagensFatima = {
 </script>
 
 <template>
-  <div id="atividades-container" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="atividades-container"
+    class="container-sm-fluid container-md-fluid container-lg mt-lg-5 mb-lg-5 page-container">
     <!-- Header Principal com Animação -->
     <ComponenteSecaoCabecalho icone="pi-sitemap" :titulo="t('atividades.titulo')" :descricao="t('atividades.descricao')"
       :duracao="1000" />
