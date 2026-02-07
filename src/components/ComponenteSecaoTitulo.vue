@@ -1,5 +1,5 @@
 <template>
-  <section class="row my-4">
+  <section class="row mt-lg-4 mb-4">
     <div class="col-md">
       <h1 class="title mb-4 text-center font-weight-bold">{{ titulo }}</h1>
 

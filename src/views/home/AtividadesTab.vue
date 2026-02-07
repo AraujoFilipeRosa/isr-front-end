@@ -115,7 +115,7 @@ const tiposAtividades = [
 </script>
 
 <template>
-  <div id="atividades" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="atividades" class="container-sm-fluid container-md-fluid container-lg mt-lg-5 mb-lg-5 page-container">
     <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
       class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
       <div class="col-12 text-center">

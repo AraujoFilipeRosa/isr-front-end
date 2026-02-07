@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue';
 
 const formData = ref({
   nome: '',
@@ -15,54 +16,82 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div id="contato" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="contato" class="container-sm-fluid container-md-fluid container-lg mt-lg-4 mb-4 page-container">
     <!-- Header da Página -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000"
-      class="row my-4 py-5 px-4 bg-custom-primary text-white rounded shadow-lg">
-      <div class="col-12 text-center">
-        <i class="pi pi-envelope display-1 mb-3" style="font-size: 3rem !important"></i>
-        <h1 class="display-4 font-weight-bold mb-4">Entre em Contato</h1>
-        <p class="lead text-center mx-auto" style="max-width: 800px">
-          Estamos aqui para ajudar! Entre em contato conosco e responderemos o mais rápido possível.
-        </p>
-      </div>
-    </section>
+    <ComponenteSecaoCabecalho icone="pi-envelope" :titulo="'Entre em Contato'"
+      :descricao="'Estamos aqui para ajudar! Entre em contato conosco e responderemos o mais rápido possível.'"
+      :duracao="1000" />
 
     <!-- Informações de Contato e Mapa -->
     <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
       class="row my-5">
       <!-- Informações de Contato -->
       <div class="col-lg-6 mb-4">
-        <div class="card border-0 shadow-lg h-100 contact-info-card">
-          <div class="card-body p-5">
-            <h2 class="card-title h4 font-weight-bold mb-4 text-center">Nossas Informações</h2>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="p-5">
+              <h2 class="title font-weight-bold mb-4 text-center">Nossas Informações</h2>
 
-            <!-- Endereço -->
-            <div class="contact-item mb-4">
-              <div class="contact-icon">
-                <i class="pi pi-map-marker"></i>
+              <!-- Endereço -->
+              <div class="col-md-6 col-lg-12 mb-3">
+                <div>
+                  <i class="pi pi-map-marker"></i>
+                </div>
+                <div>
+                  <h5 class="font-weight-bold mb-2">Endereço</h5>
+                  <p class="mb-1">Rua Tôrres Sobrinho, 32 - Méier</p>
+                  <p class="mb-1">Rio de Janeiro - RJ</p>
+                  <p class="mb-0">CEP 20780-050 - Brasil</p>
+                </div>
               </div>
-              <div class="contact-details">
-                <h5 class="font-weight-bold mb-2">Endereço</h5>
-                <p class="mb-1">Rua Tôrres Sobrinho, 32 - Méier</p>
-                <p class="mb-1">Rio de Janeiro - RJ</p>
-                <p class="mb-0">CEP 20780-050 - Brasil</p>
-              </div>
-            </div>
 
-            <!-- Telefone -->
-            <div class="contact-item mb-4">
-              <div class="contact-icon">
-                <i class="pi pi-phone"></i>
+              <!-- <div class="contact-item mb-4">
+                <div class="contact-icon">
+                  <i class="pi pi-map-marker"></i>
+                </div>
+                <div class="contact-details">
+                  <h5 class="font-weight-bold mb-2">Endereço</h5>
+                  <p class="mb-1">Rua Tôrres Sobrinho, 32 - Méier</p>
+                  <p class="mb-1">Rio de Janeiro - RJ</p>
+                  <p class="mb-0">CEP 20780-050 - Brasil</p>
+                </div>
+              </div> -->
+
+              <!-- Telefone -->
+              <div class="col-md-6 col-lg-12 mb-3">
+                <div>
+                  <i class="pi pi-phone"></i>
+                </div>
+                <div>
+                  <h5 class="font-weight-bold mb-2">Telefone</h5>
+                  <p class="mb-0">+55 (21) 2241-7413</p>
+                </div>
+              </div>
+              <!-- <div class="contact-item mb-4">
+                <div class="contact-icon">
+                  <i class="pi pi-phone"></i>
               </div>
               <div class="contact-details">
                 <h5 class="font-weight-bold mb-2">Telefone</h5>
                 <p class="mb-0">+55 (21) 2241-7413</p>
               </div>
-            </div>
+            </div> -->
 
-            <!-- WhatsApp -->
-            <div class="contact-item mb-4">
+              <!-- WhatsApp -->
+              <div class="col-md-6 col-lg-12 mb-3">
+                <div>
+                  <i class="pi pi-whatsapp"></i>
+                </div>
+                <div>
+                  <h5 class="font-weight-bold mb-2">WhatsApp</h5>
+                  <p class="mb-0">
+                    <a href="https://wa.me/5521992206577" target="_blank" class="contact-link">
+                      +55 (21) 99220-6577
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="contact-item mb-4">
               <div class="contact-icon">
                 <i class="pi pi-whatsapp"></i>
               </div>
@@ -74,6 +103,7 @@ const handleSubmit = () => {
                   </a>
                 </p>
               </div>
+            </div> -->
             </div>
           </div>
         </div>
@@ -86,7 +116,7 @@ const handleSubmit = () => {
             <div class="map-container">
               <div class="map-placeholder">
                 <div class="map-content">
-                  <i class="pi pi-map-marker display-4 text-primary mb-3"></i>
+                  <i class="pi pi-map-marker display-4 text-primary mb-3 fs-2"></i>
                   <h4 class="font-weight-bold mb-2">Nossa Localização</h4>
                   <p class="text-muted mb-3">Rua Tôrres Sobrinho, 32 - Méier</p>
                   <a href="https://maps.google.com/?q=Rua+Tôrres+Sobrinho,+32+-+Méier+-+Rio+de+Janeiro+-+RJ"

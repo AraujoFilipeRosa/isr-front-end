@@ -45,7 +45,7 @@ const abrirCertificado = (pdfPath: string, titulo: string) => {
 </script>
 
 <template>
-  <div id="transparencia" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="transparencia" class="container-sm-fluid container-md-fluid container-lg mt-lg-5 mb-lg-5 page-container">
     <!-- Header Principal -->
     <ComponenteSecaoCabecalho icone="pi-shield" :titulo="t('transparencia.titulo')"
       :descricao="t('transparencia.descricao')" :duracao="1000" />

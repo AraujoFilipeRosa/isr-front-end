@@ -8,7 +8,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div id="visao" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="visao" class="container-sm-fluid container-md-fluid container-lg mt-lg-4 mb-4 page-container">
     <!-- Header da Visão -->
     <ComponenteSecaoCabecalho icone="pi-eye" :titulo="t('visao.titulo')" :descricao="t('visao.descricao')"
       :duracao="1000" />

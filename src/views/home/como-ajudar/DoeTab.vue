@@ -37,7 +37,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="doe" class="container-sm-fluid container-md-fluid container-lg my-5 page-container">
+  <div id="doe" class="container-sm-fluid container-md-fluid container-lg mt-lg-5 mb-lg-5 page-container">
     <!-- Header da Página -->
     <ComponenteSecaoCabecalho icone="pi-heart" :titulo="t('doacoes.titulo')" :descricao="t('doacoes.descricao')"
       :duracao="1000" />
