@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from 'vue';
 
 interface Props {
   variante?: 'padrao' | 'valor' | 'visao' | 'social'
@@ -20,7 +20,7 @@ const cardClass = computed(() => {
 
 <template>
   <div :class="cardClass">
-    <div class="card-body text-center p-4 d-flex flex-column">
+    <div class="card-body align-items-center text-center p-lg-4 d-flex flex-lg-column gap-sm-3">
       <slot />
     </div>
   </div>
