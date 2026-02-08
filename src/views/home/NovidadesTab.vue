@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ComponenteCard from '@/components/ComponenteCard.vue';
 import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue';
+import ComponenteCard from '@/components/ComponenteCard.vue';
 </script>
 
 <template>
@@ -47,23 +47,26 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 
     <!-- Redes Sociais Section -->
     <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="400"
-      class="row my-5">
-      <div class="col-12 text-center mb-5">
+      class="row my-lg-5">
+      <div class="col-12 text-center mb-sm-4 mb-md-4 mb-lg-5">
         <h2 class="title font-weight-bold">Nos Acompanhe nas Redes Sociais</h2>
         <p class="text-muted">Escolha sua plataforma favorita e fique conectado conosco!</p>
       </div>
+    </section>
 
+    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="400"
+      class="row mb-5 justify-content-center gap-3">
       <!-- WhatsApp -->
-      <div class="col-sm-12 col-lg-4 col-md-6 mb-4">
+      <div class="col-sm-12 col-lg-5 col-md-6">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-lg-3 flex-shrink-0 whatsapp">
             <i class="pi pi-whatsapp"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">WhatsApp</h3>
+          <h3 class="card-title h5 font-weight-bold mb-lg-3 flex-fill">WhatsApp</h3>
           <p class="card-text text-muted flex-grow-1 d-none d-lg-block">
             Entre em contato direto conosco. Tire suas dúvidas e receba informações importantes.
           </p>
-          <a href="https://wa.me/5521992206577" class="btn btn-success btn-block mt-lg-auto" target="_blank"
+          <a href="https://wa.me/5521992206577" class="btn btn-success col-lg-12 mt-lg-auto" target="_blank"
             rel="noopener noreferrer">
             Conversar
           </a>
@@ -71,34 +74,34 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
       </div>
 
       <!-- Instagram -->
-      <div class="col-sm-12 col-lg-4 col-md-6 mb-4">
+      <div class="col-sm-12 col-lg-5 col-md-6">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-lg-3 flex-shrink-0 instagram">
             <i class="pi pi-instagram"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">Instagram</h3>
+          <h3 class="card-title h5 font-weight-bold mb-lg-3 flex-fill">Instagram</h3>
           <p class="card-text text-muted flex-grow-1 d-none d-lg-block">
             Fotos e vídeos do nosso dia a dia, eventos especiais e momentos únicos dos nossos
             usuários.
           </p>
           <a href="https://www.instagram.com/instituto.severa.romana/?hl=pt-br"
-            class="btn btn-instagram btn-block mt-lg-auto" target="_blank" rel="noopener noreferrer">
+            class="btn btn-instagram col-lg-12 mt-lg-auto" target="_blank" rel="noopener noreferrer">
             Seguir
           </a>
         </ComponenteCard>
       </div>
 
       <!-- Facebook -->
-      <div class="col-sm-12 col-lg-4 col-md-6 mb-4">
+      <div class="col-sm-12 col-lg-5 col-md-6">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-lg-3 flex-shrink-0 facebook">
             <i class="pi pi-facebook"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">Facebook</h3>
+          <h3 class="card-title h5 font-weight-bold mb-lg-3 flex-fill">Facebook</h3>
           <p class="card-text text-muted flex-grow-1 d-none d-lg-block">
             Notícias detalhadas, eventos e informações sobre nossos programas e atividades.
           </p>
-          <a href="https://www.facebook.com/instseveraromana" class="btn btn-facebook btn-block mt-lg-auto"
+          <a href="https://www.facebook.com/instseveraromana" class="btn btn-facebook col-lg-12 mt-lg-auto"
             target="_blank" rel="noopener noreferrer">
             Curtir
           </a>
@@ -106,16 +109,16 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
       </div>
 
       <!-- YouTube -->
-      <div class="col-sm-12 col-lg-6 col-md-6 mb-4">
+      <div class="col-sm-12 col-lg-5 col-md-6">
         <ComponenteCard variante="social">
           <div class="social-icon-large mb-lg-3 flex-shrink-0 youtube">
             <i class="pi pi-youtube"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">YouTube</h3>
+          <h3 class="card-title h5 font-weight-bold mb-lg-3 flex-fill">YouTube</h3>
           <p class="card-text text-muted flex-grow-1 d-none d-lg-block">
             Vídeos dos nossos eventos, depoimentos e documentários sobre o trabalho do ISR.
           </p>
-          <a href="https://www.youtube.com/@institutoseveraromana650" class="btn btn-youtube btn-block mt-lg-auto"
+          <a href="https://www.youtube.com/@institutoseveraromana650" class="btn btn-youtube col-lg-12 mt-lg-auto"
             target="_blank" rel="noopener noreferrer">
             Inscrever-se
           </a>
@@ -123,16 +126,16 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
       </div>
 
       <!-- TikTok -->
-      <div class="col-sm-12 col-lg-6 col-md-6 mb-4">
+      <div class="col-sm-12 col-lg-5 col-md-6">
         <ComponenteCard variante="social">
-          <div class="social-icon-large mb-lg-3 flex-shrink-0 tiktok">
+          <div class="social-icon-large mb-lg-3 tiktok">
             <i class="pi pi-tiktok"></i>
           </div>
-          <h3 class="card-title h5 font-weight-bold mb-3">TikTok</h3>
+          <h3 class="card-title h5 font-weight-bold mb-lg-3 flex-fill">TikTok</h3>
           <p class="card-text text-muted flex-grow-1 d-none d-lg-block">
             Conteúdo divertido e educativo sobre inclusão social e nossas atividades.
           </p>
-          <a href="https://www.tiktok.com/@institutoseveraromana" class="btn btn-tiktok btn-block mt-lg-auto"
+          <a href="https://www.tiktok.com/@institutoseveraromana" class="btn btn-tiktok col-lg-12 mt-lg-auto"
             target="_blank" rel="noopener noreferrer">
             Seguir
           </a>
@@ -212,13 +215,17 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
   transition: all 0.3s ease;
   border-radius: 16px;
 
+  .btn {
+    width: 115px;
+  }
+
   // &:hover {
   //   transform: translateY(-8px);
   //   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
   // }
 
   .social-icon-large {
-    padding: 1.0rem;
+    padding: clamp(0.5rem, 1vw, 2.5rem);
     // width: 80px;
     // height: 80px;
     border-radius: 50%;
@@ -228,7 +235,8 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
     margin: 0 auto;
 
     i {
-      font-size: 2rem;
+      // font-size: 2rem;
+      font-size: clamp(1.5rem, 1.7vw, 2.5rem);
       color: white;
     }
 
@@ -314,9 +322,9 @@ import ComponenteSecaoCabecalho from '@/components/ComponenteSecaoCabecalho.vue'
 
 // Responsividade
 @media (max-width: 768px) {
-  .social-card {
-    margin-bottom: 2rem;
-  }
+  // .social-card {
+  //   margin-bottom: 2rem;
+  // }
 
   .news-highlight-card .card-body {
     padding: 2rem !important;
