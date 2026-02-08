@@ -20,7 +20,7 @@ const cardClass = computed(() => {
 
 <template>
   <div :class="cardClass">
-    <div class="card-body align-items-center text-center p-lg-4 d-flex flex-lg-column gap-sm-3">
+    <div class="card-body align-items-center text-center d-flex flex-lg-column gap-sm-3">
       <slot />
     </div>
   </div>
@@ -31,13 +31,18 @@ const cardClass = computed(() => {
   transition: all 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+.card-body {
+  padding-top: clamp(0.7rem, 1.7vw, 2.5rem);
+  padding-bottom: clamp(0.7rem, 1.7vw, 2.5rem);
 }
 
+/* .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+} */
+
 /* Variantes específicas podem ser adicionadas aqui se necessário */
-.valor-card:hover {
+/* .valor-card:hover {
   transform: translateY(-3px);
 }
 
@@ -47,5 +52,5 @@ const cardClass = computed(() => {
 
 .social-card:hover {
   transform: translateY(-8px);
-}
+} */
 </style>
