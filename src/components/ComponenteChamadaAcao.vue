@@ -25,8 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
-    class="row my-5">
+  <section class="row my-5">
     <div class="col-12 text-center">
       <div class="bg-primary-custom text-white p-5 rounded-none md:rounded-lg shadow-custom-strong">
         <h2 class="font-weight-bold mb-3">{{ titulo }}</h2>

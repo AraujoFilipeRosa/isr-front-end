@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MotionDirective as motion } from '@vueuse/motion'
 import { useI18n } from '@/composables/useI18n'
 
 // Importar imagens que estão em src/assets
@@ -114,14 +113,7 @@ const parceiros = [
 </script>
 
 <template>
-  <section
-    v-motion
-    :initial="{ opacity: 0, y: 20 }"
-    :visible="{ opacity: 1, y: 0 }"
-    :duration="1000"
-    :delay="100"
-    class="parceiros-section"
-  >
+  <section class="parceiros-section">
     <ComponenteSecaoTitulo :titulo="t('parceiros.titulo')">
       <template #descricao>
         <div class="text-center mb-4">
@@ -137,14 +129,7 @@ const parceiros = [
 
     <div class="parceiros-grid">
       <div v-for="(parceiro, index) in parceiros" :key="index" class="parceiro-item">
-        <div
-          v-motion
-          :initial="{ opacity: 0, scale: 0.8, y: 20 }"
-          :visible="{ opacity: 1, scale: 1, y: 0 }"
-          :duration="600"
-          :delay="150 + index * 50"
-          class="parceiro-card"
-        >
+        <div class="parceiro-card">
           <div class="parceiro-logo-wrapper">
             <img :src="parceiro.imagem" :alt="parceiro.alt" class="parceiro-logo" loading="lazy" />
           </div>
@@ -173,12 +158,10 @@ const parceiros = [
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 123, 255, 0.1) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 123, 255, 0.1) 50%,
+        transparent 100%);
   }
 
   &::after {
@@ -188,12 +171,10 @@ const parceiros = [
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 123, 255, 0.1) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 123, 255, 0.1) 50%,
+        transparent 100%);
   }
 }
 
@@ -344,6 +325,7 @@ const parceiros = [
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }

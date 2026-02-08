@@ -11,8 +11,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
       :duracao="1000" />
 
     <!-- Seção Principal de Novidades -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
-      class="row my-5">
+    <section class="row my-5">
       <div class="col-12">
         <div class="card border-0 shadow-lg news-highlight-card">
           <div class="card-body p-5 text-center">
@@ -46,8 +45,7 @@ import ComponenteCard from '@/components/ComponenteCard.vue';
     </section>
 
     <!-- Redes Sociais Section -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="400"
-      class="row my-lg-5">
+    <section class="row my-lg-5">
       <div class="col-12 text-center mb-sm-4 mb-md-4 mb-lg-5">
         <h2 class="title font-weight-bold">Nos Acompanhe nas Redes Sociais</h2>
         <p class="text-muted">Escolha sua plataforma favorita e fique conectado conosco!</p>

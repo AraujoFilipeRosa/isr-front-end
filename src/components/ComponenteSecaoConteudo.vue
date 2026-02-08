@@ -1,6 +1,5 @@
 <template>
-  <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0, scale: 1 }"
-    :variants="{ custom: { scale: 2 } }" :delay="50" :duration="1200" class="row py-5 my-5">
+  <section class="row py-5 my-5">
     <!-- Slot da imagem ou vídeo -->
     <div class="col-md" :class="{ 'order-md-2': invertido }">
       <slot name="media">

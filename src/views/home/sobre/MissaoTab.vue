@@ -13,10 +13,9 @@ const { t } = useI18n()
       :descricao="t('sobre.missao.descricao')" :duracao="1000" />
 
     <!-- Pilares da Missão -->
-    <section v-motion :initial="{ opacity: 0, y: 0 }" :visible="{ opacity: 1, y: 0 }" :duration="1000" :delay="200"
-      class="row my-5">
+    <section class="row my-5">
       <div class="col-12 text-center mb-5">
-        <h2 class="title font-weight-bold">Pilares da Nossa Missão</h2>
+        <h2 class="title font-weight-bold">{{ t('sobre.missao.pilares.titulo') }}</h2>
         <p class="text-muted">{{ t('sobre.missao.pilares.subtitulo') }}</p>
       </div>
 
@@ -70,76 +69,112 @@ const { t } = useI18n()
     </section>
 
     <!-- Como Atuamos -->
-    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="200"
-      class="row my-5 py-4 px-3 bg-light rounded">
-      <div class="col-sm-12 col-md-12 col-lg-6">
-        <h2 class="title font-weight-bold mb-4">Como Atuamos</h2>
-        <div class="mb-4">
-          <div class="d-flex align-items-center mb-3">
-            <i class="pi pi-check-circle text-success me-3"></i>
-            <h5 class="mb-0">Programas Psicossociais</h5>
-          </div>
-          <p class="text-muted ms-5">
-            Desenvolvemos programas especializados que atendem às necessidades específicas de cada
-            indivíduo, promovendo seu desenvolvimento integral.
-          </p>
-        </div>
-
-        <div class="mb-4">
-          <div class="d-flex align-items-center mb-3">
-            <i class="pi pi-check-circle text-success me-3"></i>
-            <h5 class="mb-0">Programas Pedagógicos</h5>
-          </div>
-          <p class="text-muted ms-5">
-            Oferecemos atividades educacionais que complementam o desenvolvimento acadêmico e social
-            de nossas crianças e jovens.
-          </p>
-        </div>
-
-        <div class="mb-4">
-          <div class="d-flex align-items-center mb-3">
-            <i class="pi pi-check-circle text-success me-3"></i>
-            <h5 class="mb-0">Defesa de Direitos</h5>
-          </div>
-          <p class="text-muted ms-5">
-            Articulamos ações para garantir que os direitos de pessoas com deficiência sejam
-            respeitados e promovidos em todos os âmbitos sociais.
-          </p>
-        </div>
+    <section class="row my-5">
+      <div class="col-12 text-center mb-5">
+        <h2 class="title font-weight-bold">Como Atuamos</h2>
+        <p class="text-muted">Desenvolvemos programas especializados que atendem às necessidades específicas de cada
+          indivíduo, promovendo seu desenvolvimento integral.</p>
       </div>
+      <div class="col-md mb-4">
+        <div class="card border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="pi pi-check-circle text-success me-3"></i>
+              <h5 class="mb-0">Programas Psicossociais</h5>
+            </div>
+            <p class="text-muted ms-5">
+              Desenvolvemos programas especializados que atendem às necessidades específicas de cada
+              indivíduo, promovendo seu desenvolvimento integral.
+            </p>
 
-      <div class="col-sm-12 col-md-12 col-lg-6">
-        <div class="bg-white p-4 rounded shadow-sm">
-          <h3 class="font-weight-bold mb-3">Nossos Pilares</h3>
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <i class="pi pi-check-circle text-success me-2"></i>
-              <strong>Programas Psicossociais:</strong> Desenvolvimento integral personalizado
-            </li>
-            <li class="mb-2">
-              <i class="pi pi-book text-primary me-2"></i>
-              <strong>Programas Pedagógicos:</strong> Complementação educacional e social
-            </li>
-            <li class="mb-2">
-              <i class="pi pi-shield text-info me-2"></i>
-              <strong>Defesa de Direitos:</strong> Articulação e promoção de direitos
-            </li>
-            <li class="mb-2">
-              <i class="pi pi-users text-warning me-2"></i>
-              <strong>Trabalho em Rede:</strong> Parcerias comunitárias e institucionais
-            </li>
-            <li class="mb-2">
-              <i class="pi pi-heart text-danger me-2"></i>
-              <strong>Acolhimento:</strong> Ambiente seguro e acolhedor
-            </li>
-          </ul>
+            <div class="d-flex align-items-center mb-3">
+              <i class="pi pi-check-circle text-success me-3"></i>
+              <h5 class="mb-0">Programas Pedagógicos</h5>
+            </div>
+            <p class="text-muted ms-5">
+              Oferecemos atividades educacionais que complementam o desenvolvimento acadêmico e social
+              de nossas crianças e jovens.
+            </p>
+
+            <div class="d-flex align-items-center">
+              <i class="pi pi-check-circle text-success me-3"></i>
+              <h5 class="mb-0">Defesa de Direitos</h5>
+            </div>
+            <p class="text-muted ms-5">
+              Articulamos ações para garantir que os direitos de pessoas com deficiência sejam
+              respeitados e promovidos em todos os âmbitos sociais.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- <div class="col-sm-12 col-md-12 col-lg-6">
+      <h2 class="title font-weight-bold mb-4">Como Atuamos</h2>
+      <div class="mb-4">
+        <div class="d-flex align-items-center mb-3">
+          <i class="pi pi-check-circle text-success me-3"></i>
+          <h5 class="mb-0">Programas Psicossociais</h5>
+        </div>
+        <p class="text-muted ms-5">
+          Desenvolvemos programas especializados que atendem às necessidades específicas de cada
+          indivíduo, promovendo seu desenvolvimento integral.
+        </p>
+      </div>
+
+      <div class="mb-4">
+        <div class="d-flex align-items-center mb-3">
+          <i class="pi pi-check-circle text-success me-3"></i>
+          <h5 class="mb-0">Programas Pedagógicos</h5>
+        </div>
+        <p class="text-muted ms-5">
+          Oferecemos atividades educacionais que complementam o desenvolvimento acadêmico e social
+          de nossas crianças e jovens.
+        </p>
+      </div>
+
+      <div class="mb-4">
+        <div class="d-flex align-items-center mb-3">
+          <i class="pi pi-check-circle text-success me-3"></i>
+          <h5 class="mb-0">Defesa de Direitos</h5>
+        </div>
+        <p class="text-muted ms-5">
+          Articulamos ações para garantir que os direitos de pessoas com deficiência sejam
+          respeitados e promovidos em todos os âmbitos sociais.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="bg-white p-4 rounded shadow-sm">
+        <h3 class="font-weight-bold mb-3">Nossos Pilares</h3>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <i class="pi pi-check-circle text-success me-2"></i>
+            <strong>Programas Psicossociais:</strong> Desenvolvimento integral personalizado
+          </li>
+          <li class="mb-2">
+            <i class="pi pi-book text-primary me-2"></i>
+            <strong>Programas Pedagógicos:</strong> Complementação educacional e social
+          </li>
+          <li class="mb-2">
+            <i class="pi pi-shield text-info me-2"></i>
+            <strong>Defesa de Direitos:</strong> Articulação e promoção de direitos
+          </li>
+          <li class="mb-2">
+            <i class="pi pi-users text-warning me-2"></i>
+            <strong>Trabalho em Rede:</strong> Parcerias comunitárias e institucionais
+          </li>
+          <li class="mb-2">
+            <i class="pi pi-heart text-danger me-2"></i>
+            <strong>Acolhimento:</strong> Ambiente seguro e acolhedor
+          </li>
+        </ul>
+      </div>
+    </div> -->
+
     <!-- Impacto -->
-    <section v-motion :initial="{ opacity: 0, x: 0 }" :visible="{ opacity: 1, x: 0 }" :duration="1000" :delay="200"
-      class="row my-5">
+    <section class="row my-5">
       <div class="col-12 text-center mb-4">
         <h2 class="title font-weight-bold">{{ t('sobre.missao.impacto.titulo') }}</h2>
         <p class="text-muted">{{ t('sobre.missao.impacto.subtitulo') }}</p>
